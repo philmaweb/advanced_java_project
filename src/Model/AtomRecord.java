@@ -25,7 +25,7 @@ public class AtomRecord {
         this.atom = lis[0];
         this.id = Integer.valueOf(lis[1]);
         this.name = lis[2];
-        this.residium = lis[3];
+        this.residium = lis[3].substring(0,1);
         this.chain =  lis[4];
         this.indexOfResidium = Integer.valueOf(lis[5]);
         this.point3D = new Point3D(Double.valueOf(lis[6]),Double.valueOf(lis[7]),Double.valueOf(lis[8]));
@@ -46,12 +46,11 @@ public class AtomRecord {
         return height;
     }
 
-    public double getAngle(AtomRecord target){
-        Point3D origin = this.getPoint3D();
+    public double getAngle(AtomRecord target, AtomRecord vertex){
+        Point3D pointOrigin = this.getPoint3D();
         Point3D pointTarget = target.getPoint3D();
-        Point3D diff = pointTarget.subtract(origin);
-        Point3D yAxis = new Point3D(0, 1, 0);
-        double angle = Math.acos(diff.normalize().dotProduct(yAxis));
+        Point3D pointVertex = vertex.getPoint3D();
+        double angle = pointVertex.angle(pointOrigin,pointTarget);
         return angle;
     }
 

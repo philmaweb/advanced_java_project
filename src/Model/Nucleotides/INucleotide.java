@@ -40,6 +40,8 @@ public interface INucleotide {
     void checkHasHBondDoAc();
     ArrayList<AtomRecord> getHbondAcceptors();
     ArrayList<AtomRecord> getHbondDonors();
+    AtomRecord getHFromDonor(String donorKey);//get the H Atom from the Donor, needed for distance and Angle calculation
+    ArrayList<String[]> getKeyPairsToCheckForHBonds();
 
     enum NucleotideClasses{ADENINE,URACIL,GUANINE,CYTOSIN};
 

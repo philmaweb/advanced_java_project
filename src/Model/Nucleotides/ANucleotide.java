@@ -9,6 +9,7 @@ import javafx.scene.Group;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.stream.Stream;
 
 /**
  * Created by Philipp on 2016-01-30.
@@ -362,5 +363,65 @@ public abstract class ANucleotide implements INucleotide{
             doesContainAll &= getResidueMap().containsKey(s);
         }
         setHasHBondDonorsAndAcceptors(doesContainAll);
+    }
+
+    @Override
+    public AtomRecord getHFromDonor(String donorKey) {
+        switch (getNucleotideClass()){
+            case ADENINE:
+                return residueMap.get("H62");
+            case URACIL:
+                return residueMap.get("H3");
+            case GUANINE:
+                if (donorKey.equals("N1")){
+                    return residueMap.get("H1");
+                }
+                else {
+                    return residueMap.get("H21");
+                }
+            case CYTOSIN:
+                return residueMap.get("H41");
+        }
+        System.out.println("got C2, bad sign");
+        return residueMap.get("C2");
+    }
+
+    /**
+     * Only returns Pair which is composed of
+     * this ones donor and the other ones acceptor
+     * even positions is the DonorKey, odd acceptor Key of complementary nucleotide
+     * @return
+     */
+    @Override
+    public ArrayList<String[]> getKeyPairsToCheckForHBonds() {
+        ArrayList<String[]> rv = new ArrayList<>();
+        String[] onePair = new String[2];
+        String[] twoPair = new String[2];
+        switch (getNucleotideClass()) {
+            case ADENINE:
+                onePair[0]="N6";//donor
+                onePair[1]="O4";//acceptor
+                rv.add(onePair);
+                break;
+            case URACIL:
+                onePair[0]="N3";
+                onePair[1]="N1";
+                rv.add(onePair);
+                break;
+            case GUANINE:
+                onePair[0]="N2";
+                onePair[1]="O2";
+                twoPair[0]="N1";
+                twoPair[1]="N3";
+                rv.add(onePair);
+                rv.add(twoPair);
+                break;
+            case CYTOSIN:
+                onePair[0]="N4";
+                onePair[1]="O6";
+                rv.add(onePair);
+                break;
+        }
+        return rv;
     }
 }

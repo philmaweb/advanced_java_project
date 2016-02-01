@@ -2,84 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RNA Viewer 3000/GUI/App.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RNA Viewer 3000/GUI/DefaultPhongMaterials.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RNA Viewer 3000/GUI/MeshAnd3DObjectBuilder.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RNA Viewer 3000/Model/AtomRecord.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RNA Viewer 3000/Model/BondInference/HBondInferer.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RNA Viewer 3000/Model/Graph.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RNA Viewer 3000/Model/NucleotideRepresentation.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RNA Viewer 3000/Model/Nucleotides/ANucleotide$1.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RNA Viewer 3000/Model/Nucleotides/ANucleotide.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RNA Viewer 3000/Model/Nucleotides/Adenine.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RNA Viewer 3000/Model/Nucleotides/Cytosin.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RNA Viewer 3000/Model/Nucleotides/Guanine.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RNA Viewer 3000/Model/Nucleotides/INucleotide$NucleotideClasses.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RNA Viewer 3000/Model/Nucleotides/INucleotide.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RNA Viewer 3000/Model/Nucleotides/NucleotideDefaultValues$1.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RNA Viewer 3000/Model/Nucleotides/NucleotideDefaultValues$2.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RNA Viewer 3000/Model/Nucleotides/NucleotideDefaultValues$3.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RNA Viewer 3000/Model/Nucleotides/NucleotideDefaultValues$4.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RNA Viewer 3000/Model/Nucleotides/NucleotideDefaultValues$5.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RNA Viewer 3000/Model/Nucleotides/NucleotideDefaultValues$6.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RNA Viewer 3000/Model/Nucleotides/NucleotideDefaultValues$7.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RNA Viewer 3000/Model/Nucleotides/NucleotideDefaultValues$8.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RNA Viewer 3000/Model/Nucleotides/NucleotideDefaultValues.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RNA Viewer 3000/Model/Nucleotides/Phosphate.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RNA Viewer 3000/Model/Nucleotides/Pos2d.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RNA Viewer 3000/Model/Nucleotides/Ribose.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RNA Viewer 3000/Model/Nucleotides/Uracil.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RNA Viewer 3000/Model/PDBModel$1.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RNA Viewer 3000/Model/PDBModel.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RNA Viewer 3000/Model/PDBReader.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RNA Viewer 3000/Model/ProjectModel.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RNA Viewer 3000/Model/SpringEmbedder.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RNA Viewer 3000/Model/Verifyer3d.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RNA Viewer 3000/Presenter/Controller.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RNA Viewer 3000/Presenter/Presenter$1.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RNA Viewer 3000/Presenter/Presenter.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RNA Viewer 3000/Selection/MouseHandler.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RNA Viewer 3000/Selection/MySelectionModel.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RNA Viewer 3000/Selection/Simple3DViewerWithSelection$1.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RNA Viewer 3000/Selection/Simple3DViewerWithSelection.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RNA Viewer 3000/Selection/Utilities$1.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RNA Viewer 3000/Selection/Utilities$2.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RNA Viewer 3000/Selection/Utilities$3.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RNA Viewer 3000/Selection/Utilities$4.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RNA Viewer 3000/Selection/Utilities$5.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RNA Viewer 3000/Selection/Utilities.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/RNA Viewer 3000.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RNA Viewer 3000/GUI/mainView.fxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/RNA Viewer 3000/GUI/style.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GUI/App.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GUI/DefaultPhongMaterials.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GUI/MeshAnd3DObjectBuilder.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GUI/mainView.fxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GUI/style.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Model/AtomRecord.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Model/BondInferenceAnd2D/Graph.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Model/BondInferenceAnd2D/HBondInferer.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Model/BondInferenceAnd2D/NucleotideDefaultValues.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Model/BondInferenceAnd2D/Pos2d.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Model/BondInferenceAnd2D/SpringEmbedder.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Model/NucleotideRepresentation.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Model/Nucleotides/ANucleotide.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Model/Nucleotides/Adenine.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Model/Nucleotides/Cytosin.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Model/Nucleotides/Guanine.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Model/Nucleotides/INucleotide.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Model/Nucleotides/Phosphate.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Model/Nucleotides/Ribose.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Model/Nucleotides/Uracil.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Model/PDBModel.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Model/PDBReader.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Model/ProjectModel.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Presenter/Controller.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Presenter/Presenter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Selection/MouseHandler.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Selection/MySelectionModel.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Selection/Simple3DViewerWithSelection.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Selection/Utilities.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/AtomRecord.java" afterPath="$PROJECT_DIR$/src/Model/AtomRecord.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/BondInferenceAnd2D/HBondInferer.java" afterPath="$PROJECT_DIR$/src/Model/BondInferenceAnd2D/HBondInferer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/Nucleotides/ANucleotide.java" afterPath="$PROJECT_DIR$/src/Model/Nucleotides/ANucleotide.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/Nucleotides/INucleotide.java" afterPath="$PROJECT_DIR$/src/Model/Nucleotides/INucleotide.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -139,22 +66,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="NucleotideDefaultValues.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/BondInferenceAnd2D/NucleotideDefaultValues.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="19" column="89" selection-start-line="19" selection-start-column="89" selection-end-line="19" selection-end-column="89" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="PDBReader.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/PDBReader.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="76" column="0" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#2064#2065#0" expanded="false" />
+                <element signature="e#2095#2096#0" expanded="false" />
+                <element signature="e#2144#2145#0" expanded="false" />
+                <element signature="e#2174#2175#0" expanded="false" />
+                <element signature="e#2233#2234#0" expanded="false" />
+                <element signature="e#2262#2263#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -163,7 +88,7 @@
         <entry file="file://$PROJECT_DIR$/src/Presenter/Presenter.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="331" column="39" selection-start-line="331" selection-start-column="39" selection-end-line="331" selection-end-column="39" />
+              <caret line="142" column="120" selection-start-line="142" selection-start-column="120" selection-end-line="142" selection-end-column="120" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -171,34 +96,33 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Adenine.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/Nucleotides/Adenine.java">
+      <file leaf-file-name="HBondInferer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/BondInferenceAnd2D/HBondInferer.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Cytosin.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Model/Nucleotides/Cytosin.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.298995">
-              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Presenter/Controller.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="3" selection-start-line="0" selection-start-column="2" selection-end-line="0" selection-end-column="3" />
+              <caret line="148" column="0" selection-start-line="148" selection-start-column="0" selection-end-line="148" selection-end-column="0" />
               <folding>
-                <element signature="e#2235#2236#0" expanded="true" />
-                <element signature="e#2296#2297#0" expanded="true" />
+                <element signature="docComment;class#HBondInferer#0" expanded="false" />
+                <element signature="e#2484#2559#0" expanded="false" />
+                <element signature="docComment;field#a#0;class#HBondCalculationHandler#0;class#HBondInferer#0" expanded="false" />
+                <element signature="e#4171#4200#0" expanded="false" />
+                <element signature="e#6230#6231#0" expanded="true" />
+                <element signature="e#6270#6271#0" expanded="true" />
+                <element signature="e#6318#6319#0" expanded="true" />
+                <element signature="e#6355#6356#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PDBModel.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Model/PDBModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.3433584">
+              <caret line="100" column="23" selection-start-line="100" selection-start-column="23" selection-end-line="100" selection-end-column="23" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#extractRecordByNames#0;class#PDBModel#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -252,11 +176,8 @@
         <option value="$PROJECT_DIR$/src/Model/NucleotideRepresentation.java" />
         <option value="$PROJECT_DIR$/src/GUI/DefaultPhongMaterials.java" />
         <option value="C:/Program Files/Java/jdk1.8.0_60/javafx-src.zip!/javafx/scene/shape/Shape3D.java" />
-        <option value="$PROJECT_DIR$/src/Model/AtomRecord.java" />
-        <option value="$PROJECT_DIR$/src/Model/Nucleotides/INucleotide.java" />
         <option value="$PROJECT_DIR$/src/Model/BondInference/HBondInferer.java" />
         <option value="$PROJECT_DIR$/src/Model/PDBModel.java" />
-        <option value="$PROJECT_DIR$/src/Model/Nucleotides/ANucleotide.java" />
         <option value="$PROJECT_DIR$/src/Model/Nucleotides/Guanine.java" />
         <option value="$PROJECT_DIR$/src/Model/Nucleotides/NucleotideDefaultValues.java" />
         <option value="$PROJECT_DIR$/src/Model/Nucleotides/Uracil.java" />
@@ -264,9 +185,13 @@
         <option value="$PROJECT_DIR$/src/GUI/App.java" />
         <option value="$PROJECT_DIR$/src/GUI/MeshAnd3DObjectBuilder.java" />
         <option value="$PROJECT_DIR$/src/Model/PDBReader.java" />
-        <option value="$PROJECT_DIR$/src/Presenter/Presenter.java" />
         <option value="$PROJECT_DIR$/src/Model/Nucleotides/Adenine.java" />
         <option value="$PROJECT_DIR$/src/Model/Nucleotides/Cytosin.java" />
+        <option value="$PROJECT_DIR$/src/Presenter/Presenter.java" />
+        <option value="$PROJECT_DIR$/src/Model/AtomRecord.java" />
+        <option value="$PROJECT_DIR$/src/Model/Nucleotides/INucleotide.java" />
+        <option value="$PROJECT_DIR$/src/Model/Nucleotides/ANucleotide.java" />
+        <option value="$PROJECT_DIR$/src/Model/BondInferenceAnd2D/HBondInferer.java" />
       </list>
     </option>
   </component>
@@ -307,8 +232,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -391,13 +314,59 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="Model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Nucleotides" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RNA Viewer 3000" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RNA Viewer 3000" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BondInferenceAnd2D" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RNA Viewer 3000" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RNA Viewer 3000" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="GUI" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -764,24 +733,24 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="54" y="-8" width="1320" height="784" extended-state="0" />
+    <frame x="54" y="-8" width="1320" height="784" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297546" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297546" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32668713" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297546" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297546" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33282208" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33128834" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297546" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22222222" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4857143" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34662578" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34509203" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -811,17 +780,17 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34662578" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34509203" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297546" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297546" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32668713" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297546" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33282208" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33128834" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297546" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22222222" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4857143" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297546" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -840,7 +809,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="9" />
+      <option name="time" value="10" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -849,15 +818,23 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/Presenter/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="3" selection-start-line="0" selection-start-column="2" selection-end-line="0" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/GUI/mainView.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="56" column="88" selection-start-line="56" selection-start-column="88" selection-end-line="56" selection-end-column="88" />
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GUI/App.java">
@@ -872,7 +849,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -924,24 +901,21 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GUI/mainView.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Presenter/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="96" column="26" selection-start-line="96" selection-start-column="26" selection-end-line="96" selection-end-column="26" />
-          <folding>
-            <element signature="e#2614#2615#0" expanded="false" />
-            <element signature="e#2660#2661#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -957,7 +931,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1001,24 +975,21 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GUI/mainView.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Presenter/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="96" column="26" selection-start-line="96" selection-start-column="26" selection-end-line="96" selection-end-column="26" />
-          <folding>
-            <element signature="e#2614#2615#0" expanded="false" />
-            <element signature="e#2660#2661#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1075,7 +1046,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1083,11 +1053,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="31" column="53" selection-start-line="31" selection-start-column="53" selection-end-line="31" selection-end-column="53" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#379#380#0" expanded="false" />
-            <element signature="e#411#412#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1102,11 +1067,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="57" column="39" selection-start-line="57" selection-start-column="39" selection-end-line="57" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#2393#2394#0" expanded="false" />
-            <element signature="e#2430#2431#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1120,67 +1080,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/AtomRecord.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="45" column="22" selection-start-line="45" selection-start-column="22" selection-end-line="45" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/BondInferenceAnd2D/HBondInferer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6507538">
-          <caret line="21" column="8" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/PDBModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1105528">
-          <caret line="90" column="61" selection-start-line="90" selection-start-column="61" selection-end-line="90" selection-end-column="61" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#extractRecordByNames#0;class#PDBModel#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Nucleotides/INucleotide.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.2688442">
-          <caret line="41" column="24" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/ProjectModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.28643215">
           <caret line="15" column="47" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
           <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Nucleotides/ANucleotide.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.54522616">
-          <caret line="365" column="62" selection-start-line="365" selection-start-column="62" selection-end-line="365" selection-end-column="62" />
-          <folding>
-            <element signature="docComment;class#ANucleotide#0" expanded="false" />
-            <element signature="e#1348#1376#0" expanded="false" />
-            <element signature="method#getPhosphateSphere#0;class#ANucleotide#0" expanded="false" />
-            <element signature="method#getPhosphateBonds#0;class#ANucleotide#0" expanded="false" />
-            <element signature="method#getRiboseRepresentation#0;class#ANucleotide#0" expanded="false" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1189,7 +1094,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.34170854">
           <caret line="23" column="8" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1228,7 +1132,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="1" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1236,9 +1139,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6834171">
           <caret line="16" column="23" selection-start-line="16" selection-start-column="22" selection-end-line="18" selection-end-column="5" />
-          <folding>
-            <element signature="e#282#283#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1246,7 +1146,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5125628">
           <caret line="20" column="57" selection-start-line="20" selection-start-column="57" selection-end-line="20" selection-end-column="57" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1262,28 +1161,61 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="76" column="0" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#2064#2065#0" expanded="false" />
+            <element signature="e#2095#2096#0" expanded="false" />
+            <element signature="e#2144#2145#0" expanded="false" />
+            <element signature="e#2174#2175#0" expanded="false" />
+            <element signature="e#2233#2234#0" expanded="false" />
+            <element signature="e#2262#2263#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GUI/mainView.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3586006">
           <caret line="40" column="30" selection-start-line="40" selection-start-column="30" selection-end-line="40" selection-end-column="30" />
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Nucleotides/Cytosin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="55" selection-start-line="20" selection-start-column="55" selection-end-line="20" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Nucleotides/Adenine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.19070514">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Presenter/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="3" selection-start-line="0" selection-start-column="2" selection-end-line="0" selection-end-column="3" />
+        <state vertical-scroll-proportion="0.042606518">
+          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/AtomRecord.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.57393485">
+          <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
           <folding>
-            <element signature="e#2235#2236#0" expanded="true" />
-            <element signature="e#2296#2297#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1291,26 +1223,59 @@
     <entry file="file://$PROJECT_DIR$/src/Presenter/Presenter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="331" column="39" selection-start-line="331" selection-start-column="39" selection-end-line="331" selection-end-column="39" />
+          <caret line="142" column="120" selection-start-line="142" selection-start-column="120" selection-end-line="142" selection-end-column="120" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Nucleotides/Adenine.java">
+    <entry file="file://$PROJECT_DIR$/src/Model/Nucleotides/ANucleotide.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+        <state vertical-scroll-proportion="1.3355263">
+          <caret line="420" column="30" selection-start-line="420" selection-start-column="30" selection-end-line="420" selection-end-column="30" />
+          <folding>
+            <element signature="e#1380#1408#0" expanded="false" />
+            <element signature="method#getPhosphateSphere#0;class#ANucleotide#0" expanded="false" />
+            <element signature="method#getPhosphateBonds#0;class#ANucleotide#0" expanded="false" />
+            <element signature="method#getRiboseRepresentation#0;class#ANucleotide#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Nucleotides/INucleotide.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.71875">
+          <caret line="43" column="49" selection-start-line="43" selection-start-column="49" selection-end-line="43" selection-end-column="49" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Nucleotides/Cytosin.java">
+    <entry file="file://$PROJECT_DIR$/src/Model/BondInferenceAnd2D/HBondInferer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.298995">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="148" column="0" selection-start-line="148" selection-start-column="0" selection-end-line="148" selection-end-column="0" />
+          <folding>
+            <element signature="docComment;class#HBondInferer#0" expanded="false" />
+            <element signature="e#2484#2559#0" expanded="false" />
+            <element signature="docComment;field#a#0;class#HBondCalculationHandler#0;class#HBondInferer#0" expanded="false" />
+            <element signature="e#4171#4200#0" expanded="false" />
+            <element signature="e#6230#6231#0" expanded="true" />
+            <element signature="e#6270#6271#0" expanded="true" />
+            <element signature="e#6318#6319#0" expanded="true" />
+            <element signature="e#6355#6356#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/PDBModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3433584">
+          <caret line="100" column="23" selection-start-line="100" selection-start-column="23" selection-end-line="100" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#extractRecordByNames#0;class#PDBModel#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
