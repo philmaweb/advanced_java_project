@@ -3,14 +3,19 @@ package Presenter;
 import GUI.DefaultPhongMaterials;
 import GUI.MeshAnd3DObjectBuilder;
 import Model.*;
+import Model.BondInferenceAnd2D.Graph;
+import Model.BondInferenceAnd2D.SpringEmbedder;
 import Model.Nucleotides.INucleotide;
 import javafx.collections.ObservableList;
 import javafx.geometry.Point3D;
 import javafx.scene.*;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Tooltip;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
 import javafx.scene.paint.PhongMaterial;
 import javafx.scene.shape.*;
 import javafx.scene.text.Font;
@@ -218,15 +223,19 @@ public class Presenter {
         smallWorld3d.getChildren().addAll(bonds3d,adenines3d,uracils3d,cytosins3d,guanines3d);
         model.setPdbFileName("No PDB-File selected");
         //fileDisplay.setText(model.getPdbFileName());
+        pane2d.getChildren().clear();
         System.out.println("Cleared");
     }
 
+    /**
+     * create 3D and 2D View, model should already be setup
+     */
     private void createWorld(){
-        //model.extractInfoFromPdb();
         construct3DView();
-
-        //construct2DView();
+        construct2DView();
     }
+
+
 
     public void construct3DView() {
         System.out.println("adding chains from model");
@@ -367,4 +376,146 @@ public class Presenter {
             }
         }
     }
+
+    //2D Stuff
+
+    private void construct2DView() {
+
+        Graph g = model.getGraph2d();
+        int[][] edges = g.getEdges();
+        int numberOfNodes = g.getNumberOfNodes();
+        double[][] circleCoords = SpringEmbedder.computeSpringEmbedding(1,numberOfNodes,edges,null);
+        double[][] finalCoords = SpringEmbedder.computeSpringEmbedding(50,numberOfNodes,edges,null);
+
+        SpringEmbedder.centerCoordinates(circleCoords,10,500,10,500);
+        SpringEmbedder.centerCoordinates(finalCoords,10,500,10,500);
+
+        //TODO for later Animation
+        model.setWorld2dStart(circleCoords);
+        model.setWorld2dEnd(finalCoords);
+
+        showFinalGraph();
+
+    }
+
+
+
+    private void draw2dWorld(double[][] coords) {
+        drawEdges(coords);
+        drawNonConvalentBonds(coords);
+        drawNodes(coords);
+    }
+
+    private void showCircleGraph() {
+        draw2dWorld(model.getWorld2dStart());
+
+    }
+    private void showFinalGraph() {
+        draw2dWorld(model.getWorld2dEnd());
+    }
+
+    private void drawEdges(double[][] coords) {
+        pane2d.getChildren().clear();
+        ArrayList<Node> cLines = generateCovalentEdges(coords);
+        for (int i = 0; i < cLines.size(); i++) {
+            pane2d.getChildren().add(cLines.get(i));
+        }
+    }
+
+    private ArrayList<Node> generateCovalentEdges(double[][] coords) {
+        ArrayList<Node> cLines = new ArrayList<>();
+
+        //int[][] edges = this.getGraph().getEdges();
+        int numberOfNodes = model.getGraph2d().getNumberOfNodes();
+        for (int i = 0; i < numberOfNodes -1 ; i++) {
+            Line l = new Line(coords[i][0],coords[i][1],coords[i+1][0],coords[i+1][1]);
+            cLines.add(l);
+        }
+        return cLines;
+    }
+
+    private void drawNonConvalentBonds(double[][] coords) {
+        ArrayList<Node> lines = generateNonCovalentEdges(coords);
+        for (int i = 0; i < lines.size(); i++) {
+            pane2d.getChildren().add(lines.get(i));
+        }
+    }
+
+    private ArrayList<Node> generateNonCovalentEdges(double[][] coords){
+        ArrayList<Node> nodes = new ArrayList<>();
+        int[][] edges = model.getGraph2d().getEdges();
+        int numberOfNodes = model.getGraph2d().getNumberOfNodes();
+        for (int i = numberOfNodes-1; i < edges.length ; i++) {
+            //index of point in coords
+            int e1 = edges[i][0];
+            int e2 = edges[i][1];
+            //get coords with index
+            double[] p1 = new double[]{coords[e1][0],coords[e1][1]};
+            double[] p2 = new double[]{coords[e2][0],coords[e2][1]};
+
+            Line l = new Line(p1[0],p1[1],p2[0],p2[1]);
+            l.setStroke(Color.BLUEVIOLET);
+            nodes.add(l);
+        }
+        return nodes;
+    }
+
+    private void drawNodes(double[][] coords) {
+        Group g = new Group();
+        ArrayList<Node> nodes = generateNodes(coords);
+        for (int i = 0; i < nodes.size(); i++) {
+            g.getChildren().addAll(nodes.get(i));
+        }
+        //p.getChildren().removeAll();
+        pane2d.getChildren().add(g);
+//        this.setgNodes(g);
+    }
+
+    private ArrayList<Node> generateNodes(double[][] coords){
+        ArrayList<Node> nodes = new ArrayList<>();
+        for (int i = 0; i < coords.length ; i++) {
+            double x = coords[i][0];
+            double y = coords[i][1];
+            //TODO need to improve on that, no accessing of textfields for this
+            //instead use nucleotideList
+            String s = String.valueOf(sequenceTextField.getText().charAt(i)).toUpperCase();
+            Circle cSurround =  new Circle(x,y,9,Color.BLACK);
+            Circle cGround =    new Circle(x,y,8,getColorByText(s));
+            Circle cTop =       new Circle(x,y,6,Color.WHITE);
+            Text t =            new Text(x-4,y+5,s);
+            Tooltip tooltip = new Tooltip("Nucleotide: " + s + "\n Position: " + (i+1));
+            Tooltip.install(cTop,tooltip);
+            Tooltip.install(cGround,tooltip);
+            Tooltip.install(t,tooltip);
+
+            Group nucleotideGroup = new Group(cSurround,cGround,cTop,t);
+            nodes.add(nucleotideGroup);
+        }
+        return nodes;
+    }
+
+    private Color getColorByText(String s) {
+        switch (s) {
+            case "A":
+                return Color.RED;
+            case "U":
+                return Color.GREEN;
+            case "G":
+                return Color.BLUE;
+            case "C":
+                return Color.YELLOW;
+            default:
+                return Color.BLACK;
+        }
+    }
+
+
+
+    //ALLERT to show Exception
+    private void showException(Exception e) {
+        System.err.println(e.getCause());
+        Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage());
+        alert.showAndWait();
+    }
+
 }

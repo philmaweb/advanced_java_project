@@ -1,5 +1,6 @@
 package Model;
 
+import Model.BondInferenceAnd2D.Graph;
 import Model.BondInferenceAnd2D.HBondInferer;
 import Model.Nucleotides.*;
 import javafx.beans.property.BooleanProperty;
@@ -7,6 +8,7 @@ import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -24,6 +26,10 @@ public class PDBModel {
     private HashMap<Integer, AtomRecord> phosphorMap;
     private String pdbFileName;
     private NucleotideRepresentation currentNucleotideRepresentation;
+    private Graph graph2d;
+
+    private double[][] world2dStart;
+    private double[][] world2dEnd;
 
     private BooleanProperty isPairedViewProperty;
     private BooleanProperty isPuPyViewProperty;
@@ -33,6 +39,7 @@ public class PDBModel {
     public PDBModel() {
         this.nucleotideList = new ArrayList<>();
         currentNucleotideRepresentation = NucleotideRepresentation.AGCU;
+        this.graph2d = new Graph();
         isPairedViewProperty = new SimpleBooleanProperty(currentNucleotideRepresentation.equals(NucleotideRepresentation.PAIRED),"isPairedViewProperty",false);
         isPuPyViewProperty = new SimpleBooleanProperty(currentNucleotideRepresentation.equals(NucleotideRepresentation.PURINE_PYRIMIDINE),"isPuPyViewProperty",false);
         isAGCUViewProperty = new SimpleBooleanProperty(currentNucleotideRepresentation.equals(NucleotideRepresentation.AGCU),"isAGCUViewProperty",true);
@@ -88,6 +95,11 @@ public class PDBModel {
         extractSequence();//extracts sequence from Nucleotide List
         HBondInferer hBondInferer = new HBondInferer(nucleotideList);//sets the Pairs if they have a mate
         extractDotBracketNotation();//extracts dotBracketNotation
+        try {
+            graph2d.parseNotation(brackets.getValue());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -110,6 +122,7 @@ public class PDBModel {
             }
         }
         brackets.setValue(rv);
+
     }
 
     /**
@@ -243,6 +256,26 @@ public class PDBModel {
 
     public void setBrackets(String brackets) {
         this.brackets.set(brackets);
+    }
+
+    public Graph getGraph2d() {
+        return graph2d;
+    }
+
+    public double[][] getWorld2dStart() {
+        return world2dStart;
+    }
+
+    public void setWorld2dStart(double[][] world2dStart) {
+        this.world2dStart = world2dStart;
+    }
+
+    public double[][] getWorld2dEnd() {
+        return world2dEnd;
+    }
+
+    public void setWorld2dEnd(double[][] world2dEnd) {
+        this.world2dEnd = world2dEnd;
     }
 }
 

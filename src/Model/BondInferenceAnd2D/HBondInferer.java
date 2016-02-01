@@ -47,23 +47,12 @@ public class HBondInferer {
                     HBondCalculationHandler hBondCalculationHandler = new HBondCalculationHandler(n,m);
                     ArrayList<Double> distances = hBondCalculationHandler.getDistances();
                     ArrayList<Double> angles = hBondCalculationHandler.getAngles();
-                    System.out.println(n.getName() + "angles" +  angles + "distances" + distances);
+//                    System.out.println(n.getName() + "angles" +  angles + "distances" + distances);
                     if (validateDistances(distances) && validateAngles(angles)){
                         n.setPair(m);
                         m.setPair(n);
-                        System.out.println("Pair found!: " + n.getName() + m.getName() );
+//                        System.out.println("Pair found!: " + n.getName() + m.getName() );
                     }
-                    int indexInDistances = 0;
-                    for (double d: distances) {
-                        //if distance is in threshold
-                        if (d<maxDistance){
-                            System.out.println("Distance fine for index " + indexInDistances);
-                        }
-                        indexInDistances++;
-                    }
-//                    ArrayList<Double> angles = calculateAngleHBonds(n,m);
-//                    System.out.println(distances);
-//                    System.out.println(angles);
                 }
             }
         }
