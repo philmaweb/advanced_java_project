@@ -13,6 +13,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.PhongMaterial;
 import javafx.scene.shape.*;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.transform.Rotate;
 import javafx.scene.transform.Translate;
@@ -46,7 +47,7 @@ public class Presenter {
     private Group guanines3d;
     private Group bonds3d;
 
-    StackPane stackPane;
+    Pane stackPane;
     Pane pane2d;
     TextArea logger;
     Text selectedFileText;
@@ -67,7 +68,7 @@ public class Presenter {
      * @param bracketTextField
      */
     public Presenter(
-            StackPane stackPane,
+            Pane stackPane,
             Pane pane2d,
             TextArea logger,
             Text selectedFileText,
@@ -102,6 +103,11 @@ public class Presenter {
 
         smallWorld3d = new Group(bonds3d,adenines3d,uracils3d,cytosins3d,guanines3d);
         world3d = new Group(smallWorld3d);
+
+        //set font to beeing monospaced
+        Font font = Font.font("Monospaced",12);
+        bracketTextField.setFont(font);
+        sequenceTextField.setFont(font);
 
     }
 
@@ -151,8 +157,13 @@ public class Presenter {
 
             if (me.isShiftDown()) {
                 cameraTranslate.setZ(cameraTranslate.getZ() + 5*mouseDeltaY);
-                System.out.println(cameraTranslate.getZ() + mouseDeltaY);
-            } else // rotate
+            }
+            else if (me.isAltDown()){
+                cameraTranslate.setX(cameraTranslate.getX() + 5*mouseDeltaX);
+                cameraTranslate.setY(cameraTranslate.getY() + 5*mouseDeltaY);
+
+            }
+            else // rotate
             {
                 cameraRotateY.setAngle(cameraRotateY.getAngle() + mouseDeltaX);
                 cameraRotateX.setAngle(cameraRotateX.getAngle() - mouseDeltaY);
@@ -168,6 +179,7 @@ public class Presenter {
     private void addBindings(){
         selectedFileText.textProperty().bind(model.pdbFileNamePropertyProperty());
         sequenceTextField.textProperty().bind(model.rNASequenceProperty());
+        bracketTextField.textProperty().bind(model.bracketsProperty());
     }
 
 
@@ -309,6 +321,7 @@ public class Presenter {
     }
 
     private void recolor3dNucleotides(){
+        //TODO color ribose
         PhongMaterial adenineMat = DefaultPhongMaterials.ADENINE_MATERIAL;
         PhongMaterial guanineMat = DefaultPhongMaterials.GUANINE_MATERIAL;
         PhongMaterial cytosinMat = DefaultPhongMaterials.CYTOSIN_MATERIAL;
@@ -331,18 +344,13 @@ public class Presenter {
             for (Node node : n.getGroup3d().getChildren()){
                 Group g = (Group) node;
                 for (Node node2 : g.getChildren()){
-                    if(n.getIsPaired()){
+                    if(n.getIsPaired() && (model.getCurrentNucleotideRepresentation().equals(NucleotideRepresentation.PAIRED))){
                         ((Shape3D) node2).setMaterial(DefaultPhongMaterials.PAIR_MATERIAL);
                     }
                     else {
                         switch (n.getNucleotideClass()) {
                             case ADENINE:
                                 ((Shape3D) node2).setMaterial(adenineMat);
-                          /*      if(model.isPuPyViewPropertyProperty().get()){
-                                    applyMaterialToArrayList(riboses3d,adenineMat);
-                                    applyMaterialToArrayList(phosphates3d,adenineMat);
-//                                    ((Shape3D)n.getPhosphateSphere().getChildren().get(0)).setMaterial(adenineMat);
-                                }*/
                                 break;
                             case URACIL:
                                 ((Shape3D) node2).setMaterial(uracilMat);

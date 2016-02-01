@@ -25,8 +25,6 @@ public class PDBModel {
     private String pdbFileName;
     private NucleotideRepresentation currentNucleotideRepresentation;
 
-    private HBondInferer hBondInferer;
-
     private BooleanProperty isPairedViewProperty;
     private BooleanProperty isPuPyViewProperty;
     private BooleanProperty isAGCUViewProperty;
@@ -86,9 +84,32 @@ public class PDBModel {
     public void setNucleotideList(ArrayList<INucleotide> nucleotideList) {
         this.nucleotideList = nucleotideList;
         sortNucleotides();
-        extractPhosphorMap();
-        extractSequence();
-        this.hBondInferer = new HBondInferer(nucleotideList);
+        extractPhosphorMap();//extracts PhosphorMap for Backbone
+        extractSequence();//extracts sequence from Nucleotide List
+        HBondInferer hBondInferer = new HBondInferer(nucleotideList);//sets the Pairs if they have a mate
+        extractDotBracketNotation();//extracts dotBracketNotation
+    }
+
+    /**
+     * extract dot bracket notation, does not check for pseudoKnots
+     */
+    private void extractDotBracketNotation() {
+        String rv = "";
+        for (INucleotide n : nucleotideList){
+            if (n.getIsPaired()){
+                //check if pair has smaller or bigger index
+                if(n.getPositionInSequence() < n.getPairMate().getPositionInSequence()){
+                    rv += "(";
+                }
+                else{
+                    rv += ")";
+                }
+            }
+            else {
+                rv += ".";
+            }
+        }
+        brackets.setValue(rv);
     }
 
     /**

@@ -369,7 +369,7 @@ public abstract class ANucleotide implements INucleotide{
     public AtomRecord getHFromDonor(String donorKey) {
         switch (getNucleotideClass()){
             case ADENINE:
-                return residueMap.get("H62");
+                return residueMap.get("H61");
             case URACIL:
                 return residueMap.get("H3");
             case GUANINE:

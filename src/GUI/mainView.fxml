@@ -8,11 +8,47 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<TitledPane fx:id="rootPane" animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" style="-fx-background-color: yellow;" stylesheets="@style.css" text="RNA Viewer 3000" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presenter.Controller">
+<TitledPane fx:id="rootPane" animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="846.0" style="-fx-background-color: yellow;" stylesheets="@style.css" text="RNA Viewer 3000" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presenter.Controller">
   <content>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
          <children>
-            <MenuBar fx:id="menuBar" layoutY="2.0" prefHeight="28.0" prefWidth="640.0" AnchorPane.topAnchor="2.0">
+            <SplitPane dividerPositions="0.5, 0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" AnchorPane.bottomAnchor="-10.0" AnchorPane.leftAnchor="-10.0" AnchorPane.rightAnchor="-10.0" AnchorPane.topAnchor="30.0">
+              <items>
+                  <HBox prefHeight="415.0" prefWidth="640.0">
+                     <children>
+                        <SplitPane dividerPositions="0.8938053097345132" minHeight="200.0" minWidth="200.0" orientation="VERTICAL" prefHeight="340.0" prefWidth="300.0" HBox.hgrow="SOMETIMES">
+                          <items>
+                              <Pane fx:id="pane2d" maxHeight="400.0" maxWidth="400.0" minHeight="300.0" minWidth="300.0" prefHeight="343.0" prefWidth="300.0">
+                                 <children>
+                                    <Group fx:id="world2d" layoutX="40.0" layoutY="36.0" />
+                                    <Circle fill="DODGERBLUE" layoutX="145.0" layoutY="140.0" radius="89.0" stroke="BLACK" strokeType="INSIDE" />
+                                    <Text layoutX="124.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2D stuff" />
+                                 </children>
+                              </Pane>
+                              <TextArea fx:id="logger" minHeight="-Infinity" prefHeight="100.0">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="12.0" />
+                                 </font>
+                              </TextArea>
+                          </items>
+                        </SplitPane>
+                        <Separator orientation="VERTICAL" prefHeight="340.0" prefWidth="0.0" />
+                        <Pane fx:id="stackPane" minHeight="300.0" minWidth="300.0" prefHeight="452.0" prefWidth="300.0" style="-fx-background-color: black;" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Text fx:id="selectedFileText" fill="WHITE" layoutX="15.0" layoutY="15.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No File Selected" wrappingWidth="145.3125" />
+                           </children>
+                        </Pane>
+                     </children>
+                  </HBox>
+                  <TextField fx:id="sequenceTextField" alignment="BASELINE_LEFT" minWidth="300.0" />
+                  <TextField fx:id="bracketsTextfield" alignment="BASELINE_LEFT" minWidth="300.0">
+                     <font>
+                        <Font name="Monospaced Regular" size="12.0" />
+                     </font>
+                  </TextField>
+              </items>
+            </SplitPane>
+            <MenuBar fx:id="menuBar" layoutX="-1.0" layoutY="9.6" prefHeight="28.0" prefWidth="846.0" AnchorPane.topAnchor="-10.0">
               <menus>
                 <Menu mnemonicParsing="false" text="File">
                   <items>
@@ -34,46 +70,6 @@
                 </Menu>
               </menus>
             </MenuBar>
-            <HBox layoutX="1.0" layoutY="25.0" prefHeight="415.0" prefWidth="640.0" AnchorPane.leftAnchor="-10.0" AnchorPane.topAnchor="30.0">
-               <children>
-                  <VBox alignment="CENTER" prefHeight="420.0" prefWidth="320.0" style="-fx-background-color: blue;" HBox.hgrow="ALWAYS">
-                     <children>
-                        <Pane fx:id="pane2d" prefHeight="330.0" prefWidth="320.0" VBox.vgrow="NEVER">
-                           <children>
-                              <Group fx:id="world2d" layoutX="40.0" layoutY="36.0" />
-                              <Circle fill="DODGERBLUE" layoutX="145.0" layoutY="173.0" radius="89.0" stroke="BLACK" strokeType="INSIDE" />
-                              <Text layoutX="124.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2D stuff" />
-                           </children>
-                        </Pane>
-                        <TextField fx:id="sequenceTextField" />
-                        <TextField fx:id="bracketsTextField" />
-                     </children>
-                     <padding>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </padding>
-                  </VBox>
-                  <VBox prefHeight="347.0" prefWidth="320.0" style="-fx-background-color: green;">
-                     <children>
-                        <StackPane fx:id="stackPane" prefHeight="350.0" prefWidth="300.0" style="-fx-background-color: black;">
-                           <padding>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </padding>
-                           <children>
-                              <BorderPane pickOnBounds="false" prefHeight="200.0" prefWidth="200.0">
-                                 <bottom>
-                                    <Text fx:id="selectedFileText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="No File Selected" BorderPane.alignment="CENTER" />
-                                 </bottom>
-                                 <padding>
-                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                 </padding>
-                              </BorderPane>
-                           </children>
-                        </StackPane>
-                        <TextArea fx:id="logger" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: red;" VBox.vgrow="NEVER" />
-                     </children>
-                  </VBox>
-               </children>
-            </HBox>
          </children></AnchorPane>
   </content>
 </TitledPane>

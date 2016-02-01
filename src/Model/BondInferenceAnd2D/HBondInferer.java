@@ -21,7 +21,7 @@ public class HBondInferer {
     public HBondInferer(ArrayList<INucleotide> nucleotideList){
         this.maxDistance = 4.0;
         this.minDistance = 1.0;
-        this.minAngle = 110.0;
+        this.minAngle = 130.0;
         inferPairs(nucleotideList);
     }
 
@@ -47,6 +47,7 @@ public class HBondInferer {
                     HBondCalculationHandler hBondCalculationHandler = new HBondCalculationHandler(n,m);
                     ArrayList<Double> distances = hBondCalculationHandler.getDistances();
                     ArrayList<Double> angles = hBondCalculationHandler.getAngles();
+                    System.out.println(n.getName() + "angles" +  angles + "distances" + distances);
                     if (validateDistances(distances) && validateAngles(angles)){
                         n.setPair(m);
                         m.setPair(n);
@@ -111,32 +112,10 @@ public class HBondInferer {
         }
 
 
-
         private void calculate() {
-            //One can abstract this, TODO
-            //for Donors in A
+            //for Donors in A and B
             doCalculation(aDonorsKeyPair, a, residueMapA, residueMapB);
             doCalculation(bDonorsKeyPair, b, residueMapB, residueMapA);
-            /*for (String[] pair: aDonorsKeyPair) {
-                String donorKey = pair[0];
-                String acceptorKey = pair[1];
-                AtomRecord donor = residueMapA.get(donorKey);
-                AtomRecord currentHAtom = a.getHFromDonor(donorKey);
-                AtomRecord acceptor = residueMapB.get(acceptorKey);
-                double distance = currentHAtom.getDistanceTo(acceptor);
-                double angle = donor.getAngle(acceptor,currentHAtom);
-                distances.add(distance);
-                angles.add(angle);
-            }
-            //for Donors in B //TODO update with above
-            for (String[] pair: bDonorsKeyPair) {
-                String hAtomKey = pair[0];
-                String acceptorKey = pair[1];
-                AtomRecord currentHAtom = residueMapB.get(hAtomKey);
-                AtomRecord acceptor = residueMapA.get(acceptorKey);
-                double distance = currentHAtom.getDistanceTo(acceptor);
-                distances.add(distance);
-                }*/
             }
 
         private void doCalculation(ArrayList<String[]> pairList, INucleotide donorOwner, HashMap<String, AtomRecord> residueMap0, HashMap<String, AtomRecord> residueMap1){

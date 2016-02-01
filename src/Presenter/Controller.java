@@ -65,7 +65,7 @@ public class Controller {
     private TitledPane rootPane;
 
     @FXML
-    private StackPane stackPane;
+    private Pane stackPane;
 
     @FXML
     private Pane pane2d;
