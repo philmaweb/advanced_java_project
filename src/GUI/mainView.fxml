@@ -12,7 +12,7 @@
   <content>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
          <children>
-            <SplitPane dividerPositions="0.5, 0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" AnchorPane.bottomAnchor="-10.0" AnchorPane.leftAnchor="-10.0" AnchorPane.rightAnchor="-10.0" AnchorPane.topAnchor="30.0">
+            <SplitPane dividerPositions="0.5, 0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" AnchorPane.bottomAnchor="-10.0" AnchorPane.leftAnchor="-9.0" AnchorPane.rightAnchor="-9.0" AnchorPane.topAnchor="20.0">
               <items>
                   <HBox prefHeight="415.0" prefWidth="640.0">
                      <children>
@@ -48,7 +48,7 @@
                   </TextField>
               </items>
             </SplitPane>
-            <MenuBar fx:id="menuBar" layoutX="-1.0" layoutY="9.6" prefHeight="28.0" prefWidth="846.0" AnchorPane.topAnchor="-10.0">
+            <MenuBar fx:id="menuBar" layoutX="-1.0" layoutY="9.6" prefHeight="28.0" prefWidth="1024.0" AnchorPane.topAnchor="-10.0">
               <menus>
                 <Menu mnemonicParsing="false" text="File">
                   <items>
