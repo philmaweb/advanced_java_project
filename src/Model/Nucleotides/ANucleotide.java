@@ -1,5 +1,6 @@
 package Model.Nucleotides;
 
+import GUI.Circleand2DBuilder;
 import Model.AtomRecord;
 import Model.BondInferenceAnd2D.Pos2d;
 import Model.PDBModel;
@@ -20,15 +21,18 @@ public abstract class ANucleotide implements INucleotide{
     //holds the information about an RNA Nucleotide, nucleotides are A,G,C and U
     private String name;
     private int residueNumber;
-    private Pos2d pos2d;
-    private INucleotide matedNucleotide;
+
+    private Pos2d pos2DStart;//Start position in 2d representation
+    private Pos2d pos2DEnd;//End position after animation
+
+    private INucleotide matedNucleotide;//Mate paired Nucleotide
 
     private HashMap<String, AtomRecord> residueMap;//holds all Atomrecords with residue definition from pdb file
     private Ribose ribose;
     private Phosphate phosphate;
 
-    private Group group3d;//Phosphate, Ribose, Nucleobase, //TODO Bonds
-    private Group group2d;
+    private Group group3d;//3Groups: Phosphate, Ribose, Nucleobase, //TODO Bonds
+    private Group group2d;//Node2d representation 3 circles with a Text on Top and installed Tooltip
 
     private boolean hasHBondDonorsAndAcceptors;
     private ArrayList<String> acceptorKeys;
@@ -66,11 +70,6 @@ public abstract class ANucleotide implements INucleotide{
     public int getPositionInSequence() {
         return residueNumber;
     }
-
-    @Override
-    public Pos2d getPosition2d(){
-        return pos2d;
-    };
 
     @Override
     public void setPair(INucleotide nucleotide){
@@ -117,60 +116,8 @@ public abstract class ANucleotide implements INucleotide{
         if (riboseAndphosphateComplete[1]){
             this.phosphate = new Phosphate(residueMap);
         }
-        /*Group phosphateSphereGroup = getPhosphateSphere();
-        if (null != phosphateSphereGroup){
-            for (Node node: phosphateSphereGroup.getChildren()) {
-                Sphere sphere = (Sphere) node;
-                sphere.materialProperty().//setValue(getCorrectPhosphateMaterial());
-                bind(Bindings.when(model.isPairedViewPropertyProperty()
-                                   .and(isPaired))
-                                .then(DefaultPhongMaterials.PAIR_MATERIAL)
-                                .otherwise(DefaultPhongMaterials.PHOSPHATE_MATERIAL));
-            }
-        }
-        Group riboseMeshViewGroup = ribose.getPresentation3d();
-        if (null != riboseMeshViewGroup){
-            for (Node node: riboseMeshViewGroup.getChildren()) {
-                MeshView meshView = (MeshView) node;
-                meshView.materialProperty().
-                        bind(Bindings.when(model.isPairedViewPropertyProperty().and(isPaired))
-                        .then(DefaultPhongMaterials.PAIR_MATERIAL)
-                        .otherwise(DefaultPhongMaterials.RIBOSE_MATERIAL));
-            }
-        }
-
-        for (Node node : nucleobase3d.getChildren()) {
-            MeshView meshView = (MeshView) node;
-            meshView.materialProperty().bind(getNucleoBaseBinding());
-        }*/
         this.group3d = new Group(getPhosphateSphere(),ribose.getPresentation3d(),nucleobase3d);
     }
-
-    //return Nucleobase Binding
-   /* private ObjectBinding getNucleoBaseBinding(){
-        NucleotideClasses currentClass = getNucleotideClass();
-        switch (currentClass){
-            case ADENINE:
-                return Bindings.when(model.isPairedViewPropertyProperty().and(isPaired))
-                        .then(DefaultPhongMaterials.PAIR_MATERIAL)
-                        .otherwise(DefaultPhongMaterials.ADENINE_MATERIAL);
-            case URACIL:
-                return Bindings.when(model.isPairedViewPropertyProperty().and(isPaired))
-                        .then(DefaultPhongMaterials.PAIR_MATERIAL)
-                        .otherwise(DefaultPhongMaterials.URACIL_MATERIAL);
-            case GUANINE:
-                return Bindings.when(model.isPairedViewPropertyProperty().and(isPaired))
-                        .then(DefaultPhongMaterials.PAIR_MATERIAL)
-                        .otherwise(DefaultPhongMaterials.GUANINE_MATERIAL);
-            case CYTOSIN:
-                return Bindings.when(model.isPairedViewPropertyProperty().and(isPaired))
-                        .then(DefaultPhongMaterials.PAIR_MATERIAL)
-                        .otherwise(DefaultPhongMaterials.CYTOSIN_MATERIAL);
-        }//never reached
-        return Bindings.when(model.isPairedViewPropertyProperty().and(isPaired))
-                .then(DefaultPhongMaterials.PAIR_MATERIAL)
-                .otherwise(DefaultPhongMaterials.CYTOSIN_MATERIAL);
-    }*/
 
 
     @Override
@@ -265,10 +212,6 @@ public abstract class ANucleotide implements INucleotide{
 
     public void setIsCytosin(boolean isCytosin) {
         this.isCytosin.set(isCytosin);
-    }
-
-    public Pos2d getPos2d() {
-        return pos2d;
     }
 
     public HashMap<String, AtomRecord> getResidueMap() {
@@ -423,5 +366,32 @@ public abstract class ANucleotide implements INucleotide{
                 break;
         }
         return rv;
+    }
+
+    @Override
+    public Pos2d getPosition2DStart() {
+        return pos2DStart;
+    }
+
+    @Override
+    public Pos2d getPosition2DEnd() {
+        return pos2DEnd;
+    }
+
+    @Override
+    public void setPosition2DStart(Pos2d pos) {
+        this.pos2DStart = pos;
+    }
+
+    @Override
+    public void setPosition2DEnd(Pos2d pos) {
+        this.pos2DEnd = pos;
+    }
+
+    @Override
+    public void setUp2dCoords(Pos2d pos1, Pos2d pos2){
+        setPosition2DStart(pos1);
+        setPosition2DEnd(pos2);
+        this.group2d = new Group(Circleand2DBuilder.generateNodeRepresentation(this));
     }
 }

@@ -3,6 +3,7 @@ package Model.Nucleotides;
 import Model.AtomRecord;
 import Model.BondInferenceAnd2D.Pos2d;
 import javafx.scene.Group;
+import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,7 +17,6 @@ public interface INucleotide {
     //holds the information about an RNA Nucleotide, nucleotides are A,G,C and U
 
     int getPositionInSequence();
-    Pos2d getPosition2d();
     void setPair(INucleotide nucleotide);
     INucleotide getPairMate();
     boolean[] checkBackboneGiven();
@@ -25,7 +25,6 @@ public interface INucleotide {
     int getResidueNumber();
     boolean getIsPaired();
     String getRisidue();
-    Pos2d getPos2d();
     HashMap<String, AtomRecord> getResidueMap();
     Ribose getRibose();
     Phosphate getPhosphate();
@@ -43,6 +42,16 @@ public interface INucleotide {
     AtomRecord getHFromDonor(String donorKey);//get the H Atom from the Donor, needed for distance and Angle calculation
     ArrayList<String[]> getKeyPairsToCheckForHBonds();
 
-    enum NucleotideClasses{ADENINE,URACIL,GUANINE,CYTOSIN};
+    void setUp2dCoords(Pos2d pos1, Pos2d pos2);
+    Pos2d getPosition2DStart();
+    Pos2d getPosition2DEnd();
+    void setPosition2DStart(Pos2d pos);
+    void setPosition2DEnd(Pos2d pos);
+
+
+    Color get2DColorByClass();// A red, U green, C Yellow, G Blue
+
+
+        enum NucleotideClasses{ADENINE,URACIL,GUANINE,CYTOSIN};
 
 }

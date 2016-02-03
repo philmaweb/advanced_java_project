@@ -1,5 +1,6 @@
 package Presenter;
 
+import GUI.Circleand2DBuilder;
 import GUI.DefaultPhongMaterials;
 import GUI.MeshAnd3DObjectBuilder;
 import Model.*;
@@ -41,6 +42,7 @@ public class Presenter {
     SubScene subScene3d;
 
     private Group world3d;
+    private Group world2d;
     private Group smallWorld3d;
 
     private ArrayList<Group> riboses3d;
@@ -109,6 +111,8 @@ public class Presenter {
         smallWorld3d = new Group(bonds3d,adenines3d,uracils3d,cytosins3d,guanines3d);
         world3d = new Group(smallWorld3d);
 
+        world2d = new Group();
+
         //set font to beeing monospaced
         Font font = Font.font("Monospaced",12);
         bracketTextField.setFont(font);
@@ -136,6 +140,8 @@ public class Presenter {
         subScene3d.heightProperty().bind(stackPane.heightProperty());
         subScene3d.widthProperty().bind(stackPane.widthProperty());
 
+        pane2d.getChildren().add(world2d);
+
 
         //initial good coords
         cameraTranslate.setZ(-3900);
@@ -143,6 +149,7 @@ public class Presenter {
         cameraRotateX.setAngle(28);
 
         addMouseHanderToPane(stackPane,cameraRotateX,cameraRotateY,cameraTranslate);
+        addMouseHandlerTo2dPane(pane2d,world2d);
     }
 
     /**
@@ -179,6 +186,24 @@ public class Presenter {
             mouseDownY = me.getSceneY();
         });
     }
+
+
+    /**
+     * handle mouse events in 2d
+     */
+    private void addMouseHandlerTo2dPane(Pane pane, Group group){
+        pane.setOnMousePressed((me) -> {
+            mouseDownX = me.getSceneX();
+            mouseDownY = me.getSceneY();
+        });
+        pane.setOnMouseDragged((me) -> {
+            double mouseDeltaX = me.getSceneX() - mouseDownX;
+            double mouseDeltaY = me.getSceneY() - mouseDownY;
+
+            group.setTranslateX(mouseDeltaX);
+            group.setTranslateY(mouseDeltaY);
+            });
+        }
 
 
     private void addBindings(){
@@ -224,6 +249,9 @@ public class Presenter {
         model.setPdbFileName("No PDB-File selected");
         //fileDisplay.setText(model.getPdbFileName());
         pane2d.getChildren().clear();
+        world2d.getChildren().clear();
+        pane2d.getChildren().add(world2d);
+
         System.out.println("Cleared");
     }
 
@@ -380,30 +408,29 @@ public class Presenter {
     //2D Stuff
 
     private void construct2DView() {
-
         Graph g = model.getGraph2d();
         int[][] edges = g.getEdges();
         int numberOfNodes = g.getNumberOfNodes();
         double[][] circleCoords = SpringEmbedder.computeSpringEmbedding(1,numberOfNodes,edges,null);
         double[][] finalCoords = SpringEmbedder.computeSpringEmbedding(50,numberOfNodes,edges,null);
-
-        SpringEmbedder.centerCoordinates(circleCoords,10,500,10,500);
-        SpringEmbedder.centerCoordinates(finalCoords,10,500,10,500);
+        int maxWidth = (int) (pane2d.getMaxWidth()-10);
+        int maxHeight = (int) (pane2d.getMaxHeight()-10);
+        SpringEmbedder.centerCoordinates(circleCoords,10, maxWidth ,10, maxHeight);
+        SpringEmbedder.centerCoordinates(finalCoords,10, maxWidth,10, maxHeight);
 
         //TODO for later Animation
         model.setWorld2dStart(circleCoords);
         model.setWorld2dEnd(finalCoords);
-
+        //setup the 2d representation for all nucleotides
+        model.setUp2DCoords(circleCoords,finalCoords);
+//        showFinalGraph();
         showFinalGraph();
-
     }
 
-
-
     private void draw2dWorld(double[][] coords) {
-        drawEdges(coords);
-        drawNonConvalentBonds(coords);
-        drawNodes(coords);
+        addEdges(coords);
+        addNonConvalentBonds(coords);
+        addNodes();
     }
 
     private void showCircleGraph() {
@@ -414,98 +441,24 @@ public class Presenter {
         draw2dWorld(model.getWorld2dEnd());
     }
 
-    private void drawEdges(double[][] coords) {
-        pane2d.getChildren().clear();
-        ArrayList<Node> cLines = generateCovalentEdges(coords);
-        for (int i = 0; i < cLines.size(); i++) {
-            pane2d.getChildren().add(cLines.get(i));
+    private void addEdges(double[][] coords) {
+//        world2d.getChildren().clear();
+        ArrayList<Node> cLines = Circleand2DBuilder.generateCovalentEdges(coords, model.getGraph2d());
+        for (Node cLine : cLines) {
+            world2d.getChildren().add(cLine);
         }
     }
 
-    private ArrayList<Node> generateCovalentEdges(double[][] coords) {
-        ArrayList<Node> cLines = new ArrayList<>();
-
-        //int[][] edges = this.getGraph().getEdges();
-        int numberOfNodes = model.getGraph2d().getNumberOfNodes();
-        for (int i = 0; i < numberOfNodes -1 ; i++) {
-            Line l = new Line(coords[i][0],coords[i][1],coords[i+1][0],coords[i+1][1]);
-            cLines.add(l);
-        }
-        return cLines;
-    }
-
-    private void drawNonConvalentBonds(double[][] coords) {
-        ArrayList<Node> lines = generateNonCovalentEdges(coords);
-        for (int i = 0; i < lines.size(); i++) {
-            pane2d.getChildren().add(lines.get(i));
+    private void addNonConvalentBonds(double[][] coords) {
+        ArrayList<Node> lines = Circleand2DBuilder.generateNonCovalentEdges(coords,model.getGraph2d());
+        for (Node line : lines){
+            world2d.getChildren().add(line);
         }
     }
 
-    private ArrayList<Node> generateNonCovalentEdges(double[][] coords){
-        ArrayList<Node> nodes = new ArrayList<>();
-        int[][] edges = model.getGraph2d().getEdges();
-        int numberOfNodes = model.getGraph2d().getNumberOfNodes();
-        for (int i = numberOfNodes-1; i < edges.length ; i++) {
-            //index of point in coords
-            int e1 = edges[i][0];
-            int e2 = edges[i][1];
-            //get coords with index
-            double[] p1 = new double[]{coords[e1][0],coords[e1][1]};
-            double[] p2 = new double[]{coords[e2][0],coords[e2][1]};
-
-            Line l = new Line(p1[0],p1[1],p2[0],p2[1]);
-            l.setStroke(Color.BLUEVIOLET);
-            nodes.add(l);
-        }
-        return nodes;
-    }
-
-    private void drawNodes(double[][] coords) {
-        Group g = new Group();
-        ArrayList<Node> nodes = generateNodes(coords);
-        for (int i = 0; i < nodes.size(); i++) {
-            g.getChildren().addAll(nodes.get(i));
-        }
-        //p.getChildren().removeAll();
-        pane2d.getChildren().add(g);
-//        this.setgNodes(g);
-    }
-
-    private ArrayList<Node> generateNodes(double[][] coords){
-        ArrayList<Node> nodes = new ArrayList<>();
-        for (int i = 0; i < coords.length ; i++) {
-            double x = coords[i][0];
-            double y = coords[i][1];
-            //TODO need to improve on that, no accessing of textfields for this
-            //instead use nucleotideList
-            String s = String.valueOf(sequenceTextField.getText().charAt(i)).toUpperCase();
-            Circle cSurround =  new Circle(x,y,9,Color.BLACK);
-            Circle cGround =    new Circle(x,y,8,getColorByText(s));
-            Circle cTop =       new Circle(x,y,6,Color.WHITE);
-            Text t =            new Text(x-4,y+5,s);
-            Tooltip tooltip = new Tooltip("Nucleotide: " + s + "\n Position: " + (i+1));
-            Tooltip.install(cTop,tooltip);
-            Tooltip.install(cGround,tooltip);
-            Tooltip.install(t,tooltip);
-
-            Group nucleotideGroup = new Group(cSurround,cGround,cTop,t);
-            nodes.add(nucleotideGroup);
-        }
-        return nodes;
-    }
-
-    private Color getColorByText(String s) {
-        switch (s) {
-            case "A":
-                return Color.RED;
-            case "U":
-                return Color.GREEN;
-            case "G":
-                return Color.BLUE;
-            case "C":
-                return Color.YELLOW;
-            default:
-                return Color.BLACK;
+    private void addNodes() {
+        for (INucleotide n : model.getNucleotideList()) {
+            world2d.getChildren().add(n.getGroup2d());
         }
     }
 

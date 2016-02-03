@@ -7,6 +7,7 @@ import Model.BondInferenceAnd2D.NucleotideDefaultValues;
 import Model.PDBModel;
 import javafx.scene.Group;
 import javafx.scene.control.Tooltip;
+import javafx.scene.paint.Color;
 
 import java.util.HashMap;
 
@@ -28,6 +29,11 @@ public class Uracil extends ANucleotide{
     @Override
     public NucleotideClasses getNucleotideClass() {
         return NucleotideClasses.URACIL;
+    }
+
+    @Override
+    public Color get2DColorByClass() {
+        return Color.GREEN;
     }
 
     @Override

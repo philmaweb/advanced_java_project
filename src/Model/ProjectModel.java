@@ -1,5 +1,7 @@
 package Model;
 
+import Model.BondInferenceAnd2D.Pos2d;
+import Model.Nucleotides.INucleotide;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -41,6 +43,19 @@ public class ProjectModel extends PDBModel {
 
     public void setPdbFileNameProperty(String pdbFileNameProperty) {
         this.pdbFileNameProperty.set(pdbFileNameProperty);
+    }
+
+    public void setUp2DCoords(double[][] circleCoords, double[][] finalCoords){
+        this.setWorld2dStart(circleCoords);
+        this.setWorld2dEnd(finalCoords);
+
+        ArrayList<INucleotide> nucleotides = getNucleotideList();
+        for (int i = 0; i < nucleotides.size(); i++) {
+            INucleotide currentN = nucleotides.get(i);
+            Pos2d start = new Pos2d(circleCoords[i][0],circleCoords[i][1]);
+            Pos2d end = new Pos2d(finalCoords[i][0],finalCoords[i][1]);
+            currentN.setUp2dCoords(start,end);//automatically creates 2d representation
+        }
     }
 
 
