@@ -2,11 +2,11 @@ package Model;
 
 import Model.BondInferenceAnd2D.Pos2d;
 import Model.Nucleotides.INucleotide;
+import Model.PDBReader.PDBReader;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 /**
  * Created by Philipp on 2016-01-21.

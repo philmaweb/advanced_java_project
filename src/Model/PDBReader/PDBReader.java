@@ -1,5 +1,6 @@
-package Model;
+package Model.PDBReader;
 
+import Model.AtomRecord;
 import jdk.nashorn.internal.objects.NativeRegExp;
 
 import java.io.BufferedReader;

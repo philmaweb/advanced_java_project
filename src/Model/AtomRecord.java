@@ -1,5 +1,6 @@
 package Model;
 
+import Model.PDBReader.PDBMagicNumberDefaults;
 import javafx.geometry.Point3D;
 import javafx.scene.transform.Translate;
 
@@ -21,17 +22,34 @@ public class AtomRecord {
 
 //ATOM      1  P   C   A  13     -11.658 -10.243   4.892  1.00  1.68           P
     public AtomRecord(String line) {
+
         String[] lis = line.split("\\s+");
-        this.atom = lis[0];
-        this.id = Integer.valueOf(lis[1]);
-        this.name = lis[2];
-        this.residium = lis[3].substring(0,1);
-        this.chain =  lis[4];
-        this.indexOfResidium = Integer.valueOf(lis[5]);
-        this.point3D = new Point3D(Double.valueOf(lis[6]),Double.valueOf(lis[7]),Double.valueOf(lis[8]));
-        this.betaColumn = lis[9];
-        this.atomType = lis[lis.length-1];
+        parseWithMagicNumbers(line);
+//        System.out.println(this);
     }
+
+    @Override
+    public String toString(){
+        return "" + id + "\t " + name + "\t " + residium + "\t " + chain + "\t " + indexOfResidium + "\t " + point3D  + "\t " +atomType;
+    }
+
+    /**
+     * Use PDB magic numbers to parse without relying on space between columns
+     */
+    private void parseWithMagicNumbers(String line) {
+        this.id = Integer.valueOf(line.substring(PDBMagicNumberDefaults.idStart,PDBMagicNumberDefaults.idEnd).trim());
+        this.name = line.substring(PDBMagicNumberDefaults.nameStart,PDBMagicNumberDefaults.nameEnd).trim();
+        this.residium = line.substring(PDBMagicNumberDefaults.residiumStart,PDBMagicNumberDefaults.residiumEnd).trim().substring(0,1);
+        this.chain = line.substring(PDBMagicNumberDefaults.chainStart,PDBMagicNumberDefaults.chainEnd).trim();
+        this.indexOfResidium = Integer.valueOf(line.substring(PDBMagicNumberDefaults.indexOfRisidiumStart,PDBMagicNumberDefaults.indexOfRisidiumEnd).trim());
+        Double x = Double.valueOf(line.substring(PDBMagicNumberDefaults.xStart,PDBMagicNumberDefaults.xEnd).trim());
+        Double y = Double.valueOf(line.substring(PDBMagicNumberDefaults.yStart,PDBMagicNumberDefaults.yEnd).trim());
+        Double z = Double.valueOf(line.substring(PDBMagicNumberDefaults.zStart,PDBMagicNumberDefaults.zEnd).trim());
+        this.point3D = new Point3D(x,y,z);
+        this.atomType = line.substring(PDBMagicNumberDefaults.atomTypeStart,PDBMagicNumberDefaults.atomTypeEnd).trim();
+    }
+
+
 
     /**
      * get Distance from other Atom
@@ -126,4 +144,5 @@ public class AtomRecord {
     public void setAtomType(String atomType) {
         this.atomType = atomType;
     }
+
 }
