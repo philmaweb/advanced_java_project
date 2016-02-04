@@ -2,8 +2,10 @@ package Model.Nucleotides;
 
 import Model.AtomRecord;
 import Model.BondInferenceAnd2D.Pos2d;
+import Model.NucleotideRepresentation;
 import javafx.scene.Group;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.PhongMaterial;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -47,11 +49,12 @@ public interface INucleotide {
     Pos2d getPosition2DEnd();
     void setPosition2DStart(Pos2d pos);
     void setPosition2DEnd(Pos2d pos);
+    boolean getIsSelected();
+    void setIsSelected(boolean b);
 
-
+    void updateColoring(NucleotideRepresentation representation);
     Color get2DColorByClass();// A red, U green, C Yellow, G Blue
 
-
-        enum NucleotideClasses{ADENINE,URACIL,GUANINE,CYTOSIN};
+    enum NucleotideClasses{ADENINE,URACIL,GUANINE,CYTOSIN};
 
 }

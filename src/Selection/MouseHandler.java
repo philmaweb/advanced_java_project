@@ -30,7 +30,7 @@ public class MouseHandler {
      * @param scene
      * @param cameraTranslate
      */
-    private MouseHandler(Scene scene, Rotate cameraRotateX, Rotate cameraRotateY, Translate cameraTranslate) {
+    public MouseHandler(Scene scene, Rotate cameraRotateX, Rotate cameraRotateY, Translate cameraTranslate) {
         scene.setOnMousePressed((me) -> {
             mouseDownX = me.getSceneX();
             mouseDownY = me.getSceneY();

@@ -1,21 +1,20 @@
 package Presenter;
 
 import GUI.Circleand2DBuilder;
-import GUI.DefaultPhongMaterials;
 import GUI.MeshAnd3DObjectBuilder;
 import Model.*;
 import Model.BondInferenceAnd2D.Graph;
 import Model.BondInferenceAnd2D.SpringEmbedder;
 import Model.Nucleotides.INucleotide;
 import Model.PDBReader.PDBReader;
+import Presenter.Selection.MouseHandler;
+import Presenter.Selection.MySelectionModel;
 import javafx.geometry.Point3D;
 import javafx.scene.*;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.PhongMaterial;
-import javafx.scene.shape.*;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.transform.Rotate;
@@ -57,9 +56,7 @@ public class Presenter {
     Text selectedFileText;
     TextField sequenceTextField;
     TextField bracketTextField;
-
-    private double mouseDownX;
-    private double mouseDownY;
+    MySelectionModel mySelectionModel;
 
 
     /**
@@ -145,63 +142,11 @@ public class Presenter {
         cameraRotateY.setAngle(-100);
         cameraRotateX.setAngle(28);
 
-        addMouseHanderToPane(stackPane,cameraRotateX,cameraRotateY,cameraTranslate);
-        addMouseHandlerTo2dPane(pane2d,world2d);
+        MouseHandler.addMouseHanderToPane(stackPane,cameraRotateX,cameraRotateY,cameraTranslate);
+        MouseHandler.addMouseHandlerTo2dPane(pane2d,world2d);
+
+
     }
-
-    /**
-     * handle mouse events
-     *
-     * @param pane
-     * @param cameraTranslate
-     */
-    private void addMouseHanderToPane(Pane pane, Rotate cameraRotateX, Rotate cameraRotateY, Translate cameraTranslate) {
-        pane.setOnMousePressed((me) -> {
-            mouseDownX = me.getSceneX();
-            mouseDownY = me.getSceneY();
-        });
-        pane.setOnMouseDragged((me) -> {
-            double mouseDeltaX = me.getSceneX() - mouseDownX;
-            double mouseDeltaY = me.getSceneY() - mouseDownY;
-
-            if (me.isShiftDown()) {
-                cameraTranslate.setZ(cameraTranslate.getZ() + 5*mouseDeltaY);
-            }
-            else if (me.isAltDown()){
-                cameraTranslate.setX(cameraTranslate.getX() + 5*mouseDeltaX);
-                cameraTranslate.setY(cameraTranslate.getY() + 5*mouseDeltaY);
-
-            }
-            else // rotate
-            {
-                cameraRotateY.setAngle(cameraRotateY.getAngle() + mouseDeltaX);
-                cameraRotateX.setAngle(cameraRotateX.getAngle() - mouseDeltaY);
-                //System.out.println(cameraRotateY.getAngle() + mouseDeltaX);
-                //System.out.println(cameraRotateX.getAngle() + mouseDeltaY);
-            }
-            mouseDownX = me.getSceneX();
-            mouseDownY = me.getSceneY();
-        });
-    }
-
-
-    /**
-     * handle mouse events in 2d
-     */
-    private void addMouseHandlerTo2dPane(Pane pane, Group group){
-        pane.setOnMousePressed((me) -> {
-            mouseDownX = me.getSceneX();
-            mouseDownY = me.getSceneY();
-        });
-        pane.setOnMouseDragged((me) -> {
-            double mouseDeltaX = me.getSceneX() - mouseDownX;
-            double mouseDeltaY = me.getSceneY() - mouseDownY;
-
-            group.setTranslateX(mouseDeltaX);
-            group.setTranslateY(mouseDeltaY);
-            });
-        }
-
 
     private void addBindings(){
         selectedFileText.textProperty().bind(model.pdbFileNamePropertyProperty());
@@ -260,9 +205,22 @@ public class Presenter {
     private void createWorld(){
         construct3DView();
         construct2DView();
+        ArrayList<INucleotide> nucleotides = model.getNucleotideList();
+        //add selection model
+        mySelectionModel = new MySelectionModel(nucleotides);
+        for (int i = 0; i < nucleotides.size(); i++) {
+            INucleotide n = nucleotides.get(i);
+            final int index = i;
+            n.getGroup3d().setOnMouseClicked((e)->{
+                NucleotideRepresentation nRepr = model.getCurrentNucleotideRepresentation();
+                mySelectionModel.handleClickEvent(e,index,n,nRepr);
+            });
+            n.getGroup2d().setOnMouseClicked((e)->{
+                NucleotideRepresentation nRepr = model.getCurrentNucleotideRepresentation();
+                mySelectionModel.handleClickEvent(e,index,n,nRepr);
+            });
+        }
     }
-
-
 
     public void construct3DView() {
         System.out.println("adding chains from model");
@@ -352,55 +310,9 @@ public class Presenter {
     }
 
     private void recolorNucleotides() {
-        recolor3dNucleotides();
-        //recolor2dNucleotides();
-    }
-
-    private void recolor3dNucleotides(){
-        //TODO color ribose
-        PhongMaterial adenineMat = DefaultPhongMaterials.ADENINE_MATERIAL;
-        PhongMaterial guanineMat = DefaultPhongMaterials.GUANINE_MATERIAL;
-        PhongMaterial cytosinMat = DefaultPhongMaterials.CYTOSIN_MATERIAL;
-        PhongMaterial uracilMat = DefaultPhongMaterials.URACIL_MATERIAL;
-//        PhongMaterial riboseMat = DefaultPhongMaterials.RIBOSE_MATERIAL;
-//        PhongMaterial phosphateMat = DefaultPhongMaterials.PHOSPHATE_MATERIAL;
-        switch (model.getCurrentNucleotideRepresentation()){
-            case AGCU:
-                break;
-            case PURINE_PYRIMIDINE:
-                adenineMat = DefaultPhongMaterials.PURINE_MATERIAL;
-                guanineMat = DefaultPhongMaterials.PURINE_MATERIAL;
-                cytosinMat = DefaultPhongMaterials.PYRIMIDINE_MATERIAL;
-                uracilMat = DefaultPhongMaterials.PYRIMIDINE_MATERIAL;
-                break;
-            case PAIRED:
-                break;
-        }
-        for (INucleotide n : model.getNucleotideList()){
-            for (Node node : n.getGroup3d().getChildren()){
-                Group g = (Group) node;
-                for (Node node2 : g.getChildren()){
-                    if(n.getIsPaired() && (model.getCurrentNucleotideRepresentation().equals(NucleotideRepresentation.PAIRED))){
-                        ((Shape3D) node2).setMaterial(DefaultPhongMaterials.PAIR_MATERIAL);
-                    }
-                    else {
-                        switch (n.getNucleotideClass()) {
-                            case ADENINE:
-                                ((Shape3D) node2).setMaterial(adenineMat);
-                                break;
-                            case URACIL:
-                                ((Shape3D) node2).setMaterial(uracilMat);
-                                break;
-                            case GUANINE:
-                                ((Shape3D) node2).setMaterial(guanineMat);
-                                break;
-                            case CYTOSIN:
-                                ((Shape3D) node2).setMaterial(cytosinMat);
-                                break;
-                        }
-                    }
-                }
-            }
+        for (INucleotide n :
+                model.getNucleotideList()) {
+            n.updateColoring(model.getCurrentNucleotideRepresentation());
         }
     }
 

@@ -4,10 +4,12 @@ import GUI.DefaultPhongMaterials;
 import GUI.MeshAnd3DObjectBuilder;
 import Model.AtomRecord;
 import Model.BondInferenceAnd2D.NucleotideDefaultValues;
+import Model.NucleotideRepresentation;
 import Model.PDBModel;
 import javafx.scene.Group;
 import javafx.scene.control.Tooltip;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.PhongMaterial;
 
 import java.util.HashMap;
 
@@ -27,6 +29,29 @@ public class Cytosin extends ANucleotide{
     @Override
     public NucleotideClasses getNucleotideClass() {
         return NucleotideClasses.CYTOSIN;
+    }
+
+    @Override
+    public void updateColoring(NucleotideRepresentation representation) {
+        PhongMaterial updateMaterial = DefaultPhongMaterials.CYTOSIN_MATERIAL;
+        switch (representation) {
+            case AGCU:
+                break;
+            case PURINE_PYRIMIDINE:
+                updateMaterial = DefaultPhongMaterials.PYRIMIDINE_MATERIAL;
+                break;
+            case PAIRED:
+                if (getIsPaired()){
+                    updateMaterial = DefaultPhongMaterials.PAIR_MATERIAL;
+                }
+                break;
+            case SELECTED:
+                if (getIsSelected()){
+                    updateMaterial = DefaultPhongMaterials.SELECTED_MATERIAL;
+                }
+                break;
+        }
+        recolor(updateMaterial);
     }
 
     @Override

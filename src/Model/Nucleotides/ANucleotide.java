@@ -1,16 +1,21 @@
 package Model.Nucleotides;
 
 import GUI.Circleand2DBuilder;
+import GUI.DefaultPhongMaterials;
 import Model.AtomRecord;
 import Model.BondInferenceAnd2D.Pos2d;
 import Model.PDBModel;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.scene.Group;
+import javafx.scene.Node;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.PhongMaterial;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.Shape3D;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.stream.Stream;
 
 /**
  * Created by Philipp on 2016-01-30.
@@ -38,13 +43,11 @@ public abstract class ANucleotide implements INucleotide{
     private ArrayList<String> acceptorKeys;
     private ArrayList<String> donorKeys;
 
-    private BooleanProperty isPaired;
-    private BooleanProperty isAdenine;
-    private BooleanProperty isGuanine;
-    private BooleanProperty isUracil;
-    private BooleanProperty isCytosin;
+    private BooleanProperty isSelected;
 
-    private PDBModel model;//needs reference to Model to get current NucleotideRepresentation bindings
+    private BooleanProperty isPaired;
+
+    private PDBModel model;//needs reference to Model to get current NucleotideRepresentation
 
     //private ArrayList<HashMap>
     //private AtomRecord atomRecords; //All Atoms belonging to Nucleotide
@@ -55,13 +58,9 @@ public abstract class ANucleotide implements INucleotide{
         this.residueNumber = residueMap.get(validKey).getIndexOfResidium();
         this.name = residueMap.get(validKey).getResidium() + " " + residueNumber;
         this.isPaired = new SimpleBooleanProperty(false);
-        this.isAdenine = new SimpleBooleanProperty(getNucleotideClass().equals(NucleotideClasses.ADENINE));
-        this.isGuanine = new SimpleBooleanProperty(getNucleotideClass().equals(NucleotideClasses.GUANINE));
-        this.isCytosin = new SimpleBooleanProperty(getNucleotideClass().equals(NucleotideClasses.CYTOSIN));
-        this.isUracil = new SimpleBooleanProperty(getNucleotideClass().equals(NucleotideClasses.URACIL));
+
+        this.isSelected = new SimpleBooleanProperty(false);
         this.model = model;
-
-
         createStructureAndGroups();
     }
 
@@ -164,54 +163,6 @@ public abstract class ANucleotide implements INucleotide{
 
     public void setIsPaired(boolean isPaired) {
         this.isPaired.set(isPaired);
-    }
-
-    public boolean getIsAdenine() {
-        return isAdenine.get();
-    }
-
-    public BooleanProperty isAdenineProperty() {
-        return isAdenine;
-    }
-
-    public void setIsAdenine(boolean isAdenine) {
-        this.isAdenine.set(isAdenine);
-    }
-
-    public boolean getIsGuanine() {
-        return isGuanine.get();
-    }
-
-    public BooleanProperty isGuanineProperty() {
-        return isGuanine;
-    }
-
-    public void setIsGuanine(boolean isGuanine) {
-        this.isGuanine.set(isGuanine);
-    }
-
-    public boolean getIsUracil() {
-        return isUracil.get();
-    }
-
-    public BooleanProperty isUracilProperty() {
-        return isUracil;
-    }
-
-    public void setIsUracil(boolean isUracil) {
-        this.isUracil.set(isUracil);
-    }
-
-    public boolean getIsCytosin() {
-        return isCytosin.get();
-    }
-
-    public BooleanProperty isCytosinProperty() {
-        return isCytosin;
-    }
-
-    public void setIsCytosin(boolean isCytosin) {
-        this.isCytosin.set(isCytosin);
     }
 
     public HashMap<String, AtomRecord> getResidueMap() {
@@ -394,4 +345,43 @@ public abstract class ANucleotide implements INucleotide{
         setPosition2DEnd(pos2);
         this.group2d = new Group(Circleand2DBuilder.generateNodeRepresentation(this));
     }
+
+    public boolean getIsSelected() {
+        return isSelected.get();
+    }
+
+    public BooleanProperty isSelectedProperty() {
+        return isSelected;
+    }
+
+    @Override
+    public void setIsSelected(boolean isSelected) {
+        this.isSelected.set(isSelected);
+    }
+
+
+    /**
+     * called from inside each Nucleotide class with correct Material
+     * @param mat
+     */
+    void recolor(PhongMaterial mat){
+        //Selected overwrites all other colors
+        if (getIsSelected()){
+            mat = DefaultPhongMaterials.SELECTED_MATERIAL;
+        }
+        Group group3d = getGroup3d();
+        for (Node node: group3d.getChildren()) {
+            Group nodeGroup = (Group) node;
+            for (Node nodeLevel2: nodeGroup.getChildren()) {
+                ((Shape3D) nodeLevel2).setMaterial(mat);
+            }
+        }
+        Group group2d = getGroup2d();
+        for (Node node: group2d.getChildren()) {
+            Group nodeGroup = (Group) node;
+            ((Circle) nodeGroup.getChildren().get(1)).setFill(mat.getDiffuseColor());
+            ((Circle) nodeGroup.getChildren().get(2)).setFill(Color.WHITE);
+        }
+    }
+
 }

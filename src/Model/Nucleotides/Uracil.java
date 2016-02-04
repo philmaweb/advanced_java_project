@@ -4,10 +4,15 @@ import GUI.DefaultPhongMaterials;
 import GUI.MeshAnd3DObjectBuilder;
 import Model.AtomRecord;
 import Model.BondInferenceAnd2D.NucleotideDefaultValues;
+import Model.NucleotideRepresentation;
 import Model.PDBModel;
 import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.control.Tooltip;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.PhongMaterial;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.Shape3D;
 
 import java.util.HashMap;
 
@@ -79,6 +84,30 @@ public class Uracil extends ANucleotide{
         }
         return true;
     }
+
+    @Override
+    public void updateColoring(NucleotideRepresentation representation) {
+        PhongMaterial updateMaterial = DefaultPhongMaterials.URACIL_MATERIAL;
+        switch (representation) {
+            case AGCU:
+                break;
+            case PURINE_PYRIMIDINE:
+                updateMaterial = DefaultPhongMaterials.PYRIMIDINE_MATERIAL;
+                break;
+            case PAIRED:
+                if (getIsPaired()){
+                    updateMaterial = DefaultPhongMaterials.PAIR_MATERIAL;
+                }
+                break;
+            case SELECTED:
+                if (getIsSelected()){
+                    updateMaterial = DefaultPhongMaterials.SELECTED_MATERIAL;
+                }
+                break;
+        }
+        recolor(updateMaterial);
+    }
+
 
 
 }

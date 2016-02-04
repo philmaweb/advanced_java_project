@@ -22,4 +22,6 @@ public class DefaultPhongMaterials {
     public final static PhongMaterial C_MATERIAL = new PhongMaterial(Color.GREY);
     public final static PhongMaterial N_MATERIAL = new PhongMaterial(Color.BLUE);
     public final static PhongMaterial O_MATERIAL = new PhongMaterial(Color.RED);
+
+    public final static PhongMaterial SELECTED_MATERIAL = new PhongMaterial(Color.AQUAMARINE);
 }

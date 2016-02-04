@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Improved 2dRepresentation">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Model/PDBReader/PDBMagicNumberDefaults.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Model/PDBReader.java" afterPath="$PROJECT_DIR$/src/Model/PDBReader/PDBReader.java" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/AtomRecord.java" afterPath="$PROJECT_DIR$/src/Model/AtomRecord.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/ProjectModel.java" afterPath="$PROJECT_DIR$/src/Model/ProjectModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Presenter/Controller.java" afterPath="$PROJECT_DIR$/src/Presenter/Controller.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUI/DefaultPhongMaterials.java" afterPath="$PROJECT_DIR$/src/GUI/DefaultPhongMaterials.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/NucleotideRepresentation.java" afterPath="$PROJECT_DIR$/src/Model/NucleotideRepresentation.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/Nucleotides/ANucleotide.java" afterPath="$PROJECT_DIR$/src/Model/Nucleotides/ANucleotide.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/Nucleotides/Adenine.java" afterPath="$PROJECT_DIR$/src/Model/Nucleotides/Adenine.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/Nucleotides/Cytosin.java" afterPath="$PROJECT_DIR$/src/Model/Nucleotides/Cytosin.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/Nucleotides/Guanine.java" afterPath="$PROJECT_DIR$/src/Model/Nucleotides/Guanine.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/Nucleotides/INucleotide.java" afterPath="$PROJECT_DIR$/src/Model/Nucleotides/INucleotide.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/Nucleotides/Uracil.java" afterPath="$PROJECT_DIR$/src/Model/Nucleotides/Uracil.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Presenter/Presenter.java" afterPath="$PROJECT_DIR$/src/Presenter/Presenter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Selection/MouseHandler.java" afterPath="$PROJECT_DIR$/src/Selection/MouseHandler.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -71,50 +76,43 @@
       <file leaf-file-name="Presenter.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Presenter/Presenter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.95">
-              <caret line="250" column="38" selection-start-line="250" selection-start-column="38" selection-end-line="250" selection-end-column="38" />
+            <state vertical-scroll-proportion="0.5263158">
+              <caret line="214" column="16" selection-start-line="214" selection-start-column="16" selection-end-line="214" selection-end-column="16" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#addMouseHanderToPane#0;class#Presenter#0" expanded="false" />
-                <element signature="method#addMouseHandlerTo2dPane#0;class#Presenter#0" expanded="false" />
                 <element signature="method#connectPhosphates#0;class#Presenter#0" expanded="false" />
                 <element signature="docComment;method#center#0;class#Presenter#0" expanded="false" />
                 <element signature="method#center#0;class#Presenter#0" expanded="false" />
-                <element signature="method#recolor3dNucleotides#0;class#Presenter#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProjectModel.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/ProjectModel.java">
+      <file leaf-file-name="MySelectionModel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Presenter/Selection/MySelectionModel.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="56" column="87" selection-start-line="56" selection-start-column="87" selection-end-line="56" selection-end-column="87" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SpringEmbedder.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/BondInferenceAnd2D/SpringEmbedder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="136" column="23" selection-start-line="136" selection-start-column="23" selection-end-line="136" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Circleand2DBuilder.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/GUI/Circleand2DBuilder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="68" column="5" selection-start-line="68" selection-start-column="5" selection-end-line="68" selection-end-column="5" />
+              <caret line="184" column="53" selection-start-line="184" selection-start-column="29" selection-end-line="184" selection-end-column="53" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#generateCovalentEdges#0;class#Circleand2DBuilder#0" expanded="false" />
-                <element signature="method#generateNonCovalentEdges#0;class#Circleand2DBuilder#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MeshAnd3DObjectBuilder.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GUI/MeshAnd3DObjectBuilder.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#makeFrontBackPentagon#0;class#MeshAnd3DObjectBuilder#0" expanded="false" />
+                <element signature="method#makeHexagon#0;class#MeshAnd3DObjectBuilder#0" expanded="false" />
+                <element signature="method#makePentagon#0;class#MeshAnd3DObjectBuilder#0" expanded="false" />
+                <element signature="docComment;method#createConnection#0;class#MeshAnd3DObjectBuilder#0" expanded="false" />
+                <element signature="method#createConnection#0;class#MeshAnd3DObjectBuilder#0" expanded="false" />
+                <element signature="e#4162#4222#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -124,7 +122,7 @@
         <entry file="file://$PROJECT_DIR$/src/Model/Nucleotides/INucleotide.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+              <caret line="54" column="65" selection-start-line="54" selection-start-column="65" selection-end-line="54" selection-end-column="65" />
               <folding />
             </state>
           </provider>
@@ -134,11 +132,11 @@
         <entry file="file://$PROJECT_DIR$/src/Model/Nucleotides/ANucleotide.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="391" column="24" selection-start-line="391" selection-start-column="24" selection-end-line="391" selection-end-column="24" />
+              <caret line="49" column="93" selection-start-line="49" selection-start-column="93" selection-end-line="49" selection-end-column="93" />
               <folding>
-                <element signature="e#1620#1648#0" expanded="false" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#1668#1696#0" expanded="false" />
                 <element signature="method#getPhosphateSphere#0;class#ANucleotide#0" expanded="false" />
-                <element signature="method#getPhosphateBonds#0;class#ANucleotide#0" expanded="false" />
                 <element signature="method#getRiboseRepresentation#0;class#ANucleotide#0" expanded="false" />
                 <element signature="method#isWCPair#0;class#ANucleotide#0" expanded="false" />
                 <element signature="method#getHbondDonors#0;class#ANucleotide#0" expanded="false" />
@@ -191,8 +189,6 @@
         <option value="$PROJECT_DIR$/src/Model/Nucleotides/Ribose.java" />
         <option value="$PROJECT_DIR$/src/Model/Verifyer3d.java" />
         <option value="$PROJECT_DIR$/src/Model/Nucleotides/Phosphate.java" />
-        <option value="$PROJECT_DIR$/src/Model/NucleotideRepresentation.java" />
-        <option value="$PROJECT_DIR$/src/GUI/DefaultPhongMaterials.java" />
         <option value="C:/Program Files/Java/jdk1.8.0_60/javafx-src.zip!/javafx/scene/shape/Shape3D.java" />
         <option value="$PROJECT_DIR$/src/Model/BondInference/HBondInferer.java" />
         <option value="$PROJECT_DIR$/src/Model/Nucleotides/NucleotideDefaultValues.java" />
@@ -205,18 +201,25 @@
         <option value="$PROJECT_DIR$/src/GUI/style.css" />
         <option value="$PROJECT_DIR$/src/Model/PDBModel.java" />
         <option value="$PROJECT_DIR$/src/Model/BondInferenceAnd2D/HBondInferer.java" />
-        <option value="$PROJECT_DIR$/src/Model/Nucleotides/Uracil.java" />
-        <option value="$PROJECT_DIR$/src/Model/Nucleotides/Guanine.java" />
-        <option value="$PROJECT_DIR$/src/Model/Nucleotides/Cytosin.java" />
-        <option value="$PROJECT_DIR$/src/Model/Nucleotides/Adenine.java" />
         <option value="$PROJECT_DIR$/src/Model/BondInferenceAnd2D/Pos2d.java" />
-        <option value="$PROJECT_DIR$/src/Model/Nucleotides/ANucleotide.java" />
-        <option value="$PROJECT_DIR$/src/Model/Nucleotides/INucleotide.java" />
         <option value="$PROJECT_DIR$/src/Model/ProjectModel.java" />
         <option value="$PROJECT_DIR$/src/GUI/Circleand2DBuilder.java" />
-        <option value="$PROJECT_DIR$/src/Presenter/Presenter.java" />
         <option value="$PROJECT_DIR$/src/Model/AtomRecord.java" />
         <option value="$PROJECT_DIR$/src/Model/PDBReader/PDBMagicNumberDefaults.java" />
+        <option value="$PROJECT_DIR$/src/Presenter/Selection/Simple3DViewerWithSelection.java" />
+        <option value="$PROJECT_DIR$/src/Presenter/Selection/MouseHandler.java" />
+        <option value="C:/Program Files/Java/jdk1.8.0_60/src.zip!/java/util/List.java" />
+        <option value="$PROJECT_DIR$/src/GUI/DefaultPhongMaterials.java" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/src/Model/NucleotideRepresentation.java" />
+        <option value="$PROJECT_DIR$/src/Model/Nucleotides/INucleotide.java" />
+        <option value="$PROJECT_DIR$/src/Model/Nucleotides/Cytosin.java" />
+        <option value="$PROJECT_DIR$/src/Model/Nucleotides/Guanine.java" />
+        <option value="$PROJECT_DIR$/src/Model/Nucleotides/Adenine.java" />
+        <option value="$PROJECT_DIR$/src/Model/Nucleotides/Uracil.java" />
+        <option value="$PROJECT_DIR$/src/Model/Nucleotides/ANucleotide.java" />
+        <option value="$PROJECT_DIR$/src/Presenter/Selection/MySelectionModel.java" />
+        <option value="$PROJECT_DIR$/src/Presenter/Presenter.java" />
       </list>
     </option>
   </component>
@@ -257,7 +260,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -322,7 +324,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Model" />
+              <option name="myItemId" value="Presenter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Selection" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -341,10 +347,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Model" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PDBReader" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -412,6 +414,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
@@ -437,6 +440,7 @@
       <recent name="Controller" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Philipp\IdeaProjects\RNA Viewer 3000\src\Presenter" />
       <recent name="C:\Users\Philipp\IdeaProjects\RNA Viewer 3000\src\Model" />
       <recent name="C:\Users\Philipp\IdeaProjects\RNA Viewer 3000\src" />
       <recent name="C:\Users\Philipp\IdeaProjects\RNA Viewer 3000\src\GUI" />
@@ -451,6 +455,26 @@
         </pattern>
       </extension>
       <option name="MAIN_CLASS_NAME" value="GUI.App" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="RNA Viewer 3000" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Simple3DViewerWithSelection" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="Presenter.Selection.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="Presenter.Selection.Simple3DViewerWithSelection" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -742,13 +766,15 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
-    <list size="2">
+    <list size="3">
       <item index="0" class="java.lang.String" itemvalue="Application.Main" />
       <item index="1" class="java.lang.String" itemvalue="Application.App" />
+      <item index="2" class="java.lang.String" itemvalue="Application.Simple3DViewerWithSelection" />
     </list>
     <recent_temporary>
-      <list size="1">
+      <list size="2">
         <item index="0" class="java.lang.String" itemvalue="Application.App" />
+        <item index="1" class="java.lang.String" itemvalue="Application.Simple3DViewerWithSelection" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
@@ -777,7 +803,13 @@
       <option name="project" value="LOCAL" />
       <updated>1454517376378</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="CorrectPDB Parsing with magic numbers">
+      <created>1454521122509</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1454521122509</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -805,8 +837,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33128834" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297546" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.124603175" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297546" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2730159" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -824,6 +855,7 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297546" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -850,7 +882,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33128834" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297546" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4857143" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26904762" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297546" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -870,11 +902,12 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Basic 2dRepresentation with bad Layout" />
     <MESSAGE value="Improved 2dRepresentation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Improved 2dRepresentation" />
+    <MESSAGE value="CorrectPDB Parsing with magic numbers" />
+    <option name="LAST_COMMIT_MESSAGE" value="CorrectPDB Parsing with magic numbers" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="11" />
+      <option name="time" value="18" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -883,92 +916,22 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/GUI/App.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="48" selection-start-line="18" selection-start-column="48" selection-end-line="18" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/ProjectModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/PDBModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#extractRecordByNames#0;class#PDBModel#0" expanded="false" />
-            <element signature="e#8338#8339#0" expanded="true" />
-            <element signature="e#8368#8369#0" expanded="true" />
-            <element signature="e#8411#8412#0" expanded="true" />
-            <element signature="e#8446#8447#0" expanded="true" />
-            <element signature="e#8506#8507#0" expanded="true" />
-            <element signature="e#8554#8555#0" expanded="true" />
-            <element signature="e#8595#8596#0" expanded="true" />
-            <element signature="e#8628#8629#0" expanded="true" />
-            <element signature="e#8684#8685#0" expanded="true" />
-            <element signature="e#8728#8729#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/PDBReader/PDBReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="64" column="5" selection-start-line="64" selection-start-column="5" selection-end-line="64" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/AtomRecord.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Presenter/Presenter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="297" column="67" selection-start-line="297" selection-start-column="67" selection-end-line="297" selection-end-column="67" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#addMouseHanderToPane#0;class#Presenter#0" expanded="false" />
-            <element signature="method#addMouseHandlerTo2dPane#0;class#Presenter#0" expanded="false" />
-            <element signature="method#connectPhosphates#0;class#Presenter#0" expanded="false" />
-            <element signature="docComment;method#center#0;class#Presenter#0" expanded="false" />
-            <element signature="method#center#0;class#Presenter#0" expanded="false" />
-            <element signature="method#recolor3dNucleotides#0;class#Presenter#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GUI/DefaultPhongMaterials.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GUI/mainView.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Presenter/Controller.java">
@@ -999,18 +962,18 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
             <element signature="method#extractRecordByNames#0;class#PDBModel#0" expanded="false" />
-            <element signature="e#8338#8339#0" expanded="true" />
-            <element signature="e#8368#8369#0" expanded="true" />
-            <element signature="e#8411#8412#0" expanded="true" />
-            <element signature="e#8446#8447#0" expanded="true" />
-            <element signature="e#8506#8507#0" expanded="true" />
-            <element signature="e#8554#8555#0" expanded="true" />
-            <element signature="e#8595#8596#0" expanded="true" />
-            <element signature="e#8628#8629#0" expanded="true" />
-            <element signature="e#8684#8685#0" expanded="true" />
-            <element signature="e#8728#8729#0" expanded="true" />
+            <element signature="e#8338#8339#0" expanded="false" />
+            <element signature="e#8368#8369#0" expanded="false" />
+            <element signature="e#8411#8412#0" expanded="false" />
+            <element signature="e#8446#8447#0" expanded="false" />
+            <element signature="e#8506#8507#0" expanded="false" />
+            <element signature="e#8554#8555#0" expanded="false" />
+            <element signature="e#8595#8596#0" expanded="false" />
+            <element signature="e#8628#8629#0" expanded="false" />
+            <element signature="e#8684#8685#0" expanded="false" />
+            <element signature="e#8728#8729#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1026,9 +989,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1038,25 +998,22 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#addMouseHanderToPane#0;class#Presenter#0" expanded="false" />
-            <element signature="method#addMouseHandlerTo2dPane#0;class#Presenter#0" expanded="false" />
             <element signature="method#connectPhosphates#0;class#Presenter#0" expanded="false" />
             <element signature="docComment;method#center#0;class#Presenter#0" expanded="false" />
             <element signature="method#center#0;class#Presenter#0" expanded="false" />
-            <element signature="method#recolor3dNucleotides#0;class#Presenter#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GUI/mainView.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Presenter/Controller.java">
@@ -1078,13 +1035,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33169532">
           <caret line="1785" column="0" selection-start-line="1785" selection-start-column="0" selection-end-line="1786" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Selection/MouseHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1123,13 +1073,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/NucleotideRepresentation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27945206">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/Nucleotides/Phosphate.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1144,14 +1087,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/DefaultPhongMaterials.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43718594">
-          <caret line="17" column="86" selection-start-line="17" selection-start-column="78" selection-end-line="17" selection-end-column="86" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GUI/App.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6155779">
@@ -1159,38 +1094,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/MeshAnd3DObjectBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1281407">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding>
-            <element signature="method#makeFrontBackPentagon#0;class#MeshAnd3DObjectBuilder#0" expanded="false" />
-            <element signature="method#makeHexagon#0;class#MeshAnd3DObjectBuilder#0" expanded="false" />
-            <element signature="method#makePentagon#0;class#MeshAnd3DObjectBuilder#0" expanded="false" />
-            <element signature="docComment;method#createConnection#0;class#MeshAnd3DObjectBuilder#0" expanded="false" />
-            <element signature="method#createConnection#0;class#MeshAnd3DObjectBuilder#0" expanded="false" />
-            <element signature="e#4162#4222#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/BondInferenceAnd2D/NucleotideDefaultValues.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.625">
-          <caret line="19" column="89" selection-start-line="19" selection-start-column="89" selection-end-line="19" selection-end-column="89" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GUI/mainView.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.163636">
           <caret line="62" column="46" selection-start-line="62" selection-start-column="46" selection-end-line="62" selection-end-column="46" />
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Presenter/Controller.java">
@@ -1214,18 +1126,18 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="260" column="17" selection-start-line="260" selection-start-column="17" selection-end-line="260" selection-end-column="17" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
             <element signature="method#extractRecordByNames#0;class#PDBModel#0" expanded="false" />
-            <element signature="e#8338#8339#0" expanded="true" />
-            <element signature="e#8368#8369#0" expanded="true" />
-            <element signature="e#8411#8412#0" expanded="true" />
-            <element signature="e#8446#8447#0" expanded="true" />
-            <element signature="e#8506#8507#0" expanded="true" />
-            <element signature="e#8554#8555#0" expanded="true" />
-            <element signature="e#8595#8596#0" expanded="true" />
-            <element signature="e#8628#8629#0" expanded="true" />
-            <element signature="e#8684#8685#0" expanded="true" />
-            <element signature="e#8728#8729#0" expanded="true" />
+            <element signature="e#8338#8339#0" expanded="false" />
+            <element signature="e#8368#8369#0" expanded="false" />
+            <element signature="e#8411#8412#0" expanded="false" />
+            <element signature="e#8446#8447#0" expanded="false" />
+            <element signature="e#8506#8507#0" expanded="false" />
+            <element signature="e#8554#8555#0" expanded="false" />
+            <element signature="e#8595#8596#0" expanded="false" />
+            <element signature="e#8628#8629#0" expanded="false" />
+            <element signature="e#8684#8685#0" expanded="false" />
+            <element signature="e#8728#8729#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1241,91 +1153,181 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/BondInferenceAnd2D/SpringEmbedder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="136" column="23" selection-start-line="136" selection-start-column="23" selection-end-line="136" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Nucleotides/Uracil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46115288">
-          <caret line="35" column="26" selection-start-line="35" selection-start-column="21" selection-end-line="35" selection-end-column="26" />
-          <folding>
-            <element signature="e#850#851#0" expanded="true" />
-            <element signature="e#884#885#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Nucleotides/Guanine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
-          <caret line="33" column="25" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
-          <folding>
-            <element signature="e#854#855#0" expanded="true" />
-            <element signature="e#887#888#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Nucleotides/Cytosin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
-          <caret line="33" column="27" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="27" />
-          <folding>
-            <element signature="e#851#852#0" expanded="true" />
-            <element signature="e#886#887#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Nucleotides/Adenine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
-          <caret line="32" column="24" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#871#872#0" expanded="true" />
-            <element signature="e#903#904#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/BondInferenceAnd2D/Pos2d.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.8947368">
           <caret line="32" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/PDBReader/PDBReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.49633253">
+          <caret line="28" column="41" selection-start-line="28" selection-start-column="41" selection-end-line="28" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/PDBReader/PDBMagicNumberDefaults.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.1638142">
+          <caret line="28" column="8" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/ProjectModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="1.0687023">
           <caret line="56" column="87" selection-start-line="56" selection-start-column="87" selection-end-line="56" selection-end-column="87" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI/Circleand2DBuilder.java">
+    <entry file="file://$PROJECT_DIR$/src/Model/BondInferenceAnd2D/SpringEmbedder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.043256998">
+          <caret line="136" column="23" selection-start-line="136" selection-start-column="23" selection-end-line="136" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Presenter/Selection/Utilities.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.3308823">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Presenter/Selection/MouseHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.6666667">
+          <caret line="23" column="43" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_60/src.zip!/java/util/List.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="144" column="12" selection-start-line="144" selection-start-column="12" selection-end-line="144" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.114285715">
+          <caret line="4" column="36" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="36" />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Selection/MouseHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.042606518">
+          <caret line="26" column="7" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GUI/DefaultPhongMaterials.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="68" column="5" selection-start-line="68" selection-start-column="5" selection-end-line="68" selection-end-column="5" />
+          <caret line="25" column="93" selection-start-line="25" selection-start-column="93" selection-end-line="25" selection-end-column="93" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Presenter/Selection/Simple3DViewerWithSelection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.85213035">
+          <caret line="119" column="15" selection-start-line="119" selection-start-column="15" selection-end-line="119" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/AtomRecord.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.93734336">
+          <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/BondInferenceAnd2D/NucleotideDefaultValues.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6265664">
+          <caret line="19" column="89" selection-start-line="19" selection-start-column="89" selection-end-line="19" selection-end-column="89" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GUI/Circleand2DBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.21303259">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="method#generateCovalentEdges#0;class#Circleand2DBuilder#0" expanded="false" />
             <element signature="method#generateNonCovalentEdges#0;class#Circleand2DBuilder#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/NucleotideRepresentation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16346154">
+          <caret line="6" column="5" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Nucleotides/Adenine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="34" column="77" selection-start-line="34" selection-start-column="77" selection-end-line="34" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Nucleotides/Guanine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4551282">
+          <caret line="35" column="77" selection-start-line="35" selection-start-column="77" selection-end-line="35" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/Nucleotides/INucleotide.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+          <caret line="54" column="65" selection-start-line="54" selection-start-column="65" selection-end-line="54" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Nucleotides/Uracil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.50961536">
+          <caret line="94" column="74" selection-start-line="94" selection-start-column="74" selection-end-line="94" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GUI/MeshAnd3DObjectBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#makeFrontBackPentagon#0;class#MeshAnd3DObjectBuilder#0" expanded="false" />
+            <element signature="method#makeHexagon#0;class#MeshAnd3DObjectBuilder#0" expanded="false" />
+            <element signature="method#makePentagon#0;class#MeshAnd3DObjectBuilder#0" expanded="false" />
+            <element signature="docComment;method#createConnection#0;class#MeshAnd3DObjectBuilder#0" expanded="false" />
+            <element signature="method#createConnection#0;class#MeshAnd3DObjectBuilder#0" expanded="false" />
+            <element signature="e#4162#4222#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Nucleotides/Cytosin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.68108976">
+          <caret line="50" column="17" selection-start-line="50" selection-start-column="17" selection-end-line="50" selection-end-column="17" />
           <folding />
         </state>
       </provider>
@@ -1333,11 +1335,11 @@
     <entry file="file://$PROJECT_DIR$/src/Model/Nucleotides/ANucleotide.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="391" column="24" selection-start-line="391" selection-start-column="24" selection-end-line="391" selection-end-column="24" />
+          <caret line="49" column="93" selection-start-line="49" selection-start-column="93" selection-end-line="49" selection-end-column="93" />
           <folding>
-            <element signature="e#1620#1648#0" expanded="false" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#1668#1696#0" expanded="false" />
             <element signature="method#getPhosphateSphere#0;class#ANucleotide#0" expanded="false" />
-            <element signature="method#getPhosphateBonds#0;class#ANucleotide#0" expanded="false" />
             <element signature="method#getRiboseRepresentation#0;class#ANucleotide#0" expanded="false" />
             <element signature="method#isWCPair#0;class#ANucleotide#0" expanded="false" />
             <element signature="method#getHbondDonors#0;class#ANucleotide#0" expanded="false" />
@@ -1348,28 +1350,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/PDBReader/PDBReader.java">
+    <entry file="file://$PROJECT_DIR$/src/Presenter/Selection/MySelectionModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.49633253">
-          <caret line="28" column="41" selection-start-line="28" selection-start-column="41" selection-end-line="28" selection-end-column="41" />
-          <folding>
-            <element signature="method#groupIntoChains#0;class#PDBReader#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/PDBReader/PDBMagicNumberDefaults.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1638142">
-          <caret line="28" column="8" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/AtomRecord.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.215159">
-          <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="184" column="53" selection-start-line="184" selection-start-column="29" selection-end-line="184" selection-end-column="53" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1378,16 +1362,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Presenter/Presenter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.95">
-          <caret line="250" column="38" selection-start-line="250" selection-start-column="38" selection-end-line="250" selection-end-column="38" />
+        <state vertical-scroll-proportion="0.5263158">
+          <caret line="214" column="16" selection-start-line="214" selection-start-column="16" selection-end-line="214" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#addMouseHanderToPane#0;class#Presenter#0" expanded="false" />
-            <element signature="method#addMouseHandlerTo2dPane#0;class#Presenter#0" expanded="false" />
             <element signature="method#connectPhosphates#0;class#Presenter#0" expanded="false" />
             <element signature="docComment;method#center#0;class#Presenter#0" expanded="false" />
             <element signature="method#center#0;class#Presenter#0" expanded="false" />
-            <element signature="method#recolor3dNucleotides#0;class#Presenter#0" expanded="false" />
           </folding>
         </state>
       </provider>
