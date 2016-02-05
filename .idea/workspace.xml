@@ -2,18 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Presenter/Selection/MouseHandler.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Presenter/Selection/MySelectionModel.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GUI/DefaultPhongMaterials.java" afterPath="$PROJECT_DIR$/src/GUI/DefaultPhongMaterials.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/NucleotideRepresentation.java" afterPath="$PROJECT_DIR$/src/Model/NucleotideRepresentation.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/Nucleotides/ANucleotide.java" afterPath="$PROJECT_DIR$/src/Model/Nucleotides/ANucleotide.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/Nucleotides/Adenine.java" afterPath="$PROJECT_DIR$/src/Model/Nucleotides/Adenine.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/Nucleotides/Cytosin.java" afterPath="$PROJECT_DIR$/src/Model/Nucleotides/Cytosin.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/Nucleotides/Guanine.java" afterPath="$PROJECT_DIR$/src/Model/Nucleotides/Guanine.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/Nucleotides/INucleotide.java" afterPath="$PROJECT_DIR$/src/Model/Nucleotides/INucleotide.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/Nucleotides/Uracil.java" afterPath="$PROJECT_DIR$/src/Model/Nucleotides/Uracil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Presenter/Presenter.java" afterPath="$PROJECT_DIR$/src/Presenter/Presenter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Selection/MouseHandler.java" afterPath="$PROJECT_DIR$/src/Selection/MouseHandler.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -76,73 +67,12 @@
       <file leaf-file-name="Presenter.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Presenter/Presenter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5263158">
-              <caret line="214" column="16" selection-start-line="214" selection-start-column="16" selection-end-line="214" selection-end-column="16" />
+            <state vertical-scroll-proportion="0.6185819">
+              <caret line="280" column="14" selection-start-line="280" selection-start-column="14" selection-end-line="280" selection-end-column="14" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#connectPhosphates#0;class#Presenter#0" expanded="false" />
-                <element signature="docComment;method#center#0;class#Presenter#0" expanded="false" />
                 <element signature="method#center#0;class#Presenter#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MySelectionModel.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Presenter/Selection/MySelectionModel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="184" column="53" selection-start-line="184" selection-start-column="29" selection-end-line="184" selection-end-column="53" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MeshAnd3DObjectBuilder.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/GUI/MeshAnd3DObjectBuilder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#makeFrontBackPentagon#0;class#MeshAnd3DObjectBuilder#0" expanded="false" />
-                <element signature="method#makeHexagon#0;class#MeshAnd3DObjectBuilder#0" expanded="false" />
-                <element signature="method#makePentagon#0;class#MeshAnd3DObjectBuilder#0" expanded="false" />
-                <element signature="docComment;method#createConnection#0;class#MeshAnd3DObjectBuilder#0" expanded="false" />
-                <element signature="method#createConnection#0;class#MeshAnd3DObjectBuilder#0" expanded="false" />
-                <element signature="e#4162#4222#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="INucleotide.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/Nucleotides/INucleotide.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="54" column="65" selection-start-line="54" selection-start-column="65" selection-end-line="54" selection-end-column="65" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ANucleotide.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/Nucleotides/ANucleotide.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="49" column="93" selection-start-line="49" selection-start-column="93" selection-end-line="49" selection-end-column="93" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1668#1696#0" expanded="false" />
-                <element signature="method#getPhosphateSphere#0;class#ANucleotide#0" expanded="false" />
-                <element signature="method#getRiboseRepresentation#0;class#ANucleotide#0" expanded="false" />
-                <element signature="method#isWCPair#0;class#ANucleotide#0" expanded="false" />
-                <element signature="method#getHbondDonors#0;class#ANucleotide#0" expanded="false" />
-                <element signature="method#checkHasHBondDoAc#0;class#ANucleotide#0" expanded="false" />
-                <element signature="method#getHFromDonor#0;class#ANucleotide#0" expanded="false" />
-                <element signature="method#getKeyPairsToCheckForHBonds#0;class#ANucleotide#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -188,13 +118,11 @@
         <option value="$PROJECT_DIR$/src/Model/Nucleotides/Pos2d.java" />
         <option value="$PROJECT_DIR$/src/Model/Nucleotides/Ribose.java" />
         <option value="$PROJECT_DIR$/src/Model/Verifyer3d.java" />
-        <option value="$PROJECT_DIR$/src/Model/Nucleotides/Phosphate.java" />
         <option value="C:/Program Files/Java/jdk1.8.0_60/javafx-src.zip!/javafx/scene/shape/Shape3D.java" />
         <option value="$PROJECT_DIR$/src/Model/BondInference/HBondInferer.java" />
         <option value="$PROJECT_DIR$/src/Model/Nucleotides/NucleotideDefaultValues.java" />
         <option value="$PROJECT_DIR$/src/Model/BondInferenceAnd2D/SpringEmbedder.java" />
         <option value="$PROJECT_DIR$/src/GUI/App.java" />
-        <option value="$PROJECT_DIR$/src/GUI/MeshAnd3DObjectBuilder.java" />
         <option value="$PROJECT_DIR$/src/Model/PDBReader.java" />
         <option value="$PROJECT_DIR$/src/GUI/mainView.fxml" />
         <option value="$PROJECT_DIR$/src/Presenter/Controller.java" />
@@ -212,13 +140,15 @@
         <option value="$PROJECT_DIR$/src/GUI/DefaultPhongMaterials.java" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/Model/NucleotideRepresentation.java" />
+        <option value="$PROJECT_DIR$/src/Presenter/Selection/MySelectionModel.java" />
+        <option value="$PROJECT_DIR$/src/GUI/MeshAnd3DObjectBuilder.java" />
+        <option value="$PROJECT_DIR$/src/Model/Nucleotides/Uracil.java" />
+        <option value="$PROJECT_DIR$/src/Model/Nucleotides/ANucleotide.java" />
+        <option value="$PROJECT_DIR$/src/Model/Nucleotides/Phosphate.java" />
         <option value="$PROJECT_DIR$/src/Model/Nucleotides/INucleotide.java" />
         <option value="$PROJECT_DIR$/src/Model/Nucleotides/Cytosin.java" />
         <option value="$PROJECT_DIR$/src/Model/Nucleotides/Guanine.java" />
         <option value="$PROJECT_DIR$/src/Model/Nucleotides/Adenine.java" />
-        <option value="$PROJECT_DIR$/src/Model/Nucleotides/Uracil.java" />
-        <option value="$PROJECT_DIR$/src/Model/Nucleotides/ANucleotide.java" />
-        <option value="$PROJECT_DIR$/src/Presenter/Selection/MySelectionModel.java" />
         <option value="$PROJECT_DIR$/src/Presenter/Presenter.java" />
       </list>
     </option>
@@ -809,7 +739,19 @@
       <option name="project" value="LOCAL" />
       <updated>1454521122509</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Selection Model Implemented and ColorChange for Nucleotides improved">
+      <created>1454617847877</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1454617847877</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Nucleotide Representation Improved and Covalent bonds drawn">
+      <created>1454634446992</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1454634446992</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -838,6 +780,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297546" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2730159" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297546" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -855,7 +798,6 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297546" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -903,7 +845,9 @@
     <MESSAGE value="Basic 2dRepresentation with bad Layout" />
     <MESSAGE value="Improved 2dRepresentation" />
     <MESSAGE value="CorrectPDB Parsing with magic numbers" />
-    <option name="LAST_COMMIT_MESSAGE" value="CorrectPDB Parsing with magic numbers" />
+    <MESSAGE value="Selection Model Implemented and ColorChange for Nucleotides improved" />
+    <MESSAGE value="Nucleotide Representation Improved and Covalent bonds drawn" />
+    <option name="LAST_COMMIT_MESSAGE" value="Nucleotide Representation Improved and Covalent bonds drawn" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -920,6 +864,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -989,6 +934,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -999,7 +945,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#connectPhosphates#0;class#Presenter#0" expanded="false" />
-            <element signature="docComment;method#center#0;class#Presenter#0" expanded="false" />
             <element signature="method#center#0;class#Presenter#0" expanded="false" />
           </folding>
         </state>
@@ -1070,13 +1015,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="31" column="53" selection-start-line="31" selection-start-column="53" selection-end-line="31" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Nucleotides/Phosphate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="57" column="39" selection-start-line="57" selection-start-column="39" selection-end-line="57" selection-end-column="39" />
         </state>
       </provider>
     </entry>
@@ -1157,6 +1095,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.8947368">
           <caret line="32" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1186,6 +1125,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.043256998">
           <caret line="136" column="23" selection-start-line="136" selection-start-column="23" selection-end-line="136" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1200,6 +1140,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.6666667">
           <caret line="23" column="43" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="method#MouseHandler#1;class#MouseHandler#0" expanded="false" />
+            <element signature="e#2599#2600#0" expanded="false" />
+            <element signature="e#2643#2644#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1215,6 +1161,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.114285715">
           <caret line="4" column="36" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="36" />
+          <folding />
         </state>
       </provider>
       <provider editor-type-id="MarkdownPreviewEditor">
@@ -1225,6 +1172,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.042606518">
           <caret line="26" column="7" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="7" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1232,6 +1180,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="25" column="93" selection-start-line="25" selection-start-column="93" selection-end-line="25" selection-end-column="93" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1247,6 +1196,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.93734336">
           <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1254,6 +1204,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6265664">
           <caret line="19" column="89" selection-start-line="19" selection-start-column="89" selection-end-line="19" selection-end-column="89" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1276,69 +1227,77 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Nucleotides/Adenine.java">
+    <entry file="file://$PROJECT_DIR$/src/Presenter/Selection/MySelectionModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
-          <caret line="34" column="77" selection-start-line="34" selection-start-column="77" selection-end-line="34" selection-end-column="77" />
-          <folding />
+        <state vertical-scroll-proportion="0.59134614">
+          <caret line="184" column="53" selection-start-line="184" selection-start-column="29" selection-end-line="184" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Nucleotides/Guanine.java">
+    <entry file="file://$PROJECT_DIR$/src/Model/Nucleotides/Phosphate.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4551282">
-          <caret line="35" column="77" selection-start-line="35" selection-start-column="77" selection-end-line="35" selection-end-column="77" />
+        <state vertical-scroll-proportion="1.1804512">
+          <caret line="54" column="37" selection-start-line="54" selection-start-column="37" selection-end-line="54" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/Nucleotides/INucleotide.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="54" column="65" selection-start-line="54" selection-start-column="65" selection-end-line="54" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Nucleotides/Uracil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.50961536">
-          <caret line="94" column="74" selection-start-line="94" selection-start-column="74" selection-end-line="94" selection-end-column="74" />
+        <state vertical-scroll-proportion="0.48872182">
+          <caret line="36" column="23" selection-start-line="36" selection-start-column="23" selection-end-line="36" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GUI/MeshAnd3DObjectBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.52380955">
+          <caret line="24" column="45" selection-start-line="24" selection-start-column="45" selection-end-line="24" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#makeFrontBackPentagon#0;class#MeshAnd3DObjectBuilder#0" expanded="false" />
             <element signature="method#makeHexagon#0;class#MeshAnd3DObjectBuilder#0" expanded="false" />
-            <element signature="method#makePentagon#0;class#MeshAnd3DObjectBuilder#0" expanded="false" />
             <element signature="docComment;method#createConnection#0;class#MeshAnd3DObjectBuilder#0" expanded="false" />
-            <element signature="method#createConnection#0;class#MeshAnd3DObjectBuilder#0" expanded="false" />
-            <element signature="e#4162#4222#0" expanded="false" />
+            <element signature="e#4361#4421#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/Nucleotides/Cytosin.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.68108976">
-          <caret line="50" column="17" selection-start-line="50" selection-start-column="17" selection-end-line="50" selection-end-column="17" />
+        <state vertical-scroll-proportion="0.802005">
+          <caret line="101" column="5" selection-start-line="88" selection-start-column="4" selection-end-line="101" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Nucleotides/Guanine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9348371">
+          <caret line="117" column="5" selection-start-line="103" selection-start-column="4" selection-end-line="117" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Nucleotides/Uracil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5538847">
+          <caret line="82" column="5" selection-start-line="71" selection-start-column="4" selection-end-line="82" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/Nucleotides/ANucleotide.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="49" column="93" selection-start-line="49" selection-start-column="93" selection-end-line="49" selection-end-column="93" />
+        <state vertical-scroll-proportion="5.4736843">
+          <caret line="386" column="8" selection-start-line="386" selection-start-column="8" selection-end-line="386" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1668#1696#0" expanded="false" />
+            <element signature="e#1860#1888#0" expanded="false" />
             <element signature="method#getPhosphateSphere#0;class#ANucleotide#0" expanded="false" />
             <element signature="method#getRiboseRepresentation#0;class#ANucleotide#0" expanded="false" />
             <element signature="method#isWCPair#0;class#ANucleotide#0" expanded="false" />
@@ -1350,24 +1309,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Presenter/Selection/MySelectionModel.java">
+    <entry file="file://$PROJECT_DIR$/src/Model/Nucleotides/Adenine.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="184" column="53" selection-start-line="184" selection-start-column="29" selection-end-line="184" selection-end-column="53" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.97243106">
+          <caret line="108" column="128" selection-start-line="108" selection-start-column="128" selection-end-line="108" selection-end-column="128" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Presenter/Presenter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5263158">
-          <caret line="214" column="16" selection-start-line="214" selection-start-column="16" selection-end-line="214" selection-end-column="16" />
+        <state vertical-scroll-proportion="0.6185819">
+          <caret line="280" column="14" selection-start-line="280" selection-start-column="14" selection-end-line="280" selection-end-column="14" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#connectPhosphates#0;class#Presenter#0" expanded="false" />
-            <element signature="docComment;method#center#0;class#Presenter#0" expanded="false" />
             <element signature="method#center#0;class#Presenter#0" expanded="false" />
           </folding>
         </state>
