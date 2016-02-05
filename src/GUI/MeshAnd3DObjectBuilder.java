@@ -23,6 +23,7 @@ import java.util.HashMap;
 public class MeshAnd3DObjectBuilder {
     public static final int SCALE_FACTOR = 100;
     public static final int BOND_DIAMETER = 8;
+    public static final int HBOND_DIAMETER = 12;
     public static final int SPHERE_RADIUS = 15;
 
     public static Group makeFrontBackHexagon(AtomRecord[] hexlis, PhongMaterial mat){
@@ -107,6 +108,19 @@ public class MeshAnd3DObjectBuilder {
         return group;
     }
 
+    /**
+     * As HBonds are not covalent, they do not touch the Atoms directly
+     * @param origin
+     * @param target
+     * @return
+     */
+    public static Cylinder createHBondConnection(AtomRecord origin, AtomRecord target){
+        Cylinder bond = createConnection(origin,target);
+        bond.setMaterial(DefaultPhongMaterials.HBOND_MATERIAL);
+        bond.setRadius(HBOND_DIAMETER);
+        bond.setHeight(bond.getHeight()-60);
+        return bond;
+    }
 
     /**
      * from http://netzwerg.ch/blog/2015/03/22/javafx-3d-line/
@@ -117,7 +131,7 @@ public class MeshAnd3DObjectBuilder {
     public static Cylinder createConnection(AtomRecord origin, AtomRecord target) {
         //scaling factor
         if ((origin == null)||(target == null)){
-            System.out.println("Sorry one of our points is null");
+//            System.out.println("Sorry one of our points is null");
             return new Cylinder(0,0);
         }
         //System.out.println(origin.getId() + " " + target.getId());

@@ -26,6 +26,7 @@ public class Cytosin extends ANucleotide{
     }
 
 
+
     @Override
     public NucleotideClasses getNucleotideClass() {
         return NucleotideClasses.CYTOSIN;

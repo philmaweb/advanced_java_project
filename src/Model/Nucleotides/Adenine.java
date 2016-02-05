@@ -25,6 +25,7 @@ public class Adenine extends ANucleotide{
         checkHasHBondDoAc();
     }
 
+
     @Override
     public NucleotideClasses getNucleotideClass() {
         return NucleotideClasses.ADENINE;

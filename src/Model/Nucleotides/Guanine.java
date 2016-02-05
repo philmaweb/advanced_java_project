@@ -26,6 +26,7 @@ public class Guanine extends ANucleotide {
         checkHasHBondDoAc();
     }
 
+
     @Override
     public NucleotideClasses getNucleotideClass() {
         return NucleotideClasses.GUANINE;

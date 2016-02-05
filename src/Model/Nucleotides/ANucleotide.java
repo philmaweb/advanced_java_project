@@ -42,6 +42,7 @@ public abstract class ANucleotide implements INucleotide{
     private Group group3d;//3Groups: Phosphate, Ribose, Nucleobase, AtomsAndCovalentBonds, HBonds//TODO HBonds
     private Group nucleobase;
     private Group atomsAndCovalentBonds;
+    private Group hBonds;
     private Group group2d;//Node2d representation 3 circles with a Text on Top and installed Tooltip
 
     private boolean hasHBondDonorsAndAcceptors;
@@ -79,6 +80,17 @@ public abstract class ANucleotide implements INucleotide{
         matedNucleotide = nucleotide;
         //isPaired = true;
         setIsPaired(true);
+        //create HBond connection from Donor to acceptor
+        createHBondsDonorRepresentation();
+    }
+
+    protected void createHBondsDonorRepresentation() {
+        ArrayList<String[]> donors = getKeyPairsToCheckForHBonds();
+        for (String[] KeyPair: donors) {
+            AtomRecord hBondDonor = getHFromDonor(KeyPair[0]);
+            AtomRecord hBondAcceptor = matedNucleotide.getResidueMap().get(KeyPair[1]);
+            hBonds.getChildren().add(MeshAnd3DObjectBuilder.createHBondConnection(hBondDonor,hBondAcceptor));
+        }
     }
 
     @Override
@@ -121,7 +133,8 @@ public abstract class ANucleotide implements INucleotide{
         }
         this.atomsAndCovalentBonds = new Group(createAtomSpheres());
         createImportantConnections();
-        this.group3d = new Group(getPhosphateSphere(),ribose.getPresentation3d(),nucleobase,atomsAndCovalentBonds);
+        this.hBonds = new Group();
+        this.group3d = new Group(getPhosphateSphere(),ribose.getPresentation3d(),nucleobase,atomsAndCovalentBonds,hBonds);
     }
 
     private Group createAtomSpheres() {

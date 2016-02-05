@@ -14,6 +14,7 @@ import javafx.scene.paint.PhongMaterial;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Shape3D;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -27,8 +28,6 @@ public class Uracil extends ANucleotide{
         setDonorKeys(NucleotideDefaultValues.donatorKeysU);
         checkHasHBondDoAc();
     }
-
-
 
 
     @Override
