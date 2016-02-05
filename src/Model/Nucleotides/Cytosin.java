@@ -86,6 +86,21 @@ public class Cytosin extends ANucleotide{
         return cytosin;
     }
 
+    @Override
+    void createImportantConnections() {
+        Group connections = new Group();
+        connections.getChildren().add(MeshAnd3DObjectBuilder.createConnection(getResidueMap().get("C2"),getResidueMap().get("O2")));
+        connections.getChildren().add(MeshAnd3DObjectBuilder.createConnection(getResidueMap().get("C4"),getResidueMap().get("N4")));
+        connections.getChildren().add(MeshAnd3DObjectBuilder.createConnection(getResidueMap().get("N4"),getResidueMap().get("H41")));
+        connections.getChildren().add(MeshAnd3DObjectBuilder.createConnection(getResidueMap().get("N4"),getResidueMap().get("H42")));
+        connections.getChildren().add(MeshAnd3DObjectBuilder.createConnection(getResidueMap().get("C5"),getResidueMap().get("H5")));
+        connections.getChildren().add(MeshAnd3DObjectBuilder.createConnection(getResidueMap().get("C6"),getResidueMap().get("H6")));
+
+        connections.getChildren().add(MeshAnd3DObjectBuilder.createConnection(getResidueMap().get("N1"),getResidueMap().get("C1'")));
+
+        getAtomsAndCovalentBonds().getChildren().add(connections);
+    }
+
 
     @Override
     public boolean checkCoordsGiven() {

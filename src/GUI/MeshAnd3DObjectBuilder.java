@@ -13,6 +13,7 @@ import javafx.scene.shape.TriangleMesh;
 import javafx.scene.transform.Rotate;
 import javafx.scene.transform.Translate;
 
+import java.util.Collection;
 import java.util.HashMap;
 
 /**
@@ -20,6 +21,9 @@ import java.util.HashMap;
  * Builds meshes for 3drepresentation
  */
 public class MeshAnd3DObjectBuilder {
+    public static final int SCALE_FACTOR = 100;
+    public static final int BOND_DIAMETER = 8;
+    public static final int SPHERE_RADIUS = 15;
 
     public static Group makeFrontBackHexagon(AtomRecord[] hexlis, PhongMaterial mat){
         Group hexagons = makeHexagon(hexlis, mat);
@@ -78,9 +82,9 @@ public class MeshAnd3DObjectBuilder {
 
         float[] points = new float[3 * input.length];
         for (int i = 0; i < input.length; i++) {
-            points[3 * i] = (float) (input[i].getPoint3D().getX()) * 100;
-            points[3 * i + 1] = (float) (input[i].getPoint3D().getY()) * 100;
-            points[3 * i + 2] = (float) (input[i].getPoint3D().getZ()) * 100;
+            points[3 * i] = (float) (input[i].getPoint3D().getX()) * SCALE_FACTOR;
+            points[3 * i + 1] = (float) (input[i].getPoint3D().getY()) * SCALE_FACTOR;
+            points[3 * i + 2] = (float) (input[i].getPoint3D().getZ()) * SCALE_FACTOR;
         }
         float[] texCoords = {0, 0, 0, 1, 1, 1};
         int[] faces = new int[]{
@@ -118,14 +122,13 @@ public class MeshAnd3DObjectBuilder {
         }
         //System.out.println(origin.getId() + " " + target.getId());
         //System.out.println(origin.getPoint3D() + " " + target.getPoint3D());
-        int s = 100;
-        Point3D scaledOrigin = new Point3D(origin.getPoint3D().getX()*s,
-                origin.getPoint3D().getY()*s,
-                origin.getPoint3D().getZ()*s);
+        Point3D scaledOrigin = new Point3D(origin.getPoint3D().getX()*SCALE_FACTOR,
+                origin.getPoint3D().getY()*SCALE_FACTOR,
+                origin.getPoint3D().getZ()*SCALE_FACTOR);
 
-        Point3D scaledTarget = new Point3D(target.getPoint3D().getX()*s,
-                target.getPoint3D().getY()*s,
-                target.getPoint3D().getZ()*s);
+        Point3D scaledTarget = new Point3D(target.getPoint3D().getX()*SCALE_FACTOR,
+                target.getPoint3D().getY()*SCALE_FACTOR,
+                target.getPoint3D().getZ()*SCALE_FACTOR);
 
         Point3D yAxis = new Point3D(0, 1, 0);
         Point3D diff = scaledTarget.subtract(scaledOrigin);
@@ -138,29 +141,43 @@ public class MeshAnd3DObjectBuilder {
         double angle = Math.acos(diff.normalize().dotProduct(yAxis));
         Rotate rotateAroundCenter = new Rotate(-Math.toDegrees(angle), axisOfRotation);
 
-        Cylinder line = new Cylinder(12, height);
+        Cylinder line = new Cylinder(BOND_DIAMETER, height);
 
         line.getTransforms().addAll(moveToMidpoint, rotateAroundCenter);
 
-        String currentAtomType = target.getAtomType();
-        switch (currentAtomType) {
+        line.setMaterial(getMaterialByAtomType(target.getAtomType()));
+
+        return line;
+    }
+
+    public static Group createAtomsSpheres(Collection<AtomRecord> values) {
+        Group rv = new Group();
+        for (AtomRecord a: values) {
+            Sphere sphere = new Sphere(SPHERE_RADIUS);
+            sphere.setTranslateX(a.getPoint3D().getX()*SCALE_FACTOR);
+            sphere.setTranslateY(a.getPoint3D().getY()*SCALE_FACTOR);
+            sphere.setTranslateZ(a.getPoint3D().getZ()*SCALE_FACTOR);
+            sphere.setMaterial(getMaterialByAtomType(a.getAtomType()));
+            rv.getChildren().add(sphere);
+        }
+        return rv;
+    }
+
+    private static PhongMaterial getMaterialByAtomType(String s){
+        switch (s) {
             case "C": {
-                line.setMaterial(DefaultPhongMaterials.C_MATERIAL);
-                break;
+                return DefaultPhongMaterials.C_MATERIAL;
             }
             case "N": {
-                line.setMaterial(DefaultPhongMaterials.N_MATERIAL);
-                break;
+                return DefaultPhongMaterials.N_MATERIAL;
             }
             case "O": {
-                line.setMaterial(DefaultPhongMaterials.O_MATERIAL);
-                break;
+                return DefaultPhongMaterials.O_MATERIAL;
             }
             case "P": {
-                line.setMaterial(DefaultPhongMaterials.PHOSPHATE_MATERIAL);
-                break;
+                return DefaultPhongMaterials.PHOSPHATE_MATERIAL;
             }
         }
-        return line;
+        return new PhongMaterial();//White Phong Material for H
     }
 }

@@ -101,6 +101,22 @@ public class Guanine extends ANucleotide {
         return guanine;
     }
 
+    @Override
+    void createImportantConnections() {
+        Group connections = new Group();
+        connections.getChildren().add(MeshAnd3DObjectBuilder.createConnection(getResidueMap().get("N1"),getResidueMap().get("H1")));
+        connections.getChildren().add(MeshAnd3DObjectBuilder.createConnection(getResidueMap().get("C2"),getResidueMap().get("N2")));
+        connections.getChildren().add(MeshAnd3DObjectBuilder.createConnection(getResidueMap().get("N2"),getResidueMap().get("H21")));
+        connections.getChildren().add(MeshAnd3DObjectBuilder.createConnection(getResidueMap().get("N2"),getResidueMap().get("H22")));
+        connections.getChildren().add(MeshAnd3DObjectBuilder.createConnection(getResidueMap().get("C6"),getResidueMap().get("O6")));
+        connections.getChildren().add(MeshAnd3DObjectBuilder.createConnection(getResidueMap().get("C8"),getResidueMap().get("H8")));
+
+        connections.getChildren().add(MeshAnd3DObjectBuilder.createConnection(getResidueMap().get("N9"),getResidueMap().get("C1'")));
+
+
+        getAtomsAndCovalentBonds().getChildren().add(connections);
+    }
+
     @Override //Guanine Verification
     public boolean checkCoordsGiven() {
             String[] checkList = new String[]{"N1","C2","N3","C4","C5","C6","C1'","N7","C8","N9"};

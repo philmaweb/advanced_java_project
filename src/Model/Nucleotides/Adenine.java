@@ -98,6 +98,23 @@ public class Adenine extends ANucleotide{
         return adenine;
     }
 
+    @Override
+    void createImportantConnections() {
+        Group connections = new Group();
+        connections.getChildren().add(MeshAnd3DObjectBuilder.createConnection(getResidueMap().get("C2"),getResidueMap().get("H2")));
+        connections.getChildren().add(MeshAnd3DObjectBuilder.createConnection(getResidueMap().get("N2"),getResidueMap().get("H21")));
+        connections.getChildren().add(MeshAnd3DObjectBuilder.createConnection(getResidueMap().get("N2"),getResidueMap().get("H22")));
+        connections.getChildren().add(MeshAnd3DObjectBuilder.createConnection(getResidueMap().get("C6"),getResidueMap().get("N6")));
+        connections.getChildren().add(MeshAnd3DObjectBuilder.createConnection(getResidueMap().get("N6"),getResidueMap().get("H61")));
+        connections.getChildren().add(MeshAnd3DObjectBuilder.createConnection(getResidueMap().get("N6"),getResidueMap().get("H62")));
+        connections.getChildren().add(MeshAnd3DObjectBuilder.createConnection(getResidueMap().get("C8"),getResidueMap().get("H8")));
+
+        connections.getChildren().add(MeshAnd3DObjectBuilder.createConnection(getResidueMap().get("N9"),getResidueMap().get("C1'")));
+
+
+        getAtomsAndCovalentBonds().getChildren().add(connections);
+    }
+
 
     @Override
     public boolean checkCoordsGiven() {

@@ -34,7 +34,9 @@ public interface INucleotide {
     Group getPhosphateBonds();
     Group getRiboseRepresentation();
     Group getGroup3d();
+    Group getNucleobase();
     Group getGroup2d();
+
     NucleotideClasses getNucleotideClass();
     boolean isWCPair(INucleotide nucleotide);//return true if we have AU or GC
     boolean hasHBondDonorsAndAcceptors();

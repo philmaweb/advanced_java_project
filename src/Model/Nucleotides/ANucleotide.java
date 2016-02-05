@@ -2,6 +2,7 @@ package Model.Nucleotides;
 
 import GUI.Circleand2DBuilder;
 import GUI.DefaultPhongMaterials;
+import GUI.MeshAnd3DObjectBuilder;
 import Model.AtomRecord;
 import Model.BondInferenceAnd2D.Pos2d;
 import Model.PDBModel;
@@ -13,9 +14,11 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.PhongMaterial;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Shape3D;
+import javafx.scene.shape.Sphere;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Set;
 
 /**
  * Created by Philipp on 2016-01-30.
@@ -36,7 +39,9 @@ public abstract class ANucleotide implements INucleotide{
     private Ribose ribose;
     private Phosphate phosphate;
 
-    private Group group3d;//3Groups: Phosphate, Ribose, Nucleobase, //TODO Bonds
+    private Group group3d;//3Groups: Phosphate, Ribose, Nucleobase, AtomsAndCovalentBonds, HBonds//TODO HBonds
+    private Group nucleobase;
+    private Group atomsAndCovalentBonds;
     private Group group2d;//Node2d representation 3 circles with a Text on Top and installed Tooltip
 
     private boolean hasHBondDonorsAndAcceptors;
@@ -58,7 +63,6 @@ public abstract class ANucleotide implements INucleotide{
         this.residueNumber = residueMap.get(validKey).getIndexOfResidium();
         this.name = residueMap.get(validKey).getResidium() + " " + residueNumber;
         this.isPaired = new SimpleBooleanProperty(false);
-
         this.isSelected = new SimpleBooleanProperty(false);
         this.model = model;
         createStructureAndGroups();
@@ -107,7 +111,7 @@ public abstract class ANucleotide implements INucleotide{
 
 
     private void createStructureAndGroups() {
-        Group nucleobase3d = createNucleobase();
+        nucleobase = createNucleobase();
         boolean[] riboseAndphosphateComplete = checkBackboneGiven();
         if(riboseAndphosphateComplete[0]){
             this.ribose = new Ribose(residueMap);
@@ -115,8 +119,19 @@ public abstract class ANucleotide implements INucleotide{
         if (riboseAndphosphateComplete[1]){
             this.phosphate = new Phosphate(residueMap);
         }
-        this.group3d = new Group(getPhosphateSphere(),ribose.getPresentation3d(),nucleobase3d);
+        this.atomsAndCovalentBonds = new Group(createAtomSpheres());
+        createImportantConnections();
+        this.group3d = new Group(getPhosphateSphere(),ribose.getPresentation3d(),nucleobase,atomsAndCovalentBonds);
     }
+
+    private Group createAtomSpheres() {
+        return MeshAnd3DObjectBuilder.createAtomsSpheres(residueMap.values());
+    }
+
+    /**
+     * Ribose to Nucleobase and Atoms of Nucleobase that are not a Mesh
+     */
+    abstract void createImportantConnections();
 
 
     @Override
@@ -369,19 +384,23 @@ public abstract class ANucleotide implements INucleotide{
         if (getIsSelected()){
             mat = DefaultPhongMaterials.SELECTED_MATERIAL;
         }
-        Group group3d = getGroup3d();
-        for (Node node: group3d.getChildren()) {
-            Group nodeGroup = (Group) node;
-            for (Node nodeLevel2: nodeGroup.getChildren()) {
-                ((Shape3D) nodeLevel2).setMaterial(mat);
-            }
+        for (Node nodes: nucleobase.getChildren()) {
+                ((Shape3D) nodes).setMaterial(mat);
         }
         Group group2d = getGroup2d();
         for (Node node: group2d.getChildren()) {
-            Group nodeGroup = (Group) node;
-            ((Circle) nodeGroup.getChildren().get(1)).setFill(mat.getDiffuseColor());
-            ((Circle) nodeGroup.getChildren().get(2)).setFill(Color.WHITE);
+            Group node2Group = (Group) node;
+            ((Circle) node2Group.getChildren().get(1)).setFill(mat.getDiffuseColor());
+            ((Circle) node2Group.getChildren().get(2)).setFill(Color.WHITE);
         }
     }
 
+    public Group getAtomsAndCovalentBonds() {
+        return atomsAndCovalentBonds;
+    }
+
+    @Override
+    public Group getNucleobase() {
+        return nucleobase;
+    }
 }

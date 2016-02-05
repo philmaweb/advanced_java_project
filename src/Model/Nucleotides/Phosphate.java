@@ -49,10 +49,10 @@ public class Phosphate {
     private Group makePhosphateSphere(AtomRecord input){
         final Group group =  new Group();
         float[] point = new float[3];
-        point[0] = (float) (input.getPoint3D().getX()) * 100;
-        point[1] = (float) (input.getPoint3D().getY()) * 100;
-        point[2] = (float) (input.getPoint3D().getZ()) * 100;
-        Sphere sphere = new Sphere(125);
+        point[0] = (float) (input.getPoint3D().getX()) * MeshAnd3DObjectBuilder.SCALE_FACTOR;
+        point[1] = (float) (input.getPoint3D().getY()) * MeshAnd3DObjectBuilder.SCALE_FACTOR;
+        point[2] = (float) (input.getPoint3D().getZ()) * MeshAnd3DObjectBuilder.SCALE_FACTOR;
+        Sphere sphere = new Sphere(50);
         sphere.setTranslateX(point[0]);
         sphere.setTranslateY(point[1]);
         sphere.setTranslateZ(point[2]);

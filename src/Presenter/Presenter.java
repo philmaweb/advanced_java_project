@@ -247,6 +247,7 @@ public class Presenter {
         }
         System.out.println("Creating Phosphate connections");
         connectPhosphates();
+        createHBondConnections();
     }
 
 
@@ -276,6 +277,9 @@ public class Presenter {
         }
     }
 
+    private void createHBondConnections(){
+        //TODO
+    }
 
     /**
      * center around original

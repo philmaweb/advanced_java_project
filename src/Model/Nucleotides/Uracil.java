@@ -69,6 +69,19 @@ public class Uracil extends ANucleotide{
         return uracil;
     }
 
+    @Override
+    void createImportantConnections() {
+        Group connections = new Group();
+        connections.getChildren().add(MeshAnd3DObjectBuilder.createConnection(getResidueMap().get("N3"),getResidueMap().get("H3")));
+        connections.getChildren().add(MeshAnd3DObjectBuilder.createConnection(getResidueMap().get("C2"),getResidueMap().get("O2")));
+        connections.getChildren().add(MeshAnd3DObjectBuilder.createConnection(getResidueMap().get("C4"),getResidueMap().get("O4")));
+        connections.getChildren().add(MeshAnd3DObjectBuilder.createConnection(getResidueMap().get("C5"),getResidueMap().get("H5")));
+        connections.getChildren().add(MeshAnd3DObjectBuilder.createConnection(getResidueMap().get("C6"),getResidueMap().get("H6")));
+        connections.getChildren().add(MeshAnd3DObjectBuilder.createConnection(getResidueMap().get("N1"),getResidueMap().get("C1'")));
+
+        getAtomsAndCovalentBonds().getChildren().add(connections);
+    }
+
     /**
      * check if coords for drawing are included
      * @return
