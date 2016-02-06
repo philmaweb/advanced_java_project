@@ -76,6 +76,13 @@ public class Cytosin extends ANucleotide{
 
                 riboseConnection[0] = map.get("C1'");
                 riboseConnection[1] = map.get("N1");
+
+                //Add Atomsspheres
+                for (int i = 0; i < hexlis.length; i++) {
+                    AtomRecord ar = hexlis[i];
+                    getAtomsAndCovalentBonds().getChildren().add(MeshAnd3DObjectBuilder.createAtomSphere(ar));
+                }
+
                 cytosin = MeshAnd3DObjectBuilder.makeFrontBackHexagon(hexlis, DefaultPhongMaterials.CYTOSIN_MATERIAL);
                 Tooltip t = new Tooltip(hexlis[0].getResidium() + " " + hexlis[0].getIndexOfResidium());
                 Tooltip.install(cytosin, t);
@@ -98,6 +105,19 @@ public class Cytosin extends ANucleotide{
         connections.getChildren().add(MeshAnd3DObjectBuilder.createConnection(getResidueMap().get("C6"),getResidueMap().get("H6")));
 
         connections.getChildren().add(MeshAnd3DObjectBuilder.createConnection(getResidueMap().get("N1"),getResidueMap().get("C1'")));
+
+        connections.getChildren().add(MeshAnd3DObjectBuilder.createAtomSphere(getResidueMap().get("C2")));
+        connections.getChildren().add(MeshAnd3DObjectBuilder.createAtomSphere(getResidueMap().get("O2")));
+        connections.getChildren().add(MeshAnd3DObjectBuilder.createAtomSphere(getResidueMap().get("C4")));
+        connections.getChildren().add(MeshAnd3DObjectBuilder.createAtomSphere(getResidueMap().get("N4")));
+        connections.getChildren().add(MeshAnd3DObjectBuilder.createAtomSphere(getResidueMap().get("H41")));
+        connections.getChildren().add(MeshAnd3DObjectBuilder.createAtomSphere(getResidueMap().get("H42")));
+        connections.getChildren().add(MeshAnd3DObjectBuilder.createAtomSphere(getResidueMap().get("C5")));
+        connections.getChildren().add(MeshAnd3DObjectBuilder.createAtomSphere(getResidueMap().get("H5")));
+        connections.getChildren().add(MeshAnd3DObjectBuilder.createAtomSphere(getResidueMap().get("C6")));
+        connections.getChildren().add(MeshAnd3DObjectBuilder.createAtomSphere(getResidueMap().get("H6")));
+        connections.getChildren().add(MeshAnd3DObjectBuilder.createAtomSphere(getResidueMap().get("N1")));
+        connections.getChildren().add(MeshAnd3DObjectBuilder.createAtomSphere(getResidueMap().get("C1")));
 
         getAtomsAndCovalentBonds().getChildren().add(connections);
     }

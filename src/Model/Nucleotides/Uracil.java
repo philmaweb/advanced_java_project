@@ -57,13 +57,16 @@ public class Uracil extends ANucleotide{
 
             riboseConnection[0] = map.get("C1'");
             riboseConnection[1] = map.get("N1");
-            //System.out.println(hexlis + " " +  hexlis.size());
+
+            //Add Atomsspheres
+            for (int i = 0; i < hexlis.length; i++) {
+                AtomRecord ar = hexlis[i];
+                getAtomsAndCovalentBonds().getChildren().add(MeshAnd3DObjectBuilder.createAtomSphere(ar));
+            }
+
             uracil = MeshAnd3DObjectBuilder.makeFrontBackHexagon(hexlis, DefaultPhongMaterials.URACIL_MATERIAL);
-//            uracils3d.getChildren().add(uracil);
             Tooltip t = new Tooltip(hexlis[0].getResidium() + " " + hexlis[0].getIndexOfResidium());
             Tooltip.install(uracil, t);
-            //Also draw line to ribbose
-//            smallWorld3d.getChildren().add(createConnection(riboseConnection[0], riboseConnection[1]));
         }
         return uracil;
     }
@@ -71,12 +74,25 @@ public class Uracil extends ANucleotide{
     @Override
     void createImportantConnections() {
         Group connections = new Group();
-        connections.getChildren().add(MeshAnd3DObjectBuilder.createConnection(getResidueMap().get("N3"),getResidueMap().get("H3")));
         connections.getChildren().add(MeshAnd3DObjectBuilder.createConnection(getResidueMap().get("C2"),getResidueMap().get("O2")));
+        connections.getChildren().add(MeshAnd3DObjectBuilder.createConnection(getResidueMap().get("N3"),getResidueMap().get("H3")));
         connections.getChildren().add(MeshAnd3DObjectBuilder.createConnection(getResidueMap().get("C4"),getResidueMap().get("O4")));
         connections.getChildren().add(MeshAnd3DObjectBuilder.createConnection(getResidueMap().get("C5"),getResidueMap().get("H5")));
         connections.getChildren().add(MeshAnd3DObjectBuilder.createConnection(getResidueMap().get("C6"),getResidueMap().get("H6")));
         connections.getChildren().add(MeshAnd3DObjectBuilder.createConnection(getResidueMap().get("N1"),getResidueMap().get("C1'")));
+
+        connections.getChildren().add(MeshAnd3DObjectBuilder.createAtomSphere(getResidueMap().get("C2")));
+        connections.getChildren().add(MeshAnd3DObjectBuilder.createAtomSphere(getResidueMap().get("O2")));
+        connections.getChildren().add(MeshAnd3DObjectBuilder.createAtomSphere(getResidueMap().get("N3")));
+        connections.getChildren().add(MeshAnd3DObjectBuilder.createAtomSphere(getResidueMap().get("H3")));
+        connections.getChildren().add(MeshAnd3DObjectBuilder.createAtomSphere(getResidueMap().get("C4")));
+        connections.getChildren().add(MeshAnd3DObjectBuilder.createAtomSphere(getResidueMap().get("O4")));
+        connections.getChildren().add(MeshAnd3DObjectBuilder.createAtomSphere(getResidueMap().get("C5")));
+        connections.getChildren().add(MeshAnd3DObjectBuilder.createAtomSphere(getResidueMap().get("H5")));
+        connections.getChildren().add(MeshAnd3DObjectBuilder.createAtomSphere(getResidueMap().get("C6")));
+        connections.getChildren().add(MeshAnd3DObjectBuilder.createAtomSphere(getResidueMap().get("H6")));
+        connections.getChildren().add(MeshAnd3DObjectBuilder.createAtomSphere(getResidueMap().get("N1")));
+        connections.getChildren().add(MeshAnd3DObjectBuilder.createAtomSphere(getResidueMap().get("C1")));
 
         getAtomsAndCovalentBonds().getChildren().add(connections);
     }

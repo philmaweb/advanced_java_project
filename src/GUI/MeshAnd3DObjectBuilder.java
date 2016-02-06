@@ -167,14 +167,22 @@ public class MeshAnd3DObjectBuilder {
     public static Group createAtomsSpheres(Collection<AtomRecord> values) {
         Group rv = new Group();
         for (AtomRecord a: values) {
-            Sphere sphere = new Sphere(SPHERE_RADIUS);
-            sphere.setTranslateX(a.getPoint3D().getX()*SCALE_FACTOR);
-            sphere.setTranslateY(a.getPoint3D().getY()*SCALE_FACTOR);
-            sphere.setTranslateZ(a.getPoint3D().getZ()*SCALE_FACTOR);
-            sphere.setMaterial(getMaterialByAtomType(a.getAtomType()));
+            Sphere sphere = createAtomSphere(a);
             rv.getChildren().add(sphere);
         }
         return rv;
+    }
+
+    public static Sphere createAtomSphere(AtomRecord atomRecord){
+        if (null == atomRecord){
+            return new Sphere(0);
+        }
+        Sphere sphere = new Sphere(SPHERE_RADIUS);
+        sphere.setTranslateX(atomRecord.getPoint3D().getX()*SCALE_FACTOR);
+        sphere.setTranslateY(atomRecord.getPoint3D().getY()*SCALE_FACTOR);
+        sphere.setTranslateZ(atomRecord.getPoint3D().getZ()*SCALE_FACTOR);
+        sphere.setMaterial(getMaterialByAtomType(atomRecord.getAtomType()));
+        return sphere;
     }
 
     private static PhongMaterial getMaterialByAtomType(String s){

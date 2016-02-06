@@ -63,6 +63,10 @@ public abstract class ANucleotide implements INucleotide{
         this.residueMap = residueMap;
         this.residueNumber = residueMap.get(validKey).getIndexOfResidium();
         this.name = residueMap.get(validKey).getResidium() + " " + residueNumber;
+
+        this.atomsAndCovalentBonds = new Group();
+        this.hBonds = new Group();
+
         this.isPaired = new SimpleBooleanProperty(false);
         this.isSelected = new SimpleBooleanProperty(false);
         this.model = model;
@@ -131,14 +135,28 @@ public abstract class ANucleotide implements INucleotide{
         if (riboseAndphosphateComplete[1]){
             this.phosphate = new Phosphate(residueMap);
         }
-        this.atomsAndCovalentBonds = new Group(createAtomSpheres());
         createImportantConnections();
-        this.hBonds = new Group();
         this.group3d = new Group(getPhosphateSphere(),ribose.getPresentation3d(),nucleobase,atomsAndCovalentBonds,hBonds);
     }
 
+    /**
+     * create Atoms spheres for
+     *  Bridge Ribose Phosphate
+     *  Nucleobase
+     * @return
+     */
     private Group createAtomSpheres() {
-        return MeshAnd3DObjectBuilder.createAtomsSpheres(residueMap.values());
+        Group g = new Group();
+        /*ArrayList<AtomRecord> riboseAtoms = new ArrayList<>();
+        for (String s : ribose.getRiboseAtoms()) {
+            riboseAtoms.add(getResidueMap().get(s));
+        }
+
+        for (Node n : MeshAnd3DObjectBuilder.createAtomsSpheres(riboseAtoms).getChildren()){
+            g.getChildren().add(n);
+        }*/
+        return g;
+//        return MeshAnd3DObjectBuilder.createAtomsSpheres(residueMap.values());
     }
 
     /**

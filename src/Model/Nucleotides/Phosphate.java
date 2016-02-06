@@ -31,15 +31,18 @@ public class Phosphate {
         connectionList[2]=map.get("C5'");
         connectionList[3]=map.get("C4'");
         Group phosphate = makePhosphateSphere(map.get("P"));
-        //System.out.println("phosphates size" + phosphates.getChildren().size());
         Group bonds = new Group();
 
-        //phosphates3d.add(phosphate);
         //create Phosphate connections
         bonds.getChildren().add(MeshAnd3DObjectBuilder.createConnection(connectionList[0],connectionList[1]));
         bonds.getChildren().add(MeshAnd3DObjectBuilder.createConnection(connectionList[1],connectionList[2]));
         bonds.getChildren().add(MeshAnd3DObjectBuilder.createConnection(connectionList[2],connectionList[3]));
-        //System.out.println("phosphates size" + phosphates.getChildren().size());
+
+        //adding aroms speheres to bonds
+        for (int i = 0; i < connectionList.length; i++) {
+            bonds.getChildren().add(MeshAnd3DObjectBuilder.createAtomSphere(connectionList[i]));
+        }
+
         this.atomRecord = connectionList[0];
         this.presentation3d = phosphate;
         this.bonds = bonds;
