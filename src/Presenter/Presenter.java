@@ -1,6 +1,7 @@
 package Presenter;
 
 import GUI.Circleand2DBuilder;
+import GUI.Logger;
 import GUI.MeshAnd3DObjectBuilder;
 import Model.*;
 import Model.BondInferenceAnd2D.Graph;
@@ -9,6 +10,8 @@ import Model.Nucleotides.INucleotide;
 import Model.PDBReader.PDBReader;
 import Presenter.Selection.MouseHandler;
 import Presenter.Selection.MySelectionModel;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.geometry.Point3D;
 import javafx.scene.*;
 import javafx.scene.control.Alert;
@@ -52,7 +55,7 @@ public class Presenter {
 
     Pane stackPane;
     Pane pane2d;
-    TextArea logger;
+    Logger logger;
     Text selectedFileText;
     TextField sequenceTextField;
     TextField bracketTextField;
@@ -71,7 +74,7 @@ public class Presenter {
     public Presenter(
             Pane stackPane,
             Pane pane2d,
-            TextArea logger,
+            Logger logger,
             Text selectedFileText,
             TextField sequenceTextField,
             TextField bracketTextField
@@ -112,6 +115,10 @@ public class Presenter {
         bracketTextField.setFont(font);
         sequenceTextField.setFont(font);
 
+        logger.setFont(font);
+        logger.setEditable(false);
+        logger.setText("Welcome to RNA-Viewer 3000");
+
     }
 
 
@@ -137,6 +144,7 @@ public class Presenter {
         pane2d.getChildren().add(world2d);
 
 
+        //TODO add center function
         //initial good coords
         cameraTranslate.setZ(-3900);
         cameraRotateY.setAngle(-100);
@@ -145,7 +153,9 @@ public class Presenter {
         MouseHandler.addMouseHanderToPane(stackPane,cameraRotateX,cameraRotateY,cameraTranslate);
         MouseHandler.addMouseHandlerTo2dPane(pane2d,world2d);
 
-
+//        logger.textProperty().addListener((observable, oldValue, newValue) -> {
+//            logger.setScrollTop(Double.MAX_VALUE);
+//        });
     }
 
     private void addBindings(){
@@ -160,8 +170,8 @@ public class Presenter {
      * @param f
      */
     public void loadFile(File f){
-        this.clear();
         if (f != null){
+            this.clear();
             model.setPdbFileNameProperty(f.getName());
             PDBReader pdbReader = model.getPdbReader();
             try {
@@ -174,6 +184,7 @@ public class Presenter {
                 System.err.println(e.getCause() + "\n"+ e.getMessage());
                 System.exit(1);
             }
+            logger.append("Opened File " + f.getName());
             model.setPdbRepresentationFromList(pdbReader.getChains());
             createWorld();
         }
@@ -195,8 +206,7 @@ public class Presenter {
         pane2d.getChildren().clear();
         world2d.getChildren().clear();
         pane2d.getChildren().add(world2d);
-
-        System.out.println("Cleared");
+        logger.append("Cleared");
     }
 
     /**
@@ -223,7 +233,7 @@ public class Presenter {
     }
 
     public void construct3DView() {
-        System.out.println("adding chains from model");
+        logger.append("Creating 3d model");
         for (INucleotide n : model.getNucleotideList()) {
 //            AtomRecord firstEntry = map.entrySet().iterator().next().getValue();
 //            String residium = firstEntry.getResidium();
@@ -245,7 +255,7 @@ public class Presenter {
             phosphates3d.add(n.getPhosphateSphere());
             smallWorld3d.getChildren().addAll(n.getPhosphateBonds(),n.getRiboseRepresentation(),n.getPhosphateSphere());
         }
-        System.out.println("Creating Phosphate connections");
+        logger.append("Creating backbone");
         connectPhosphates();
     }
 
@@ -324,7 +334,7 @@ public class Presenter {
         int[][] edges = g.getEdges();
         int numberOfNodes = g.getNumberOfNodes();
         double[][] circleCoords = SpringEmbedder.computeSpringEmbedding(1,numberOfNodes,edges,null);
-        double[][] finalCoords = SpringEmbedder.computeSpringEmbedding(50,numberOfNodes,edges,null);
+        double[][] finalCoords = SpringEmbedder.computeSpringEmbedding(25,numberOfNodes,edges,null);
         int maxWidth = (int) (pane2d.getMaxWidth()-10);
         int maxHeight = (int) (pane2d.getMaxHeight()-10);
         SpringEmbedder.centerCoordinates(circleCoords,10, maxWidth ,10, maxHeight);
@@ -373,7 +383,6 @@ public class Presenter {
             world2d.getChildren().add(n.getGroup2d());
         }
     }
-
 
 
     //ALLERT to show Exception

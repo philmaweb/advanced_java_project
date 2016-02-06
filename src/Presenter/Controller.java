@@ -11,6 +11,7 @@ import javafx.stage.FileChooser;
 
 import java.io.File;
 import java.util.ArrayList;
+import GUI.Logger;
 
 /**
  * Created by Philipp on 2016-01-27.
@@ -44,7 +45,7 @@ public class Controller {
     private TextField bracketsTextfield;
 
     @FXML
-    private TextArea logger;
+    private Logger logger;
 
     @FXML
     private Text selectedFileText;
