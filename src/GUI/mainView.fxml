@@ -1,19 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.*?>
-<?import javafx.geometry.*?>
-<?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<?import GUI.Logger?>
 <TitledPane fx:id="rootPane" animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1200.0" style="-fx-background-color: yellow;" stylesheets="@style.css" text="RNA Viewer 3000" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presenter.Controller">
-  <content>
+   <content>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
          <children>
-            <SplitPane dividerPositions="0.5, 0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" AnchorPane.bottomAnchor="-10.0" AnchorPane.leftAnchor="-9.0" AnchorPane.rightAnchor="-9.0" AnchorPane.topAnchor="20.0">
+            <MenuBar fx:id="menuBar" layoutX="-1.0" layoutY="9.6" prefHeight="28.0" prefWidth="1024.0" AnchorPane.leftAnchor="-9.0" AnchorPane.rightAnchor="-9.0" AnchorPane.topAnchor="-10.0">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem fx:id="loadFileItem" mnemonicParsing="false" onAction="#loadFile" text="Load" />
+                    <MenuItem fx:id="clearFileItem" mnemonicParsing="false" onAction="#clearFile" text="Clear" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="View">
+                  <items>
+                    <MenuItem fx:id="coloringAGCUViewItem" mnemonicParsing="false" onAction="#changeToAGCUColoring" text="AGCU Coloring" />
+                    <MenuItem fx:id="coloringPurinePyrimidineViewItem" mnemonicParsing="false" onAction="#changeToPuPyColoring" text="Purine/Pyrimidine Coloring" />
+                    <MenuItem fx:id="coloringPairedViewItem" mnemonicParsing="false" onAction="#changeToPairedColoring" text="Paired Coloring" />
+                      <SeparatorMenuItem />
+                    <MenuItem fx:id="centerViewItem" mnemonicParsing="false" onAction="#centerView" text="Center View" />
+                        <SeparatorMenuItem />
+                        <MenuItem fx:id="bracketNucleotideViewItem" mnemonicParsing="false" onAction="#switchBracketNucleotide" text="Switch DotBracket / Nucleotide View" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <TextFlow fx:id="sequenceTextFlow" minHeight="25.0" minWidth="300.0" prefHeight="25.0" AnchorPane.leftAnchor="-9.0" AnchorPane.rightAnchor="-9.0" AnchorPane.topAnchor="20.0" />
+            <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" AnchorPane.bottomAnchor="-10.0" AnchorPane.leftAnchor="-9.0" AnchorPane.rightAnchor="-9.0" AnchorPane.topAnchor="45.0">
               <items>
                   <HBox prefHeight="415.0" prefWidth="640.0">
                      <children>
@@ -26,11 +51,11 @@
                                     <Text layoutX="124.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2D stuff" />
                                  </children>
                               </Pane>
-                              <Logger fx:id="logger" minHeight="100" prefHeight="100.0">
+                              <TextArea fx:id="logger" minHeight="100" prefHeight="100.0">
                                  <font>
                                     <Font name="Monospaced Regular" size="12.0" />
                                  </font>
-                              </Logger>
+                              </TextArea>
                           </items>
                         </SplitPane>
                         <Separator orientation="VERTICAL" prefHeight="340.0" prefWidth="0.0" />
@@ -41,7 +66,6 @@
                         </Pane>
                      </children>
                   </HBox>
-                  <TextField fx:id="sequenceTextField" alignment="BASELINE_LEFT" minWidth="300.0" />
                   <TextField fx:id="bracketsTextfield" alignment="BASELINE_LEFT" minWidth="300.0">
                      <font>
                         <Font name="Monospaced Regular" size="12.0" />
@@ -49,28 +73,7 @@
                   </TextField>
               </items>
             </SplitPane>
-            <MenuBar fx:id="menuBar" layoutX="-1.0" layoutY="9.6" prefHeight="28.0" prefWidth="1024.0" AnchorPane.leftAnchor="-9.0" AnchorPane.rightAnchor="-9.0" AnchorPane.topAnchor="-10.0">
-              <menus>
-                <Menu mnemonicParsing="false" text="File">
-                  <items>
-                    <MenuItem fx:id="loadFileItem" mnemonicParsing="false" onAction="#loadFile" text="Load" />
-                        <MenuItem fx:id="clearFileItem" mnemonicParsing="false" onAction="#clearFile" text="Clear" />
-                  </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="View">
-                  <items>
-                    <MenuItem fx:id="coloringAGCUViewItem" mnemonicParsing="false" onAction="#changeToAGCUColoring" text="AGCU Coloring" />
-                        <MenuItem fx:id="coloringPurinePyrimidineViewItem" mnemonicParsing="false" onAction="#changeToPuPyColoring" text="Purine/Pyrimidine Coloring" />
-                        <MenuItem fx:id="coloringPairedViewItem" mnemonicParsing="false" onAction="#changeToPairedColoring" text="Paired Coloring" />
-                  </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Help">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="About" />
-                  </items>
-                </Menu>
-              </menus>
-            </MenuBar>
-         </children></AnchorPane>
-  </content>
+         </children>
+      </AnchorPane>
+   </content>
 </TitledPane>

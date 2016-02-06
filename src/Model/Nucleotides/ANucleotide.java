@@ -3,6 +3,7 @@ package Model.Nucleotides;
 import GUI.Circleand2DBuilder;
 import GUI.DefaultPhongMaterials;
 import GUI.MeshAnd3DObjectBuilder;
+import GUI.NucleotideTextRepresentation;
 import Model.AtomRecord;
 import Model.BondInferenceAnd2D.Pos2d;
 import Model.PDBModel;
@@ -30,6 +31,8 @@ public abstract class ANucleotide implements INucleotide{
     private String name;
     private int residueNumber;
 
+    private NucleotideTextRepresentation nucleotideTextRepresentation;
+
     private Pos2d pos2DStart;//Start position in 2d representation
     private Pos2d pos2DEnd;//End position after animation
 
@@ -45,13 +48,14 @@ public abstract class ANucleotide implements INucleotide{
     private Group hBonds;
     private Group group2d;//Node2d representation 3 circles with a Text on Top and installed Tooltip
 
+
     private boolean hasHBondDonorsAndAcceptors;
     private ArrayList<String> acceptorKeys;
     private ArrayList<String> donorKeys;
 
     private BooleanProperty isSelected;
-
     private BooleanProperty isPaired;
+    private BooleanProperty isLeftBracket;
 
     private PDBModel model;//needs reference to Model to get current NucleotideRepresentation
 
@@ -69,6 +73,8 @@ public abstract class ANucleotide implements INucleotide{
 
         this.isPaired = new SimpleBooleanProperty(false);
         this.isSelected = new SimpleBooleanProperty(false);
+        this.isLeftBracket = new SimpleBooleanProperty(false);
+
         this.model = model;
         createStructureAndGroups();
     }
@@ -127,6 +133,11 @@ public abstract class ANucleotide implements INucleotide{
 
 
     private void createStructureAndGroups() {
+        nucleotideTextRepresentation = createNucleotideTextRepresentation();
+        nucleotideTextRepresentation.isSelectedProperty().bind(this.isSelectedProperty());
+        nucleotideTextRepresentation.isPairedProperty().bind(this.isPairedProperty());
+        nucleotideTextRepresentation.isLeftBracketProperty().bind(this.isLeftBracketProperty());
+        nucleotideTextRepresentation.isNucleotideRepresentationProperty().bind(model.isNucleotideOrBracketRepresentationProperty());
         nucleobase = createNucleobase();
         boolean[] riboseAndphosphateComplete = checkBackboneGiven();
         if(riboseAndphosphateComplete[0]){
@@ -139,25 +150,8 @@ public abstract class ANucleotide implements INucleotide{
         this.group3d = new Group(getPhosphateSphere(),ribose.getPresentation3d(),nucleobase,atomsAndCovalentBonds,hBonds);
     }
 
-    /**
-     * create Atoms spheres for
-     *  Bridge Ribose Phosphate
-     *  Nucleobase
-     * @return
-     */
-    private Group createAtomSpheres() {
-        Group g = new Group();
-        /*ArrayList<AtomRecord> riboseAtoms = new ArrayList<>();
-        for (String s : ribose.getRiboseAtoms()) {
-            riboseAtoms.add(getResidueMap().get(s));
-        }
+    protected abstract NucleotideTextRepresentation createNucleotideTextRepresentation();
 
-        for (Node n : MeshAnd3DObjectBuilder.createAtomsSpheres(riboseAtoms).getChildren()){
-            g.getChildren().add(n);
-        }*/
-        return g;
-//        return MeshAnd3DObjectBuilder.createAtomsSpheres(residueMap.values());
-    }
 
     /**
      * Ribose to Nucleobase and Atoms of Nucleobase that are not a Mesh
@@ -424,6 +418,7 @@ public abstract class ANucleotide implements INucleotide{
             ((Circle) node2Group.getChildren().get(1)).setFill(mat.getDiffuseColor());
             ((Circle) node2Group.getChildren().get(2)).setFill(Color.WHITE);
         }
+        nucleotideTextRepresentation.setFill(mat.getDiffuseColor());
     }
 
     public Group getAtomsAndCovalentBonds() {
@@ -433,5 +428,24 @@ public abstract class ANucleotide implements INucleotide{
     @Override
     public Group getNucleobase() {
         return nucleobase;
+    }
+
+    @Override
+    public NucleotideTextRepresentation getNucleotideTextRepresentation() {
+        return nucleotideTextRepresentation;
+    }
+
+    @Override
+    public boolean getIsLeftBracket() {
+        return isLeftBracket.get();
+    }
+
+    public BooleanProperty isLeftBracketProperty() {
+        return isLeftBracket;
+    }
+
+    @Override
+    public void setIsLeftBracket(boolean isLeftBracket) {
+        this.isLeftBracket.set(isLeftBracket);
     }
 }

@@ -2,6 +2,7 @@ package Model.Nucleotides;
 
 import GUI.DefaultPhongMaterials;
 import GUI.MeshAnd3DObjectBuilder;
+import GUI.NucleotideTextRepresentation;
 import Model.AtomRecord;
 import Model.BondInferenceAnd2D.NucleotideDefaultValues;
 import Model.NucleotideRepresentation;
@@ -92,6 +93,12 @@ public class Cytosin extends ANucleotide{
 //            smallWorld3d.getChildren().add(createConnection(riboseConnection[0],riboseConnection[1]));
             }
         return cytosin;
+    }
+
+    @Override
+    protected NucleotideTextRepresentation createNucleotideTextRepresentation() {
+        return new NucleotideTextRepresentation(this.getPositionInSequence(), NucleotideClasses.CYTOSIN);
+
     }
 
     @Override

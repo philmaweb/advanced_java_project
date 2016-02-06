@@ -2,6 +2,7 @@ package Model.Nucleotides;
 
 import GUI.DefaultPhongMaterials;
 import GUI.MeshAnd3DObjectBuilder;
+import GUI.NucleotideTextRepresentation;
 import Model.AtomRecord;
 import Model.BondInferenceAnd2D.NucleotideDefaultValues;
 import Model.NucleotideRepresentation;
@@ -105,6 +106,11 @@ public class Adenine extends ANucleotide{
             Tooltip.install(adenine, t);
         }
         return adenine;
+    }
+
+    @Override
+    protected NucleotideTextRepresentation createNucleotideTextRepresentation() {
+        return new NucleotideTextRepresentation(this.getPositionInSequence(), NucleotideClasses.ADENINE);
     }
 
     @Override

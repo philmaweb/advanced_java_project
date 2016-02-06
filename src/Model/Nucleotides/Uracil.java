@@ -2,6 +2,7 @@ package Model.Nucleotides;
 
 import GUI.DefaultPhongMaterials;
 import GUI.MeshAnd3DObjectBuilder;
+import GUI.NucleotideTextRepresentation;
 import Model.AtomRecord;
 import Model.BondInferenceAnd2D.NucleotideDefaultValues;
 import Model.NucleotideRepresentation;
@@ -69,6 +70,11 @@ public class Uracil extends ANucleotide{
             Tooltip.install(uracil, t);
         }
         return uracil;
+    }
+
+    @Override
+    protected NucleotideTextRepresentation createNucleotideTextRepresentation() {
+        return new NucleotideTextRepresentation(this.getPositionInSequence(), NucleotideClasses.URACIL);
     }
 
     @Override

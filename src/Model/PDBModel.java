@@ -26,6 +26,7 @@ public class PDBModel {
     private HashMap<Integer, AtomRecord> phosphorMap;
     private String pdbFileName;
     private NucleotideRepresentation currentNucleotideRepresentation;
+
     private Graph graph2d;
 
     private double[][] world2dStart;
@@ -34,6 +35,7 @@ public class PDBModel {
     private BooleanProperty isPairedViewProperty;
     private BooleanProperty isPuPyViewProperty;
     private BooleanProperty isAGCUViewProperty;
+    private BooleanProperty isNucleotideOrBracketRepresentation;
 
 
     public PDBModel() {
@@ -43,6 +45,8 @@ public class PDBModel {
         isPairedViewProperty = new SimpleBooleanProperty(currentNucleotideRepresentation.equals(NucleotideRepresentation.PAIRED),"isPairedViewProperty",false);
         isPuPyViewProperty = new SimpleBooleanProperty(currentNucleotideRepresentation.equals(NucleotideRepresentation.PURINE_PYRIMIDINE),"isPuPyViewProperty",false);
         isAGCUViewProperty = new SimpleBooleanProperty(currentNucleotideRepresentation.equals(NucleotideRepresentation.AGCU),"isAGCUViewProperty",true);
+        isNucleotideOrBracketRepresentation = new SimpleBooleanProperty(true);
+
         rNASequence = new SimpleStringProperty("");
         brackets = new SimpleStringProperty("");
     }
@@ -112,6 +116,7 @@ public class PDBModel {
                 //check if pair has smaller or bigger index
                 if(n.getPositionInSequence() < n.getPairMate().getPositionInSequence()){
                     rv += "(";
+                    n.setIsLeftBracket(true);
                 }
                 else{
                     rv += ")";
@@ -276,6 +281,18 @@ public class PDBModel {
 
     public void setWorld2dEnd(double[][] world2dEnd) {
         this.world2dEnd = world2dEnd;
+    }
+
+    public boolean getIsNucleotideOrBracketRepresentation() {
+        return isNucleotideOrBracketRepresentation.get();
+    }
+
+    public BooleanProperty isNucleotideOrBracketRepresentationProperty() {
+        return isNucleotideOrBracketRepresentation;
+    }
+
+    public void setIsNucleotideOrBracketRepresentation(boolean isNucleotideOrBracketRepresentation) {
+        this.isNucleotideOrBracketRepresentation.set(isNucleotideOrBracketRepresentation);
     }
 }
 

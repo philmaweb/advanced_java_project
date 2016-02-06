@@ -1,5 +1,6 @@
 package Model.Nucleotides;
 
+import GUI.NucleotideTextRepresentation;
 import Model.AtomRecord;
 import Model.BondInferenceAnd2D.Pos2d;
 import Model.NucleotideRepresentation;
@@ -39,8 +40,13 @@ public interface INucleotide {
 
     NucleotideClasses getNucleotideClass();
     boolean isWCPair(INucleotide nucleotide);//return true if we have AU or GC
+    void setIsLeftBracket(boolean isLeftBracket);//is true if the Nucleotide is a Left bracket
+    boolean getIsLeftBracket();//is true if the Nucleotide is a Left bracket
     boolean hasHBondDonorsAndAcceptors();
     void checkHasHBondDoAc();
+
+    NucleotideTextRepresentation getNucleotideTextRepresentation();
+
     ArrayList<AtomRecord> getHbondAcceptors();
     ArrayList<AtomRecord> getHbondDonors();
     AtomRecord getHFromDonor(String donorKey);//get the H Atom from the Donor, needed for distance and Angle calculation

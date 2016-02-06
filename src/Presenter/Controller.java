@@ -7,6 +7,7 @@ import javafx.scene.*;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 import javafx.stage.FileChooser;
 
 import java.io.File;
@@ -39,13 +40,22 @@ public class Controller {
     private MenuItem coloringPairedViewItem;
 
     @FXML
-    private TextField sequenceTextField;
+    private MenuItem centerViewItem;
+
+//    @FXML
+//    private TextField sequenceTextField;
+
+    @FXML
+    private TextFlow sequenceTextFlow;
 
     @FXML
     private TextField bracketsTextfield;
 
+//    @FXML
+//    private Logger logger;
+
     @FXML
-    private Logger logger;
+    private TextArea logger;
 
     @FXML
     private Text selectedFileText;
@@ -65,7 +75,8 @@ public class Controller {
     @FXML
     void initialize(){
         this.presenter = new Presenter(
-                stackPane,pane2d,logger,selectedFileText,sequenceTextField,bracketsTextfield
+//                stackPane,pane2d,logger,selectedFileText,sequenceTextField,bracketsTextfield
+                stackPane,pane2d,logger,selectedFileText,sequenceTextFlow,bracketsTextfield
         );
     }
 
@@ -102,6 +113,14 @@ public class Controller {
     @FXML
     void changeToPairedColoring(ActionEvent ev){
         changeColoring(NucleotideRepresentation.PAIRED);
+    }
+
+    @FXML
+    void centerView(ActionEvent ev){presenter.centerView();}
+
+    @FXML
+    void switchBracketNucleotide(ActionEvent ev){
+        presenter.changeNucleotideBracketView();
     }
 
     private void changeColoring(NucleotideRepresentation nR){

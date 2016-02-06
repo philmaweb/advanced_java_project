@@ -1,7 +1,6 @@
 package Presenter;
 
 import GUI.Circleand2DBuilder;
-import GUI.Logger;
 import GUI.MeshAnd3DObjectBuilder;
 import Model.*;
 import Model.BondInferenceAnd2D.Graph;
@@ -10,18 +9,19 @@ import Model.Nucleotides.INucleotide;
 import Model.PDBReader.PDBReader;
 import Presenter.Selection.MouseHandler;
 import Presenter.Selection.MySelectionModel;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.geometry.Point3D;
 import javafx.scene.*;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 import javafx.scene.transform.Rotate;
 import javafx.scene.transform.Translate;
+import javafx.stage.Stage;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -39,6 +39,9 @@ public class Presenter {
 
     private ProjectModel model;
     SubScene subScene3d;
+    Rotate cameraRotateX;
+    Rotate cameraRotateY;
+    Translate cameraTranslate;
 
     private Group world3d;
     private Group world2d;
@@ -55,9 +58,11 @@ public class Presenter {
 
     Pane stackPane;
     Pane pane2d;
-    Logger logger;
+//    Logger logger;
+    TextArea logger;
     Text selectedFileText;
-    TextField sequenceTextField;
+//    TextField sequenceTextField;
+    TextFlow sequenceTextFlow;
     TextField bracketTextField;
     MySelectionModel mySelectionModel;
 
@@ -68,15 +73,17 @@ public class Presenter {
      * @param pane2d
      * @param logger
      * @param selectedFileText
-     * @param sequenceTextField
+     * @param sequenceTextFlow
      * @param bracketTextField
      */
     public Presenter(
             Pane stackPane,
             Pane pane2d,
-            Logger logger,
+//            Logger logger,
+            TextArea logger,
             Text selectedFileText,
-            TextField sequenceTextField,
+//            TextField sequenceTextField,
+            TextFlow sequenceTextFlow,
             TextField bracketTextField
             ) {
 
@@ -86,7 +93,7 @@ public class Presenter {
         this.logger = logger;
         this.selectedFileText = selectedFileText;
         this.bracketTextField = bracketTextField;
-        this.sequenceTextField = sequenceTextField;
+        this.sequenceTextFlow= sequenceTextFlow;
 
 
         this.initVariables();
@@ -113,24 +120,23 @@ public class Presenter {
         //set font to beeing monospaced
         Font font = Font.font("Monospaced",12);
         bracketTextField.setFont(font);
-        sequenceTextField.setFont(font);
 
         logger.setFont(font);
         logger.setEditable(false);
         logger.setText("Welcome to RNA-Viewer 3000");
-
     }
 
 
     private void addListeners(){
 
         final PerspectiveCamera camera = new PerspectiveCamera(true);
-        camera.setNearClip(0.1);
+        camera.setNearClip(100);
         camera.setFarClip(100000.0);
 
-        final Rotate cameraRotateX = new Rotate(0, new Point3D(1, 0, 0));
-        final Rotate cameraRotateY = new Rotate(0, new Point3D(0, 1, 0));
-        final Translate cameraTranslate = new Translate(0, 0, -1000);
+        cameraRotateX = new Rotate(0, new Point3D(1, 0, 0));
+        cameraRotateY = new Rotate(0, new Point3D(0, 1, 0));
+        cameraTranslate = new Translate(0, 0, -1000);
+
         camera.getTransforms().addAll(cameraRotateX, cameraRotateY, cameraTranslate);
 
         subScene3d = new SubScene(world3d,stackPane.getWidth(),stackPane.getHeight()-200,true, SceneAntialiasing.BALANCED);
@@ -143,24 +149,17 @@ public class Presenter {
 
         pane2d.getChildren().add(world2d);
 
-
-        //TODO add center function
-        //initial good coords
-        cameraTranslate.setZ(-3900);
-        cameraRotateY.setAngle(-100);
-        cameraRotateX.setAngle(28);
+        //initial Zoom
+        cameraTranslate.setZ(-10000);
 
         MouseHandler.addMouseHanderToPane(stackPane,cameraRotateX,cameraRotateY,cameraTranslate);
         MouseHandler.addMouseHandlerTo2dPane(pane2d,world2d);
 
-//        logger.textProperty().addListener((observable, oldValue, newValue) -> {
-//            logger.setScrollTop(Double.MAX_VALUE);
-//        });
     }
 
     private void addBindings(){
         selectedFileText.textProperty().bind(model.pdbFileNamePropertyProperty());
-        sequenceTextField.textProperty().bind(model.rNASequenceProperty());
+//        sequenceTextField.textProperty().bind(model.rNASequenceProperty());
         bracketTextField.textProperty().bind(model.bracketsProperty());
     }
 
@@ -184,7 +183,7 @@ public class Presenter {
                 System.err.println(e.getCause() + "\n"+ e.getMessage());
                 System.exit(1);
             }
-            logger.append("Opened File " + f.getName());
+//            logger.append("Opened File " + f.getName());
             model.setPdbRepresentationFromList(pdbReader.getChains());
             createWorld();
         }
@@ -206,15 +205,17 @@ public class Presenter {
         pane2d.getChildren().clear();
         world2d.getChildren().clear();
         pane2d.getChildren().add(world2d);
-        logger.append("Cleared");
+        sequenceTextFlow.getChildren().clear();
+//        logger.append("Cleared");
     }
 
     /**
      * create 3D and 2D View, model should already be setup
      */
     private void createWorld(){
-        construct3DView();
+        construct1DView();
         construct2DView();
+        construct3DView();
         ArrayList<INucleotide> nucleotides = model.getNucleotideList();
         //add selection model
         mySelectionModel = new MySelectionModel(nucleotides);
@@ -229,14 +230,25 @@ public class Presenter {
                 NucleotideRepresentation nRepr = model.getCurrentNucleotideRepresentation();
                 mySelectionModel.handleClickEvent(e,index,n,nRepr);
             });
+            n.getNucleotideTextRepresentation().setOnMouseClicked((e)->{
+                NucleotideRepresentation nRepr = model.getCurrentNucleotideRepresentation();
+                mySelectionModel.handleClickEvent(e,index,n,nRepr);
+            });
+        }
+    }
+
+    private void construct1DView() {
+        for (INucleotide n: model.getNucleotideList()) {
+            this.sequenceTextFlow.getChildren().add(n.getNucleotideTextRepresentation());
         }
     }
 
     public void construct3DView() {
-        logger.append("Creating 3d model");
+//        logger.append("Creating 3d model");
         for (INucleotide n : model.getNucleotideList()) {
 //            AtomRecord firstEntry = map.entrySet().iterator().next().getValue();
 //            String residium = firstEntry.getResidium();
+            //TODO do I really stil need different groups?
             switch (n.getNucleotideClass()) {
                 case CYTOSIN:
                     cytosins3d.getChildren().add(n.getGroup3d());
@@ -255,16 +267,16 @@ public class Presenter {
             phosphates3d.add(n.getPhosphateSphere());
             smallWorld3d.getChildren().addAll(n.getPhosphateBonds(),n.getRiboseRepresentation(),n.getPhosphateSphere());
         }
-        logger.append("Creating backbone");
+//        logger.append("Creating backbone");
         connectPhosphates();
     }
 
-
-
+    /**
+     * connect phosphate backbone in order
+     * only creates connection if difference between indices is 1
+     */
     private void connectPhosphates(){
-        //connect two ps only if their index differs by one
         HashMap<Integer, AtomRecord> phosphorMap = model.getPhosphorMap();
-//        System.out.println("phosphorMap is " + phosphorMap);
         ArrayList<Integer> myList = new ArrayList<>(phosphorMap.keySet());
         Collections.sort(myList);
         Iterator iterator = myList.iterator();
@@ -284,34 +296,6 @@ public class Presenter {
                 a = b;
             }
         }
-    }
-
-
-
-    /**
-     * center around original
-     * //TODO
-     * @param points
-     */
-    public static ArrayList<Point3D> center(ArrayList<Point3D> points) {
-        ArrayList<Point3D> result=new ArrayList<>(points.size());
-        if (points.size() > 0) {
-            double[] center = {0, 0, 0};
-
-            for (Point3D point : points) {
-                center[0] += point.getX();
-                center[1] += point.getY();
-                center[2] += point.getZ();
-            }
-            center[0] /= points.size();
-            center[1] /= points.size();
-            center[2] /= points.size();
-
-            for (Point3D point : points) {
-                result.add(point.subtract(new Point3D(center[0], center[1], center[2])));
-            }
-        }
-        return result;
     }
 
 
@@ -385,6 +369,12 @@ public class Presenter {
     }
 
 
+    public void centerView() {
+        cameraTranslate.setZ(-10000);
+        cameraRotateX.setAngle(0);
+        cameraRotateY.setAngle(0);
+    }
+
     //ALLERT to show Exception
     private void showException(Exception e) {
         System.err.println(e.getCause());
@@ -392,4 +382,8 @@ public class Presenter {
         alert.showAndWait();
     }
 
+    public void changeNucleotideBracketView() {
+        boolean current = model.getIsNucleotideOrBracketRepresentation();
+        model.setIsNucleotideOrBracketRepresentation(!current);
+    }
 }

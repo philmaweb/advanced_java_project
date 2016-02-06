@@ -1,6 +1,7 @@
 package Model.PDBReader;
 
 import Model.AtomRecord;
+import javafx.geometry.Point3D;
 import jdk.nashorn.internal.objects.NativeRegExp;
 
 import java.io.BufferedReader;
@@ -44,6 +45,51 @@ public class PDBReader {
         }
         reader.close();
         groupIntoChains();
+        centerAtoms();
+    }
+
+    private void centerAtoms() {
+        ArrayList<Point3D> toCenter = new ArrayList<>();
+        for (ArrayList<AtomRecord> chain : chains){
+            for (AtomRecord atomRecord : chain){
+                toCenter.add(atomRecord.getPoint3D());
+            }
+        }
+
+        ArrayList<Point3D> centered = center(toCenter);
+
+        int i = 0;
+        for (ArrayList<AtomRecord> chain : chains){
+            for (AtomRecord atomRecord : chain){
+                atomRecord.setPoint3D(centered.get(i));
+                i++;
+            }
+        }
+    }
+
+    /**
+     * center around 0 0 0
+     * @param points
+     */
+    public static ArrayList<Point3D> center(ArrayList<Point3D> points) {
+        ArrayList<Point3D> result=new ArrayList<>(points.size());
+        if (points.size() > 0) {
+            double[] center = {0, 0, 0};
+
+            for (Point3D point : points) {
+                center[0] += point.getX();
+                center[1] += point.getY();
+                center[2] += point.getZ();
+            }
+            center[0] /= points.size();
+            center[1] /= points.size();
+            center[2] /= points.size();
+
+            for (Point3D point : points) {
+                result.add(point.subtract(new Point3D(center[0], center[1], center[2])));
+            }
+        }
+        return result;
     }
 
     private void groupIntoChains() {
