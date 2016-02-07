@@ -8,6 +8,7 @@ import javafx.scene.transform.Translate;
 /**
  * addes a mouse handler
  * Created by huson on 12/8/15.
+ * extended by philipp
  */
 public class MouseHandler {
     private double mouseDownX;
@@ -59,6 +60,11 @@ public class MouseHandler {
         });
     }
 
+    /**
+     * Mouse handler for 2d Pane
+     * @param pane
+     * @param group
+     */
     private MouseHandler(Pane pane, Group group){
         pane.setOnMousePressed((me) -> {
             mouseDownX = me.getSceneX();

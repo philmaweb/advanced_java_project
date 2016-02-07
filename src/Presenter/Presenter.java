@@ -1,11 +1,13 @@
 package Presenter;
 
 import GUI.*;
-import Model.*;
+import Model.AtomRecord;
 import Model.BondInferenceAnd2D.Graph;
 import Model.BondInferenceAnd2D.SpringEmbedder;
+import Model.NucleotideRepresentation;
 import Model.Nucleotides.INucleotide;
 import Model.PDBReader.PDBReader;
+import Model.ProjectModel;
 import Presenter.Selection.MouseHandler;
 import Presenter.Selection.MySelectionModel;
 import javafx.geometry.Point3D;
@@ -28,6 +30,7 @@ import java.util.Iterator;
 
 /**
  * Created by Philipp on 2016-01-25.
+ * Handles all Views and Groups, gets access to view from controler due to fxml
  */
 public class Presenter {
 
@@ -140,6 +143,9 @@ public class Presenter {
 
     }
 
+    /**
+        Add binding to text for file display in subsecene
+     */
     private void addBindings(){
         selectedFileText.textProperty().bind(model.pdbFileNamePropertyProperty());
     }
@@ -170,6 +176,9 @@ public class Presenter {
         }
     }
 
+    /**
+     * clear the panes and groups, called whenever a file is successfully selected
+     */
     public void clear(){
         phosphates3d.clear();
         riboses3d.clear();
@@ -323,7 +332,6 @@ public class Presenter {
         //add Nodes in the end to place them on Top
         addNodes();
     }
-
 
     private void showFinalGraph() {
         draw2dWorld(model.getWorld2dEnd());

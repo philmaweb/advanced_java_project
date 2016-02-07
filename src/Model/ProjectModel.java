@@ -11,6 +11,7 @@ import java.util.ArrayList;
 /**
  * Created by Philipp on 2016-01-21.
  * holds PDB representation and creates 2d model
+ * extends PDBModel, where the magic happens
  */
 public class ProjectModel extends PDBModel {
 
@@ -29,14 +30,6 @@ public class ProjectModel extends PDBModel {
         return pdbReader;
     }
 
-    public void setPdbReader(PDBReader pdbReader) {
-        this.pdbReader = pdbReader;
-    }
-
-    public String getPdbFileNameProperty() {
-        return pdbFileNameProperty.get();
-    }
-
     public StringProperty pdbFileNamePropertyProperty() {
         return pdbFileNameProperty;
     }
@@ -52,9 +45,8 @@ public class ProjectModel extends PDBModel {
         ArrayList<INucleotide> nucleotides = getNucleotideList();
         for (int i = 0; i < nucleotides.size(); i++) {
             INucleotide currentN = nucleotides.get(i);
-            Pos2d start = new Pos2d(circleCoords[i][0],circleCoords[i][1]);
             Pos2d end = new Pos2d(finalCoords[i][0],finalCoords[i][1]);
-            currentN.setUp2dCoords(start,end);//automatically creates 2d representation
+            currentN.setUp2dCoords(end);//automatically creates 2d representation
         }
     }
 

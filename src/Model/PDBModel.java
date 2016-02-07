@@ -11,7 +11,6 @@ import javafx.beans.property.StringProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
 
 /**
@@ -32,9 +31,6 @@ public class PDBModel {
     private double[][] world2dStart;
     private double[][] world2dEnd;
 
-    private BooleanProperty isPairedViewProperty;
-    private BooleanProperty isPuPyViewProperty;
-    private BooleanProperty isAGCUViewProperty;
     private BooleanProperty isNucleotideOrBracketRepresentation;
 
 
@@ -42,9 +38,6 @@ public class PDBModel {
         this.nucleotideList = new ArrayList<>();
         currentNucleotideRepresentation = NucleotideRepresentation.AGCU;
         this.graph2d = new Graph();
-        isPairedViewProperty = new SimpleBooleanProperty(currentNucleotideRepresentation.equals(NucleotideRepresentation.PAIRED),"isPairedViewProperty",false);
-        isPuPyViewProperty = new SimpleBooleanProperty(currentNucleotideRepresentation.equals(NucleotideRepresentation.PURINE_PYRIMIDINE),"isPuPyViewProperty",false);
-        isAGCUViewProperty = new SimpleBooleanProperty(currentNucleotideRepresentation.equals(NucleotideRepresentation.AGCU),"isAGCUViewProperty",true);
         isNucleotideOrBracketRepresentation = new SimpleBooleanProperty(true);
 
         rNASequence = new SimpleStringProperty("");
@@ -146,20 +139,17 @@ public class PDBModel {
      * sorts nucleotideList by residue number
      */
     private void sortNucleotides() {
-        Collections.sort(nucleotideList, new Comparator<INucleotide>() {
-            @Override
-            public int compare(INucleotide o1, INucleotide o2) {
-                //a negative integer, zero, or a positive integer as the first argument is less than, equal to, or greater than the second
-                int n1 = o1.getResidueNumber();
-                int n2 = o2.getResidueNumber();
-                if (n1 < n2){
-                    return -1;
-                }
-                if(n2 < n1){
-                    return 1;
-                }
-                return 0;
+        Collections.sort(nucleotideList, (o1, o2) -> {
+            //a negative integer, zero, or a positive integer as the first argument is less than, equal to, or greater than the second
+            int n1 = o1.getResidueNumber();
+            int n2 = o2.getResidueNumber();
+            if (n1 < n2){
+                return -1;
             }
+            if(n2 < n1){
+                return 1;
+            }
+            return 0;
         });
     }
 
@@ -178,14 +168,9 @@ public class PDBModel {
         setNucleotideList(pdbRepr);
     }
 
-    public String getPdbFileName() {
-        return pdbFileName;
-    }
-
     public void setPdbFileName(String pdbFileName) {
         this.pdbFileName = pdbFileName;
     }
-
 
     public NucleotideRepresentation getCurrentNucleotideRepresentation() {
         return currentNucleotideRepresentation;
@@ -203,60 +188,8 @@ public class PDBModel {
         this.phosphorMap = phosphorMap;
     }
 
-    public boolean getIsPairedViewProperty() {
-        return isPairedViewProperty.get();
-    }
-
-    public BooleanProperty isPairedViewPropertyProperty() {
-        return isPairedViewProperty;
-    }
-
-    public void setIsPairedViewProperty(boolean isPairedViewProperty) {
-        this.isPairedViewProperty.set(isPairedViewProperty);
-    }
-
-    public boolean getIsPuPyViewProperty() {
-        return isPuPyViewProperty.get();
-    }
-
-    public BooleanProperty isPuPyViewPropertyProperty() {
-        return isPuPyViewProperty;
-    }
-
-    public void setIsPuPyViewProperty(boolean isPuPyViewProperty) {
-        this.isPuPyViewProperty.set(isPuPyViewProperty);
-    }
-
-    public boolean getIsAGCUViewProperty() {
-        return isAGCUViewProperty.get();
-    }
-
-    public BooleanProperty isAGCUViewPropertyProperty() {
-        return isAGCUViewProperty;
-    }
-
-    public void setIsAGCUViewProperty(boolean isAGCUViewProperty) {
-        this.isAGCUViewProperty.set(isAGCUViewProperty);
-    }
-
-    public String getrNASequence() {
-        return rNASequence.get();
-    }
-
-    public StringProperty rNASequenceProperty() {
-        return rNASequence;
-    }
-
     public void setrNASequence(String rNASequence) {
         this.rNASequence.set(rNASequence);
-    }
-
-    public String getBrackets() {
-        return brackets.get();
-    }
-
-    public StringProperty bracketsProperty() {
-        return brackets;
     }
 
     public void setBrackets(String brackets) {
@@ -265,10 +198,6 @@ public class PDBModel {
 
     public Graph getGraph2d() {
         return graph2d;
-    }
-
-    public double[][] getWorld2dStart() {
-        return world2dStart;
     }
 
     public void setWorld2dStart(double[][] world2dStart) {

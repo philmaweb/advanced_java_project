@@ -16,6 +16,7 @@ import java.util.HashMap;
 
 /**
  * Created by Philipp on 2016-01-30.
+ * Cytosin Nucleotide class
  */
 public class Cytosin extends ANucleotide{
 

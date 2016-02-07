@@ -26,6 +26,8 @@ public class PDBMagicNumberDefaults {
         61 - 66        Real(6.2)     tempFactor   Temperature  factor.
         77 - 78        LString(2)    element      Element symbol, right-justified.
         79 - 80        LString(2)    charge       Charge  on the atom.
+
+        example:
         ATOM      1  P   C   A  13     -11.658 -10.243   4.892  1.00  1.68           P
          */
     public static final int idStart = 6;

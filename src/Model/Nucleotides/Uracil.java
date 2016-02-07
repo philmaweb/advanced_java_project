@@ -20,6 +20,7 @@ import java.util.HashMap;
 
 /**
  * Created by Philipp on 2016-01-30.
+ * Uracil Nucleotide class
  */
 public class Uracil extends ANucleotide{
 

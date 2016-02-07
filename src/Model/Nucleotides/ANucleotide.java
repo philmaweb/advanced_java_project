@@ -24,6 +24,7 @@ import java.util.Set;
 /**
  * Created by Philipp on 2016-01-30.
  * abstract class for Nucleotides
+ * Holds all fnctions that are neccessarry for all Nucleotides
  */
 public abstract class ANucleotide implements INucleotide{
 
@@ -42,7 +43,7 @@ public abstract class ANucleotide implements INucleotide{
     private Ribose ribose;
     private Phosphate phosphate;
 
-    private Group group3d;//3Groups: Phosphate, Ribose, Nucleobase, AtomsAndCovalentBonds, HBonds//TODO HBonds
+    private Group group3d;//3Groups: Phosphate, Ribose, Nucleobase, AtomsAndCovalentBonds, HBonds
     private Group nucleobase;
     private Group atomsAndCovalentBonds;
     private Group hBonds;
@@ -130,6 +131,12 @@ public abstract class ANucleotide implements INucleotide{
 
     //will be implemented in the NUcleotide classes
     abstract Group createNucleobase();
+    protected abstract NucleotideTextRepresentation createNucleotideTextRepresentation();
+
+    /**
+     * Ribose to Nucleobase and Atoms of Nucleobase that are not a Mesh
+     */
+    abstract void createImportantConnections();
 
 
     private void createStructureAndGroups() {
@@ -150,15 +157,8 @@ public abstract class ANucleotide implements INucleotide{
         this.group3d = new Group(getPhosphateSphere(),ribose.getPresentation3d(),nucleobase,atomsAndCovalentBonds,hBonds);
     }
 
-    protected abstract NucleotideTextRepresentation createNucleotideTextRepresentation();
 
-
-    /**
-     * Ribose to Nucleobase and Atoms of Nucleobase that are not a Mesh
-     */
-    abstract void createImportantConnections();
-
-
+    //needed for Backbone creation
     @Override
     public Group getPhosphateSphere() {
         if (null == getPhosphate()){
@@ -167,6 +167,7 @@ public abstract class ANucleotide implements INucleotide{
         return getPhosphate().getPresentation3d();
     }
 
+    //needed for Backbone creation
     @Override
     public Group getPhosphateBonds() {
         if (null == getPhosphate()){
@@ -305,7 +306,7 @@ public abstract class ANucleotide implements INucleotide{
     /**
      * Only returns Pair which is composed of
      * this ones donor and the other ones acceptor
-     * even positions is the DonorKey, odd acceptor Key of complementary nucleotide
+     * String[0] is the DonorKey, String[1] is acceptor Key of complementary nucleotide
      * @return
      */
     @Override
@@ -347,18 +348,12 @@ public abstract class ANucleotide implements INucleotide{
     }
 
     @Override
-    public void setPosition2DStart(Pos2d pos) {
-        this.pos2DStart = pos;
-    }
-
-    @Override
     public void setPosition2DEnd(Pos2d pos) {
         this.pos2DEnd = pos;
     }
 
     @Override
-    public void setUp2dCoords(Pos2d pos1, Pos2d pos2){
-        setPosition2DStart(pos1);
+    public void setUp2dCoords(Pos2d pos2){
         setPosition2DEnd(pos2);
         this.group2d = new Group(Circleand2DBuilder.generateNodeRepresentation(this));
     }

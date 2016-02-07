@@ -2,7 +2,6 @@ package Model;
 
 import Model.PDBReader.PDBMagicNumberDefaults;
 import javafx.geometry.Point3D;
-import javafx.scene.transform.Translate;
 
 /**
  * Created by Philipp on 2015-12-14.
@@ -49,8 +48,6 @@ public class AtomRecord {
         this.atomType = line.substring(PDBMagicNumberDefaults.atomTypeStart,PDBMagicNumberDefaults.atomTypeEnd).trim();
     }
 
-
-
     /**
      * get Distance from other Atom
      * @param target
@@ -73,52 +70,16 @@ public class AtomRecord {
     }
 
     //GETTER AND SETTER
-    public String getAtom() {
-        return atom;
-    }
-
-    public void setAtom(String atom) {
-        this.atom = atom;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getResidium() {
         return residium;
     }
 
-    public void setResidium(String residium) {
-        this.residium = residium;
-    }
-
-    public String getChain() {
-        return chain;
-    }
-
-    public void setChain(String chain) {
-        this.chain = chain;
-    }
-
     public int getIndexOfResidium() {
         return indexOfResidium;
-    }
-
-    public void setIndexOfResidium(int indexOfResidium) {
-        this.indexOfResidium = indexOfResidium;
     }
 
     public Point3D getPoint3D() {
@@ -129,20 +90,8 @@ public class AtomRecord {
         this.point3D = point3D;
     }
 
-    public String getBetaColumn() {
-        return betaColumn;
-    }
-
-    public void setBetaColumn(String betaColumn) {
-        this.betaColumn = betaColumn;
-    }
-
     public String getAtomType() {
         return atomType;
-    }
-
-    public void setAtomType(String atomType) {
-        this.atomType = atomType;
     }
 
 }

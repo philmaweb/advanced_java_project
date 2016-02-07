@@ -19,7 +19,8 @@ public class HBondInferer {
     double minAngle;
 
     public HBondInferer(ArrayList<INucleotide> nucleotideList){
-        this.maxDistance = 4.0;
+        //pessimistic distance and angles, probably structures wont be perfect
+        this.maxDistance = 3.5;
         this.minDistance = 1.0;
         this.minAngle = 130.0;
         inferPairs(nucleotideList);
@@ -74,11 +75,10 @@ public class HBondInferer {
         return rv;
     }
 
-
+    /**
+     * Should make it easier to calculate and not lose track of all the variables
+     */
     public class HBondCalculationHandler{
-        /**
-         * Should make it easier to calculate and not lose track of all the variables
-         */
         private INucleotide a;
         private INucleotide b;
         private HashMap<String, AtomRecord> residueMapA;

@@ -1,6 +1,5 @@
 package GUI;
 
-import Model.NucleotideRepresentation;
 import Model.Nucleotides.INucleotide;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
@@ -15,6 +14,8 @@ import javafx.scene.text.Text;
 /**
  * Created by Philipp on 2016-02-06.
  * Represents a single selectable Nucleotide in 1D
+ * For Nucleotide representation can be AUGC or -
+ * For DotBracket representation can be .-()
  */
 public class NucleotideTextRepresentation extends Text {
 
@@ -34,6 +35,7 @@ public class NucleotideTextRepresentation extends Text {
 
         this.isSelected = new SimpleBooleanProperty(false);
         this.isPaired = new SimpleBooleanProperty(false);
+        //Will be bound in a Nucleotide class, gaps dont get a change
         this.isNucleotideRepresentation= new SimpleBooleanProperty(true);
         this.isLeftBracket= new SimpleBooleanProperty(false);
         inferLetterAndColor();
@@ -80,17 +82,8 @@ public class NucleotideTextRepresentation extends Text {
         }
     }
 
-
-    public boolean getIsSelected() {
-        return isSelected.get();
-    }
-
     public BooleanProperty isSelectedProperty() {
         return isSelected;
-    }
-
-    public void setIsSelected(boolean isSelected) {
-        this.isSelected.set(isSelected);
     }
 
     private void switchNucleotideDotBracket(){
@@ -114,40 +107,16 @@ public class NucleotideTextRepresentation extends Text {
         }
     }
 
-    public boolean getIsPaired() {
-        return isPaired.get();
-    }
-
     public BooleanProperty isPairedProperty() {
         return isPaired;
-    }
-
-    public void setIsPaired(boolean isPaired) {
-        this.isPaired.set(isPaired);
-    }
-
-    public boolean getIsNucleotideRepresentation() {
-        return isNucleotideRepresentation.get();
     }
 
     public BooleanProperty isNucleotideRepresentationProperty() {
         return isNucleotideRepresentation;
     }
 
-    public void setIsNucleotideRepresentation(boolean isNucleotideRepresentation) {
-        this.isNucleotideRepresentation.set(isNucleotideRepresentation);
-    }
-
-    public boolean getIsLeftBracket() {
-        return isLeftBracket.get();
-    }
-
     public BooleanProperty isLeftBracketProperty() {
         return isLeftBracket;
-    }
-
-    public void setIsLeftBracket(boolean isLeftBracket) {
-        this.isLeftBracket.set(isLeftBracket);
     }
 
     /**

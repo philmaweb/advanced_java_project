@@ -16,7 +16,7 @@ import java.util.HashMap;
 
 /**
  * Created by Philipp on 2016-01-30.
- *
+ * Guanine Nucleotide class
  */
 public class Guanine extends ANucleotide {
 
@@ -103,12 +103,6 @@ public class Guanine extends ANucleotide {
             guanine.getChildren().addAll(pentagon.getChildren().get(0),pentagon.getChildren().get(1));
             Tooltip t = new Tooltip(hexlis[0].getResidium() + " " + hexlis[0].getIndexOfResidium());
             Tooltip.install(guanine, t);
-            //TODO
-//            guanines3d.getChildren().add(guanine);
-
-            //Also draw line to ribbose
-//            smallWorld3d.getChildren().add(createConnection(riboseConnection[0] ,riboseConnection[1]));
-
         }
 
         return guanine;

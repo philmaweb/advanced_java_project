@@ -92,6 +92,9 @@ public class PDBReader {
         return result;
     }
 
+    /**
+     * extract Atoms records for each residue and put the into a list of lists
+     */
     private void groupIntoChains() {
         chains = new ArrayList<ArrayList<AtomRecord>>();
 
