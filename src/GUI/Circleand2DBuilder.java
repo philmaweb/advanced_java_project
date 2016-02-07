@@ -14,21 +14,33 @@ import java.util.ArrayList;
 
 /**
  * Created by Philipp on 2016-02-03.
+ * Creates 2d Objects
  */
 public class Circleand2DBuilder {
 
+    /**
+     * non-covalent edge, represented as black line
+     * @param coords
+     * @param graph
+     * @return
+     */
     public static ArrayList<Node> generateCovalentEdges(double[][] coords, Graph graph) {
         ArrayList<Node> cLines = new ArrayList<>();
-
-        //int[][] edges = this.getGraph().getEdges();
         int numberOfNodes = graph.getNumberOfNodes();
         for (int i = 0; i < numberOfNodes -1 ; i++) {
+            //x,y,x2,y2
             Line l = new Line(coords[i][0],coords[i][1],coords[i+1][0],coords[i+1][1]);
             cLines.add(l);
         }
         return cLines;
     }
 
+    /**
+     * non-covalent edge, represented as line of color blueViolet
+     * @param coords
+     * @param graph
+     * @return
+     */
     public static ArrayList<Node> generateNonCovalentEdges(double[][] coords, Graph graph){
         ArrayList<Node> nodes = new ArrayList<>();
         int[][] edges = graph.getEdges();
@@ -67,27 +79,5 @@ public class Circleand2DBuilder {
         Tooltip.install(t,tooltip);
         return new Group(cSurround,cGround,cTop,t);
     }
-    /*
-    public static ArrayList<Node> generateNodes(double[][] coords, String sequence){
-        ArrayList<Node> nodes = new ArrayList<>();
-        for (int i = 0; i < coords.length ; i++) {
-            double x = coords[i][0];
-            double y = coords[i][1];
-            //instead use nucleotideList
-            String s = String.valueOf(sequence.charAt(i)).toUpperCase();
-            Circle cSurround =  new Circle(x,y,9,Color.BLACK);
-            Circle cGround =    new Circle(x,y,8,getColorByText(s));
-            Circle cTop =       new Circle(x,y,6,Color.WHITE);
-            Text t =            new Text(x-4,y+5,s);
-            Tooltip tooltip = new Tooltip("Nucleotide: " + s + "\n Position: " + (i+1));
-            Tooltip.install(cTop,tooltip);
-            Tooltip.install(cGround,tooltip);
-            Tooltip.install(t,tooltip);
-
-            Group nucleotideGroup = new Group(cSurround,cGround,cTop,t);
-            nodes.add(nucleotideGroup);
-        }
-        return nodes;
-    }*/
 
 }

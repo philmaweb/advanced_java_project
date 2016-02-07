@@ -1,9 +1,6 @@
 package Presenter;
 
-import GUI.Circleand2DBuilder;
-import GUI.FrequencyPieChart;
-import GUI.Logger;
-import GUI.MeshAnd3DObjectBuilder;
+import GUI.*;
 import Model.*;
 import Model.BondInferenceAnd2D.Graph;
 import Model.BondInferenceAnd2D.SpringEmbedder;
@@ -86,6 +83,9 @@ public class Presenter {
         this.addListeners();
     }
 
+    /**
+     * initialize Variables for parsing
+     */
     private void initVariables(){
 
         riboses3d = new ArrayList<>();
@@ -98,7 +98,7 @@ public class Presenter {
 
         world2d = new Group();
 
-        //set font to beeing monospaced
+        //set font to monospaced
         Font font = Font.font("Monospaced",12);
 
         logger.setFont(font);
@@ -107,6 +107,9 @@ public class Presenter {
     }
 
 
+    /**
+     * add listeners to Subscene and setup Camera
+     */
     private void addListeners(){
 
         final PerspectiveCamera camera = new PerspectiveCamera(true);
@@ -234,8 +237,17 @@ public class Presenter {
      * Fill TextFlow with nucleotides / DotBracket representaion
      */
     private void construct1DView() {
+        int lastNucleotidePosition = 0;
         for (INucleotide n: model.getNucleotideList()) {
+            int nucleotidePosition =n.getPositionInSequence();
+            //detect gaps, insert as many as needed
+            while (((nucleotidePosition - 1)!=lastNucleotidePosition) && (nucleotidePosition -1 > lastNucleotidePosition)){
+                this.sequenceTextFlow.getChildren().add(NucleotideTextRepresentation.getGapRepresentation(lastNucleotidePosition+1));
+                lastNucleotidePosition++;
+                logger.append("Detected Gap at position " + lastNucleotidePosition);
+            }
             this.sequenceTextFlow.getChildren().add(n.getNucleotideTextRepresentation());
+            lastNucleotidePosition++;
         }
     }
 

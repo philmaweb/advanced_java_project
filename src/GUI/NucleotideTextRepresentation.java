@@ -7,6 +7,7 @@ import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.Tooltip;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
@@ -71,6 +72,10 @@ public class NucleotideTextRepresentation extends Text {
             case CYTOSIN:
                 this.setFill(DefaultPhongMaterials.CYTOSIN_MATERIAL.getDiffuseColor());
                 this.letter = "C";
+                break;
+            case GAP:
+                this.setFill(Color.BLACK);
+                this.letter = "-";
                 break;
         }
     }
@@ -143,5 +148,14 @@ public class NucleotideTextRepresentation extends Text {
 
     public void setIsLeftBracket(boolean isLeftBracket) {
         this.isLeftBracket.set(isLeftBracket);
+    }
+
+    /**
+     * get Gap representation
+     * @param pos
+     * @return
+     */
+    public static NucleotideTextRepresentation getGapRepresentation(int pos){
+        return new NucleotideTextRepresentation(pos,INucleotide.NucleotideClasses.GAP);
     }
 }

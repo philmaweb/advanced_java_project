@@ -44,17 +44,14 @@ public interface INucleotide {
     boolean getIsLeftBracket();//is true if the Nucleotide is a Left bracket
     boolean hasHBondDonorsAndAcceptors();
     void checkHasHBondDoAc();
-    public Group getHBondGroup();
+    Group getHBondGroup();
 
     NucleotideTextRepresentation getNucleotideTextRepresentation();
 
-    ArrayList<AtomRecord> getHbondAcceptors();
-    ArrayList<AtomRecord> getHbondDonors();
     AtomRecord getHFromDonor(String donorKey);//get the H Atom from the Donor, needed for distance and Angle calculation
     ArrayList<String[]> getKeyPairsToCheckForHBonds();
 
     void setUp2dCoords(Pos2d pos1, Pos2d pos2);
-    Pos2d getPosition2DStart();
     Pos2d getPosition2DEnd();
     void setPosition2DStart(Pos2d pos);
     void setPosition2DEnd(Pos2d pos);
@@ -64,6 +61,6 @@ public interface INucleotide {
     void updateColoring(NucleotideRepresentation representation);
     Color get2DColorByClass();// A red, U green, C Yellow, G Blue
 
-    enum NucleotideClasses{ADENINE,URACIL,GUANINE,CYTOSIN};
+    enum NucleotideClasses{ADENINE,URACIL,GUANINE,CYTOSIN,GAP};
 
 }

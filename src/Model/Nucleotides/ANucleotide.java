@@ -266,24 +266,6 @@ public abstract class ANucleotide implements INucleotide{
         this.donorKeys = donorKeys;
     }
 
-    @Override
-    public ArrayList<AtomRecord> getHbondAcceptors() {
-        ArrayList<AtomRecord> lis = new ArrayList<>();
-        for (String k : getAcceptorKeys()) {
-        lis.add(residueMap.get(k));
-        }
-        return lis;
-    }
-
-    @Override
-    public ArrayList<AtomRecord> getHbondDonors() {
-        ArrayList<AtomRecord> lis = new ArrayList<>();
-        for (String k : getDonorKeys()) {
-            lis.add(residueMap.get(k));
-        }
-        return lis;
-    }
-
     /**
      * You shall call this only if the keyLists are instatiated!
      * checks for HBondAcceptors and DOnors in the AtomRecords
@@ -357,11 +339,6 @@ public abstract class ANucleotide implements INucleotide{
                 break;
         }
         return rv;
-    }
-
-    @Override
-    public Pos2d getPosition2DStart() {
-        return pos2DStart;
     }
 
     @Override
