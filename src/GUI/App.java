@@ -18,8 +18,7 @@ public class App extends Application {
     public void start(Stage primaryStage) throws Exception {
         //create View
         Parent root = FXMLLoader.load(getClass().getResource("mainView.fxml"));
-        //presenter is created by the controller
-        primaryStage.setTitle("Project RNA-Viewer");
+        primaryStage.setTitle("RNA-Viewer 3000");
         //set logo file
         primaryStage.getIcons().add(new Image(App.class.getResourceAsStream("logo.png")));
         primaryStage.setScene(new Scene(root));

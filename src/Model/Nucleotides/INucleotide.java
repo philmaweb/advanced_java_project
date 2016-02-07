@@ -44,6 +44,7 @@ public interface INucleotide {
     boolean getIsLeftBracket();//is true if the Nucleotide is a Left bracket
     boolean hasHBondDonorsAndAcceptors();
     void checkHasHBondDoAc();
+    public Group getHBondGroup();
 
     NucleotideTextRepresentation getNucleotideTextRepresentation();
 

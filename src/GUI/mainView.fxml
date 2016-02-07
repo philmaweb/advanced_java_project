@@ -1,12 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
 
+<?import GUI.Logger?>
 <TitledPane fx:id="rootPane" animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1200.0" style="-fx-background-color: yellow;" stylesheets="@style.css" text="RNA Viewer 3000" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presenter.Controller">
    <content>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
@@ -27,7 +40,7 @@
                       <SeparatorMenuItem />
                     <MenuItem fx:id="centerViewItem" mnemonicParsing="false" onAction="#centerView" text="Center View" />
                         <SeparatorMenuItem />
-                        <MenuItem fx:id="bracketNucleotideViewItem" mnemonicParsing="false" onAction="#switchBracketNucleotide" text="Switch DotBracket / Nucleotide View" />
+                      <MenuItem fx:id="bracketNucleotideViewItem" mnemonicParsing="false" onAction="#switchBracketNucleotide" text="Switch DotBracket / Nucleotide View" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Help">
@@ -37,25 +50,20 @@
                 </Menu>
               </menus>
             </MenuBar>
-            <TextFlow fx:id="sequenceTextFlow" minHeight="25.0" minWidth="300.0" prefHeight="25.0" AnchorPane.leftAnchor="-9.0" AnchorPane.rightAnchor="-9.0" AnchorPane.topAnchor="20.0" />
-            <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" AnchorPane.bottomAnchor="-10.0" AnchorPane.leftAnchor="-9.0" AnchorPane.rightAnchor="-9.0" AnchorPane.topAnchor="45.0">
+            <TextFlow fx:id="sequenceTextFlow" minHeight="25.0" minWidth="300.0" prefHeight="25.0" AnchorPane.bottomAnchor="-5.0" AnchorPane.leftAnchor="-9.0" AnchorPane.rightAnchor="-9.0" AnchorPane.topAnchor="20.0" />
+            <SplitPane orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" AnchorPane.bottomAnchor="-5.0" AnchorPane.leftAnchor="-9.0" AnchorPane.rightAnchor="-9.0" AnchorPane.topAnchor="45.0">
               <items>
                   <HBox prefHeight="415.0" prefWidth="640.0">
                      <children>
                         <SplitPane dividerPositions="0.8938053097345132" minHeight="300.0" minWidth="300.0" orientation="VERTICAL" prefHeight="340.0" prefWidth="300.0" HBox.hgrow="ALWAYS">
                           <items>
                               <Pane fx:id="pane2d" maxHeight="400.0" maxWidth="400.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="300.0">
-                                 <children>
-                                    <Group fx:id="world2d" layoutX="40.0" layoutY="36.0" />
-                                    <Circle fill="DODGERBLUE" layoutX="145.0" layoutY="140.0" radius="89.0" stroke="BLACK" strokeType="INSIDE" />
-                                    <Text layoutX="124.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2D stuff" />
-                                 </children>
                               </Pane>
-                              <TextArea fx:id="logger" minHeight="100" prefHeight="100.0">
+                              <Logger fx:id="logger" minHeight="100" prefHeight="100.0">
                                  <font>
                                     <Font name="Monospaced Regular" size="12.0" />
                                  </font>
-                              </TextArea>
+                              </Logger>
                           </items>
                         </SplitPane>
                         <Separator orientation="VERTICAL" prefHeight="340.0" prefWidth="0.0" />
@@ -66,11 +74,6 @@
                         </Pane>
                      </children>
                   </HBox>
-                  <TextField fx:id="bracketsTextfield" alignment="BASELINE_LEFT" minWidth="300.0">
-                     <font>
-                        <Font name="Monospaced Regular" size="12.0" />
-                     </font>
-                  </TextField>
               </items>
             </SplitPane>
          </children>

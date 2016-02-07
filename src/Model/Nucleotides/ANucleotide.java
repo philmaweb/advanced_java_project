@@ -448,4 +448,9 @@ public abstract class ANucleotide implements INucleotide{
     public void setIsLeftBracket(boolean isLeftBracket) {
         this.isLeftBracket.set(isLeftBracket);
     }
+
+    @Override
+    public Group getHBondGroup(){
+        return this.hBonds;
+    }
 }

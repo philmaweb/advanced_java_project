@@ -3,7 +3,9 @@ package Presenter;
 import Model.NucleotideRepresentation;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.*;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
@@ -13,9 +15,11 @@ import javafx.stage.FileChooser;
 import java.io.File;
 import java.util.ArrayList;
 import GUI.Logger;
+import javafx.stage.Stage;
 
 /**
  * Created by Philipp on 2016-01-27.
+ * passes the elements and events to the presenter
  */
 public class Controller {
 
@@ -42,26 +46,15 @@ public class Controller {
     @FXML
     private MenuItem centerViewItem;
 
-//    @FXML
-//    private TextField sequenceTextField;
-
     @FXML
     private TextFlow sequenceTextFlow;
 
     @FXML
-    private TextField bracketsTextfield;
-
-//    @FXML
-//    private Logger logger;
-
-    @FXML
-    private TextArea logger;
+    private Logger logger;
 
     @FXML
     private Text selectedFileText;
 
-    @FXML
-    private Group world2d;
 
     @FXML
     private TitledPane rootPane;
@@ -72,11 +65,15 @@ public class Controller {
     @FXML
     private Pane pane2d;
 
+    //Pass events to Presenter
+
+    /**
+     * Is called on initialization to create a Presenter
+     */
     @FXML
     void initialize(){
         this.presenter = new Presenter(
-//                stackPane,pane2d,logger,selectedFileText,sequenceTextField,bracketsTextfield
-                stackPane,pane2d,logger,selectedFileText,sequenceTextFlow,bracketsTextfield
+                stackPane,pane2d,logger,selectedFileText,sequenceTextFlow
         );
     }
 
@@ -92,7 +89,6 @@ public class Controller {
             File f = fc.showOpenDialog(rootPane.getScene().getWindow());
             presenter.loadFile(f);
         }
-
 
 
     @FXML

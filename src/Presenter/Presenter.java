@@ -1,6 +1,7 @@
 package Presenter;
 
 import GUI.Circleand2DBuilder;
+import GUI.Logger;
 import GUI.MeshAnd3DObjectBuilder;
 import Model.*;
 import Model.BondInferenceAnd2D.Graph;
@@ -12,17 +13,12 @@ import Presenter.Selection.MySelectionModel;
 import javafx.geometry.Point3D;
 import javafx.scene.*;
 import javafx.scene.control.Alert;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import javafx.scene.transform.Rotate;
 import javafx.scene.transform.Translate;
-import javafx.stage.Stage;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -50,20 +46,13 @@ public class Presenter {
     private ArrayList<Group> riboses3d;
     private ArrayList<Group> phosphates3d;
 
-    private Group adenines3d;
-    private Group uracils3d;
-    private Group cytosins3d;
-    private Group guanines3d;
     private Group bonds3d;
 
     Pane stackPane;
     Pane pane2d;
-//    Logger logger;
-    TextArea logger;
+    Logger logger;
     Text selectedFileText;
-//    TextField sequenceTextField;
     TextFlow sequenceTextFlow;
-    TextField bracketTextField;
     MySelectionModel mySelectionModel;
 
 
@@ -74,17 +63,13 @@ public class Presenter {
      * @param logger
      * @param selectedFileText
      * @param sequenceTextFlow
-     * @param bracketTextField
      */
     public Presenter(
             Pane stackPane,
             Pane pane2d,
-//            Logger logger,
-            TextArea logger,
+            Logger logger,
             Text selectedFileText,
-//            TextField sequenceTextField,
-            TextFlow sequenceTextFlow,
-            TextField bracketTextField
+            TextFlow sequenceTextFlow
             ) {
 
         this.model = new ProjectModel();
@@ -92,7 +77,6 @@ public class Presenter {
         this.pane2d = pane2d;
         this.logger = logger;
         this.selectedFileText = selectedFileText;
-        this.bracketTextField = bracketTextField;
         this.sequenceTextFlow= sequenceTextFlow;
 
 
@@ -106,24 +90,19 @@ public class Presenter {
         riboses3d = new ArrayList<>();
         phosphates3d = new ArrayList<>();
 
-        adenines3d = new Group();
-        uracils3d = new Group();
-        cytosins3d = new Group();
-        guanines3d =  new Group();
         bonds3d =  new Group();
 
-        smallWorld3d = new Group(bonds3d,adenines3d,uracils3d,cytosins3d,guanines3d);
+        smallWorld3d = new Group(bonds3d);
         world3d = new Group(smallWorld3d);
 
         world2d = new Group();
 
         //set font to beeing monospaced
         Font font = Font.font("Monospaced",12);
-        bracketTextField.setFont(font);
 
         logger.setFont(font);
         logger.setEditable(false);
-        logger.setText("Welcome to RNA-Viewer 3000");
+        logger.append("Welcome to RNA-Viewer 3000");
     }
 
 
@@ -159,8 +138,6 @@ public class Presenter {
 
     private void addBindings(){
         selectedFileText.textProperty().bind(model.pdbFileNamePropertyProperty());
-//        sequenceTextField.textProperty().bind(model.rNASequenceProperty());
-        bracketTextField.textProperty().bind(model.bracketsProperty());
     }
 
 
@@ -190,84 +167,88 @@ public class Presenter {
     }
 
     public void clear(){
-        adenines3d.getChildren().clear();
-        uracils3d.getChildren().clear();
-        cytosins3d.getChildren().clear();
-        guanines3d.getChildren().clear();
         phosphates3d.clear();
         riboses3d.clear();
         smallWorld3d.getChildren().clear();
-        smallWorld3d.getChildren().addAll(bonds3d,adenines3d,uracils3d,cytosins3d,guanines3d);
+        smallWorld3d.getChildren().addAll(bonds3d);
         model.setPdbFileName("No PDB-File selected");
         model.setrNASequence("");
         model.setBrackets("");
-        //fileDisplay.setText(model.getPdbFileName());
         pane2d.getChildren().clear();
         world2d.getChildren().clear();
         pane2d.getChildren().add(world2d);
         sequenceTextFlow.getChildren().clear();
-//        logger.append("Cleared");
+        logger.append("Cleared");
     }
 
     /**
      * create 3D and 2D View, model should already be setup
      */
     private void createWorld(){
+        logger.append("Creating World");
         construct1DView();
         construct2DView();
         construct3DView();
         ArrayList<INucleotide> nucleotides = model.getNucleotideList();
         //add selection model
+        //cannot be done before the file is loaded
         mySelectionModel = new MySelectionModel(nucleotides);
         for (int i = 0; i < nucleotides.size(); i++) {
             INucleotide n = nucleotides.get(i);
             final int index = i;
-            n.getGroup3d().setOnMouseClicked((e)->{
+            n.getNucleobase().setOnMouseClicked((e)->{
+                addNucleotideHandler(n,index);
+            });
+            n.getHBondGroup().setOnMouseClicked((e)->{
                 NucleotideRepresentation nRepr = model.getCurrentNucleotideRepresentation();
-                mySelectionModel.handleClickEvent(e,index,n,nRepr);
+                mySelectionModel.handlePairClickEvent(index,n,nRepr);
+                if(n.getIsSelected()){
+                    logger.append("Selected Nucleotides " + n.getName() + " and " + n.getPairMate().getName());
+                }
+                else {
+                    logger.append("Deselected Nucleotides " + n.getName() + " and " + n.getPairMate().getName());
+                }
             });
             n.getGroup2d().setOnMouseClicked((e)->{
-                NucleotideRepresentation nRepr = model.getCurrentNucleotideRepresentation();
-                mySelectionModel.handleClickEvent(e,index,n,nRepr);
+                addNucleotideHandler(n,index);
             });
             n.getNucleotideTextRepresentation().setOnMouseClicked((e)->{
-                NucleotideRepresentation nRepr = model.getCurrentNucleotideRepresentation();
-                mySelectionModel.handleClickEvent(e,index,n,nRepr);
+                addNucleotideHandler(n,index);
             });
         }
     }
 
+    private void addNucleotideHandler(INucleotide n, int index){
+        NucleotideRepresentation nRepr = model.getCurrentNucleotideRepresentation();
+        mySelectionModel.handleClickEvent(index,n,nRepr);
+        if(n.getIsSelected()){
+            logger.append("Selected Nucleotide " + n.getName());
+        }
+        else {
+            logger.append("Deselected Nucleotide " + n.getName());
+        }
+    }
+
+    /**
+     * Fill TextFlow with nucleotides / DotBracket representaion
+     */
     private void construct1DView() {
         for (INucleotide n: model.getNucleotideList()) {
             this.sequenceTextFlow.getChildren().add(n.getNucleotideTextRepresentation());
         }
     }
 
+    /**
+     * Fill 3d World with nucleotides
+     */
     public void construct3DView() {
-//        logger.append("Creating 3d model");
         for (INucleotide n : model.getNucleotideList()) {
-//            AtomRecord firstEntry = map.entrySet().iterator().next().getValue();
-//            String residium = firstEntry.getResidium();
-            //TODO do I really stil need different groups?
-            switch (n.getNucleotideClass()) {
-                case CYTOSIN:
-                    cytosins3d.getChildren().add(n.getGroup3d());
-                    break;
-                case ADENINE:
-                    adenines3d.getChildren().add(n.getGroup3d());
-                    break;
-                case GUANINE:
-                    guanines3d.getChildren().add(n.getGroup3d());
-                    break;
-                case URACIL:
-                    uracils3d.getChildren().add(n.getGroup3d());
-                    break;
-            }
+            smallWorld3d.getChildren().add(n.getGroup3d());
             riboses3d.add(n.getRiboseRepresentation());
             phosphates3d.add(n.getPhosphateSphere());
             smallWorld3d.getChildren().addAll(n.getPhosphateBonds(),n.getRiboseRepresentation(),n.getPhosphateSphere());
         }
-//        logger.append("Creating backbone");
+        //Build Backbone
         connectPhosphates();
     }
 
@@ -299,20 +280,11 @@ public class Presenter {
     }
 
 
-    public void changeColoringTo(NucleotideRepresentation nR) {
-        model.setCurrentNucleotideRepresentation(nR);
-        recolorNucleotides();
-    }
+    //2D STUFF
 
-    private void recolorNucleotides() {
-        for (INucleotide n :
-                model.getNucleotideList()) {
-            n.updateColoring(model.getCurrentNucleotideRepresentation());
-        }
-    }
-
-    //2D Stuff
-
+    /**
+     * Construct the 2d representation
+     */
     private void construct2DView() {
         Graph g = model.getGraph2d();
         int[][] edges = g.getEdges();
@@ -321,58 +293,99 @@ public class Presenter {
         double[][] finalCoords = SpringEmbedder.computeSpringEmbedding(25,numberOfNodes,edges,null);
         int maxWidth = (int) (pane2d.getMaxWidth()-10);
         int maxHeight = (int) (pane2d.getMaxHeight()-10);
-        SpringEmbedder.centerCoordinates(circleCoords,10, maxWidth ,10, maxHeight);
         SpringEmbedder.centerCoordinates(finalCoords,10, maxWidth,10, maxHeight);
 
-        //TODO for later Animation
-        model.setWorld2dStart(circleCoords);
         model.setWorld2dEnd(finalCoords);
         //setup the 2d representation for all nucleotides
         model.setUp2DCoords(circleCoords,finalCoords);
-//        showFinalGraph();
         showFinalGraph();
     }
 
+    /**
+     * draw the graph with constructed coords
+     * @param coords
+     */
     private void draw2dWorld(double[][] coords) {
         addEdges(coords);
-        addNonConvalentBonds(coords);
+        //add Nodes in the end to place them on Top
         addNodes();
     }
 
-    private void showCircleGraph() {
-        draw2dWorld(model.getWorld2dStart());
 
-    }
     private void showFinalGraph() {
         draw2dWorld(model.getWorld2dEnd());
     }
 
+    /**
+     * generate Covalent and noncovalent Edges and add them to the 2d pane
+     * @param coords
+     */
     private void addEdges(double[][] coords) {
-//        world2d.getChildren().clear();
+        //Covalent bonds
         ArrayList<Node> cLines = Circleand2DBuilder.generateCovalentEdges(coords, model.getGraph2d());
         for (Node cLine : cLines) {
             world2d.getChildren().add(cLine);
         }
-    }
 
-    private void addNonConvalentBonds(double[][] coords) {
+        //Non covalent bonds
         ArrayList<Node> lines = Circleand2DBuilder.generateNonCovalentEdges(coords,model.getGraph2d());
         for (Node line : lines){
             world2d.getChildren().add(line);
         }
     }
 
+    /**
+     * get Node representaion form Nucleotides and add them to the world2d
+     */
     private void addNodes() {
         for (INucleotide n : model.getNucleotideList()) {
             world2d.getChildren().add(n.getGroup2d());
         }
     }
 
+    //VIEW-Changes
 
+    /**
+     * Color Change handling
+     * @param nR
+     */
+    public void changeColoringTo(NucleotideRepresentation nR) {
+        model.setCurrentNucleotideRepresentation(nR);
+        recolorNucleotides();
+        logger.append("Changed View to " + nR);
+    }
+
+    /**
+     * calls update function of Nucleotides
+     */
+    private void recolorNucleotides() {
+        for (INucleotide n : model.getNucleotideList()) {
+            n.updateColoring(model.getCurrentNucleotideRepresentation());
+        }
+    }
+
+    /**
+     * Center 3d back to Original coords
+     */
     public void centerView() {
         cameraTranslate.setZ(-10000);
         cameraRotateX.setAngle(0);
         cameraRotateY.setAngle(0);
+        logger.append("Centered View");
+    }
+
+    /**
+     * Change between Nucleotide and Bracket View of Sequence representation
+     */
+    public void changeNucleotideBracketView() {
+        boolean current = model.getIsNucleotideOrBracketRepresentation();
+        model.setIsNucleotideOrBracketRepresentation(!current);
+        if(current){
+            logger.append("Changed to Bracket Notation");
+        }
+        else {
+            logger.append("Changed to Nucleotide Notation");
+        }
     }
 
     //ALLERT to show Exception
@@ -380,10 +393,5 @@ public class Presenter {
         System.err.println(e.getCause());
         Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage());
         alert.showAndWait();
-    }
-
-    public void changeNucleotideBracketView() {
-        boolean current = model.getIsNucleotideOrBracketRepresentation();
-        model.setIsNucleotideOrBracketRepresentation(!current);
     }
 }

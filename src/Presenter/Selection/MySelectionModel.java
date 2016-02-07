@@ -14,6 +14,7 @@ import java.util.Arrays;
 /**
  * Selection model
  * Created by huson on 12/15/15.
+ * extended By Philipp
  */
 public class MySelectionModel<T> extends MultipleSelectionModel<T> {
     private final ObservableSet<Integer> selectedIndices; // the set of selected indices
@@ -176,9 +177,13 @@ public class MySelectionModel<T> extends MultipleSelectionModel<T> {
             select(++focusIndex);
     }
 
-    public void handleClickEvent(MouseEvent e, int index, INucleotide n, NucleotideRepresentation nucleotideRepresentation) {
-        if(!e.isShiftDown())
-            clearSelection();
+    /**
+     * Hande CLick on Nucleotide
+     * @param index
+     * @param n
+     * @param nucleotideRepresentation
+     */
+    public void handleClickEvent(int index, INucleotide n, NucleotideRepresentation nucleotideRepresentation) {
         if(isSelected(index) || n.getIsSelected()) {
             clearSelection(index);
             n.setIsSelected(false);
@@ -188,6 +193,33 @@ public class MySelectionModel<T> extends MultipleSelectionModel<T> {
             select(index);
             n.setIsSelected(true);
             n.updateColoring(NucleotideRepresentation.SELECTED);
+        }
+    }
+
+    /**
+     * Handle a click on a HBond
+     * @param index
+     * @param n
+     * @param nRepr
+     */
+    public void handlePairClickEvent(int index, INucleotide n, NucleotideRepresentation nRepr) {
+        INucleotide mate = n.getPairMate();
+        if(isSelected(index) || n.getIsSelected()) {
+            clearSelection(index);
+            //get index from mate
+            clearSelection(mate.getPositionInSequence()-1);
+            n.setIsSelected(false);
+            mate.setIsSelected(false);
+            n.updateColoring(nRepr);
+            mate.updateColoring(nRepr);
+        }
+        else {
+            select(index);
+            select(mate.getPositionInSequence()-1);
+            n.setIsSelected(true);
+            mate.setIsSelected(true);
+            n.updateColoring(NucleotideRepresentation.SELECTED);
+            mate.updateColoring(NucleotideRepresentation.SELECTED);
         }
     }
 }
