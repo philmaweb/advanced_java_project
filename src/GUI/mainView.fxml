@@ -27,6 +27,8 @@
                     <MenuItem fx:id="centerViewItem" mnemonicParsing="false" onAction="#centerView" text="Center View" />
                         <SeparatorMenuItem />
                       <MenuItem fx:id="bracketNucleotideViewItem" mnemonicParsing="false" onAction="#switchBracketNucleotide" text="Switch DotBracket / Nucleotide View" />
+                      <SeparatorMenuItem />
+                      <MenuItem mnemonicParsing="false" onAction="#showPieChart" text="Show AUGC content" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Help" onAction="#showHelp">

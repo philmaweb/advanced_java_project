@@ -8,33 +8,22 @@ import javafx.scene.control.TextArea;
  * used for Logging
  */
 public class Logger extends TextArea {
-    private boolean pausedScroll = false;
-    private double scrollPosition = 0;
 
     public Logger(){
         super();
-//        DOesnt work
-//        this.scrollTopProperty().setValue(10);//always scroll by 10 pixels
     }
 
-    public void setMessage(String data) {
-        if (pausedScroll) {
-            scrollPosition = this.getScrollTop();
-            this.setText(data);
-            this.setScrollTop(scrollPosition);
-        } else {
-            this.setText(data);
-            this.setScrollTop(Double.MAX_VALUE);
-        }
-    }
-
+    /**
+     * append to Logger
+     * @param s
+     */
     public void append(String s){
-        this.appendText("\n"+s);
-        Platform.runLater(() -> this.setScrollTop(Double.MAX_VALUE));
-    }
-
-    public void pauseScroll(Boolean pause) {
-        pausedScroll = pause;
+        //Might get out of sync, so we need to call from runLater
+        Platform.runLater(
+                () ->{
+                    this.appendText("\n"+s);
+                    this.setScrollTop(Double.MAX_VALUE);
+                });
     }
 
 }

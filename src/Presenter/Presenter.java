@@ -1,6 +1,7 @@
 package Presenter;
 
 import GUI.Circleand2DBuilder;
+import GUI.FrequencyPieChart;
 import GUI.Logger;
 import GUI.MeshAnd3DObjectBuilder;
 import Model.*;
@@ -374,6 +375,15 @@ public class Presenter {
         logger.append("Centered View");
     }
 
+
+    /**
+     * Show a AGCU PieChart
+     */
+    public void showPieChart() {
+        FrequencyPieChart frequencyPieChart = new FrequencyPieChart(model.getNucleotideList());
+        frequencyPieChart.getChartStage().show();
+    }
+
     /**
      * Change between Nucleotide and Bracket View of Sequence representation
      */
@@ -394,4 +404,5 @@ public class Presenter {
         Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage());
         alert.showAndWait();
     }
+
 }

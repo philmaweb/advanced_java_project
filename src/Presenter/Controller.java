@@ -105,6 +105,10 @@ public class Controller {
         presenter.changeColoringTo(nR);
     }
 
+    @FXML
+    void showPieChart(){
+        presenter.showPieChart();
+    }
 
     @FXML
     void showHelp(){
@@ -127,6 +131,5 @@ public class Controller {
                 " and move the 2D-representation around by dragging it.");
         presenter.logger.append("Help opened");
         alert.showAndWait();
-
     }
 }
