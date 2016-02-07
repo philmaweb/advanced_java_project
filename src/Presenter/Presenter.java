@@ -400,6 +400,7 @@ public class Presenter {
      * Show a AGCU PieChart
      */
     public void showPieChart() {
+        logger.append("PieChart shown");
         FrequencyPieChart frequencyPieChart = new FrequencyPieChart(model.getNucleotideList());
         frequencyPieChart.getChartStage().show();
     }

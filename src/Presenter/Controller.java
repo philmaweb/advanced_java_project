@@ -128,7 +128,9 @@ public class Controller {
                 " You can choose between different Views, that either highlight all Nucleobases with different colors," +
                 " to highlight purine and pyrimidine bases or to highlight paired bases.\n" +
                 "You can also switch between the Nucleotide and Dot-Bracket notation for the primary sequence" +
-                " and move the 2D-representation around by dragging it.");
+                " and move the 2D-representation around by dragging it.\n" +
+                " In addition you can see the A/G/U/C content of the sequence when clicking on 'Show AUGC content'.\n" +
+                " When a gap in the residue numbers is detected, a Gap is inserted into the primary sequence display at the top.");
         presenter.logger.append("Help opened");
         alert.showAndWait();
     }
